@@ -20,28 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"dreamskycx.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="建站整日，一路风雨兼程，许多不容易。任何看似很容易的事情，实际上都是艰难的，看了无数大佬的作品以及好友Akira（同一个学校的捏）的个人站，真的感觉自己有很多东西要学。总之一句话——自己太菜了。本来建好个人站是一件喜悦的事情，怎奈已是深夜，望月伤怀，借阔乐浇愁愁更愁，只好抒发一下个人情感了。">
+    <meta name="description" content="本文章将持续更新 这篇文章将详细讲述所有的Hexo和Next的config详细配置内容。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="向世界问个好">
-<meta property="og:url" content="http://dreamskycx.github.io/%E5%90%91%E4%B8%96%E7%95%8C%E9%97%AE%E4%B8%AA%E5%A5%BD/index.html">
+<meta property="og:title" content="Hexo+Next建站配置详细版">
+<meta property="og:url" content="http://dreamskycx.github.io/Hexo+Next%E5%BB%BA%E7%AB%99%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E7%89%88/index.html">
 <meta property="og:site_name" content="晨曦的个人站">
-<meta property="og:description" content="建站整日，一路风雨兼程，许多不容易。任何看似很容易的事情，实际上都是艰难的，看了无数大佬的作品以及好友Akira（同一个学校的捏）的个人站，真的感觉自己有很多东西要学。总之一句话——自己太菜了。本来建好个人站是一件喜悦的事情，怎奈已是深夜，望月伤怀，借阔乐浇愁愁更愁，只好抒发一下个人情感了。">
+<meta property="og:description" content="本文章将持续更新 这篇文章将详细讲述所有的Hexo和Next的config详细配置内容。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-31T14:23:11.000Z">
-<meta property="article:modified_time" content="2022-09-01T03:49:11.819Z">
+<meta property="article:published_time" content="2022-09-06T12:32:52.000Z">
+<meta property="article:modified_time" content="2022-09-06T14:26:46.598Z">
 <meta property="article:author" content="dreamskycx">
-<meta property="article:tag" content="心声">
+<meta property="article:tag" content="指南">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://dreamskycx.github.io/%E5%90%91%E4%B8%96%E7%95%8C%E9%97%AE%E4%B8%AA%E5%A5%BD/">
+<link rel="canonical" href="http://dreamskycx.github.io/Hexo+Next%E5%BB%BA%E7%AB%99%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E7%89%88/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://dreamskycx.github.io/%E5%90%91%E4%B8%96%E7%95%8C%E9%97%AE%E4%B8%AA%E5%A5%BD/","path":"向世界问个好/","title":"向世界问个好"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://dreamskycx.github.io/Hexo+Next%E5%BB%BA%E7%AB%99%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E7%89%88/","path":"Hexo+Next建站配置详细版/","title":"Hexo+Next建站配置详细版"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>向世界问个好 | 晨曦的个人站</title>
+<title>Hexo+Next建站配置详细版 | 晨曦的个人站</title>
   
 
 
@@ -146,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E5%8F%98"><span class="nav-number">2.</span> <span class="nav-text">改变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F%E6%9C%9B"><span class="nav-number">3.</span> <span class="nav-text">期望</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E5%95%A5%E8%A6%81%E5%BB%BA%E7%AB%99%E5%91%A2"><span class="nav-number">4.</span> <span class="nav-text">为啥要建站呢</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0"><span class="nav-number">1.1.</span> <span class="nav-text">为什么要写这篇文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E6%96%87%E5%8F%82%E8%80%83%E7%9A%84%E5%86%85%E5%AE%B9%E9%93%BE%E6%8E%A5"><span class="nav-number">1.2.</span> <span class="nav-text">本文参考的内容链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4"><span class="nav-number">1.3.</span> <span class="nav-text">常见指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">Hexo配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE%E5%8C%BA"><span class="nav-number">2.1.</span> <span class="nav-text">网站配置区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E4%BF%A1%E6%81%AF%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.1.</span> <span class="nav-text">网站信息设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E5%9D%80%E4%BF%A1%E6%81%AF%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.2.</span> <span class="nav-text">网址信息设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98"><span class="nav-number">2.1.3.</span> <span class="nav-text">主题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Next%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">Next配置</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -249,7 +249,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://dreamskycx.github.io/%E5%90%91%E4%B8%96%E7%95%8C%E9%97%AE%E4%B8%AA%E5%A5%BD/">
+    <link itemprop="mainEntityOfPage" href="http://dreamskycx.github.io/Hexo+Next%E5%BB%BA%E7%AB%99%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E7%89%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/cat.jpg">
@@ -262,12 +262,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="向世界问个好 | 晨曦的个人站">
+      <meta itemprop="name" content="Hexo+Next建站配置详细版 | 晨曦的个人站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          向世界问个好
+          Hexo+Next建站配置详细版
         </h1>
 
         <div class="post-meta-container">
@@ -277,15 +277,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-08-31 22:23:11" itemprop="dateCreated datePublished" datetime="2022-08-31T22:23:11+08:00">2022-08-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-01 11:49:11" itemprop="dateModified" datetime="2022-09-01T11:49:11+08:00">2022-09-01</time>
+      <time title="创建时间：2022-09-06 20:32:52 / 修改时间：22:26:46" itemprop="dateCreated datePublished" datetime="2022-09-06T20:32:52+08:00">2022-09-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -293,7 +287,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%97%B2%E8%81%8A/" itemprop="url" rel="index"><span itemprop="name">闲聊</span></a>
+          <a href="/categories/Hexo%E5%BB%BA%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">Hexo建站</span></a>
         </span>
     </span>
 
@@ -311,14 +305,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>807</span>
+      <span>2.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>7 分钟</span>
     </span>
 </div>
 
@@ -329,12 +323,74 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>建站整日，一路风雨兼程，许多不容易。<br>任何看似很容易的事情，实际上都是艰难的，看了无数大佬的作品以及好友Akira（同一个学校的捏）的个人站，真的感觉自己有很多东西要学。总之一句话——自己太菜了。<br>本来建好个人站是一件喜悦的事情，怎奈已是深夜，望月伤怀，借阔乐浇愁愁更愁，只好抒发一下个人情感了。</p>
+        <p><strong>本文章将持续更新</strong></p>
+<p>这篇文章将详细讲述所有的Hexo和Next的config详细配置内容。</p>
 <span id="more"></span>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本人是一名大一新生，计算机系，萌新一只。<br>为什么叫萌新呢，当时看到了西电的moectf（西电萌新夺旗赛），学到了很多，也发现了自己和别人的差距。在做Web题的时候，我只会拿着F12对着代码硬刚，完全不知道怎么抓包（笑死这就是小白吗），被Rx大佬调侃基础领域知识缺失，看着代码不知道如何下手，你会发现——其实还有很多知识要学。<br>来西电计算机是个偶然，当初说怎么也不去西电，太远了，逼乎上风评又是这个样子。可既来之则安之，我因为菜来到了西电，如果说我真的有一个使命的话，或许是“离开西电”——西电可以给我平台让我飞往更远的地方；或许不是——谁知道自己的未来会是怎样。毕竟，人生最精彩的就是这阴差阳错，命运让大家相聚在一起，就要好好珍惜。</p>
-<h2 id="改变"><a href="#改变" class="headerlink" title="改变"></a>改变</h2><p>人会改变，或许是因为自己内心想改变而改变，或许是因为社会的压力而不得不改变。而这个过程是痛苦的，从自己的舒适圈里面跳出来，去面对位置，面对自己灵魂里恐惧的东西，可能会难受到让你哭出来。<br>看到过很多朋友和大佬都有自己的成果，突然就想起了很多年的那些立下的目标和天坑，还有自己的破黑窗口游戏，自己和同伴一起讨论的日日夜夜。可惜早已是物是人非。<br>或许未来的四年也是一种改变吧。</p>
-<h2 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h2><p>不敢说有啥期望吧，不辜负自己的努力就行。如果十年后的自己看到自己第一篇内容，或许会一笑而过（写的都是些啥玩意啊）。</p>
-<h2 id="为啥要建站呢"><a href="#为啥要建站呢" class="headerlink" title="为啥要建站呢"></a>为啥要建站呢</h2><p>终于说道正头上了，就希望能和大家探讨交流下吧（评论这**玩意到现在还用不了），顺便分享一下自己学习道路上的一些心得体会，踩过的坑，以及所有让人觉得值得探讨的问题。奇奇怪怪的东西也可以扔上来（</p>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="为什么要写这篇文章"><a href="#为什么要写这篇文章" class="headerlink" title="为什么要写这篇文章"></a>为什么要写这篇文章</h2><p>主要是为了对文档的一个简单普及和更新，很多博客的内容都是20年前的内容，Next5.x版本的，在搜集的过程中造成了很大的困扰。同时网上存在部分Next7.x的文档不易被人搜索得到。</p>
+<p>由于本人的水平所限，本文章可能会对部门内容的讲解有所偏差，如看到请指正谢谢。</p>
+<p>关于最新版本的建站，可以参考好友<a target="_blank" rel="noopener" href="https://changakira.github.io/">Akira</a>的<a target="_blank" rel="noopener" href="https://changakira.github.io/2022/09/02/Hexo%E5%BB%BA%E7%AB%99%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/#more">建站教程</a>。本人将在以后逐步更新。</p>
+<p>本文章的配置环境：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hexo:6.2.0</span><br><span class="line">Next:7.7.2</span><br><span class="line">Node.16.17.0</span><br></pre></td></tr></table></figure>
+
+<h2 id="本文参考的内容链接"><a href="#本文参考的内容链接" class="headerlink" title="本文参考的内容链接"></a>本文参考的内容链接</h2><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">Hexo开发文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://theme-next.js.org/">Next开发文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://hexo-next.readthedocs.io/zh_CN/latest/">Hexo-Next开发文档</a></p>
+<p>其他相关内容将在相关板块讲述。</p>
+<h2 id="常见指令"><a href="#常见指令" class="headerlink" title="常见指令"></a>常见指令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>生成静态文件。</p>
+<p>可在后面加入-d或–deploy来进行立即部署。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>启动服务器。默认情况下，访问网址<code>http://localhost:4000/</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>部署网站。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<p>清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</p>
+<p>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<p>title指文件名，会默认在.&#x2F;source&#x2F;_post目录下生成md文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<p>title指文件夹名，会默认在.&#x2F;source目录下生成名文件夹，同时会在文件夹内生成md文件，<strong>通常用于Next的页面配置</strong>。</p>
+<h1 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h1><p>Hexo的配置大部分在_config.yml（位于博客根目录）中进行修改，本文中统称为<strong>网站配置文件</strong>。</p>
+<p>使用notepad++或其他文本编辑器进行编辑。</p>
+<p><strong>注意！所有配置内容在冒号和个人信息后面都需要加空格，同时非配置内容前面需要加#以进行注释！</strong></p>
+<p>下面是个栗子</p>
+<p>title: 风流倜傥英俊潇洒玉树临风的晨曦的个人站   #别打我啊啊啊！</p>
+<h2 id="网站配置区"><a href="#网站配置区" class="headerlink" title="网站配置区"></a>网站配置区</h2><p>本配置主要讲述常见的配置，更多内容请查看<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">官方的开发文档</a>。</p>
+<p>个人博客在建成后，首先需要进行的修改的就是个人信息的相关内容。这需要对网站配置文件进行修改。</p>
+<h3 id="网站信息设置"><a href="#网站信息设置" class="headerlink" title="网站信息设置"></a>网站信息设置</h3><p>打开网站配置文件后，搜索Site区域<del>其实就在开头</del>，并进行修改。</p>
+<p>title: 网站标题，常见于网站标题的显示和博客标题的显示。</p>
+<p>subtitle: 网站副标题，在Next主题中，常见于网站标题下面。</p>
+<p>description: 网站描述，在Next主题中，会显示在侧边栏。</p>
+<p>keywords: 网站的关键词，通常用于SEO搜索引擎优化，<strong>通常不用设置</strong>。</p>
+<p>language: 语言，使用不同的主题可能需要设置成不同的值，请参考你的主题的文档自行设置，常见的有 <code>zh-Hans</code>和 <code>zh-CN</code>，<strong>本文档的设定为zh-CN</strong>。</p>
+<p>timezone: 时区，网站时区。Hexo 默认使用您电脑的时区。请参考 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">时区列表</a> 进行设置，如 <code>America/New_York</code>, <code>Japan</code>, 和 <code>UTC</code> 。一般的，对于中国大陆地区可以使用 <code>Asia/Shanghai</code>，<strong>通常不用设置</strong>。</p>
+<p>以下为一个栗子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 风流倜傥英俊潇洒玉树临风的晨曦的个人站</span><br><span class="line">subtitle: 嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎</span><br><span class="line">description: 嘎嘎嘎嘎嘎嘎嘎嘎嘎</span><br><span class="line">keywords: </span><br><span class="line">author: 晨曦</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: </span><br></pre></td></tr></table></figure>
+
+<h3 id="网址信息设置"><a href="#网址信息设置" class="headerlink" title="网址信息设置"></a>网址信息设置</h3><p>搜索URL并找到网址信息配置区域。</p>
+<p>url: 博客的网址，<strong>必须以 <code>http://</code> 或 <code>https://</code> 开头</strong> 。</p>
+<p>permalink: 文章的 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/permalinks">永久链接</a> 格式，一般显示为:year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;，比如A&#x2F;2022&#x2F;09&#x2F;02&#x2F;A.md，当然也可以设置为:title&#x2F;。</p>
+<p>其他内容可以根据自己需求设置。</p>
+<p>以下为一个栗子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: http://dreamskycx.github.io</span><br><span class="line">permalink: :title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：网站存放在子目录的情况</strong></p>
+<p>如果您的网站存放在子目录中，例如 <code>http://example.com/blog</code>，则请将您的 <code>url</code> 设为 <code>http://example.com/blog</code> 并把 <code>root</code> 设为 <code>/blog/</code>。</p>
+<p>以下为一个栗子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 比如，一个页面的永久链接是 http://example.com/foo/bar/index.html</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: false</span><br><span class="line"># 此时页面的永久链接会变为 http://example.com/foo/bar/</span><br></pre></td></tr></table></figure>
+
+<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>搜索Extensions，找到主题配置区。</p>
+<p><strong>把theme: 后面的内容改为next。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<h1 id="Next配置"><a href="#Next配置" class="headerlink" title="Next配置"></a>Next配置</h1><p><strong>未完待续？</strong></p>
 
     </div>
 
@@ -352,7 +408,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://dreamskycx.github.io/%E5%90%91%E4%B8%96%E7%95%8C%E9%97%AE%E4%B8%AA%E5%A5%BD/" title="向世界问个好">http://dreamskycx.github.io/向世界问个好/</a>
+      <a href="http://dreamskycx.github.io/Hexo+Next%E5%BB%BA%E7%AB%99%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E7%89%88/" title="Hexo+Next建站配置详细版">http://dreamskycx.github.io/Hexo+Next建站配置详细版/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -361,18 +417,18 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E5%BF%83%E5%A3%B0/" rel="tag"><i class="fa fa-tag"></i> 心声</a>
+              <a href="/tags/%E6%8C%87%E5%8D%97/" rel="tag"><i class="fa fa-tag"></i> 指南</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/van%E6%B8%B8%E6%88%8F/" rel="prev" title="van游戏">
+                  <i class="fa fa-chevron-left"></i> van游戏
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022%E5%B9%B4Minecraft%E7%BB%BC%E5%90%88%E8%83%BD%E5%8A%9B%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95/" rel="next" title="2022年Minecraft综合能力合格性测试">
-                  2022年Minecraft综合能力合格性测试 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
