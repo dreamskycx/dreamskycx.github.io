@@ -1,184 +1,369 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>电专c语言oj探秘</title>
-      <link href="/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%981/"/>
-      <url>/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%981/</url>
-      
-        <content type="html"><![CDATA[<h1 id="题组82"><a href="#题组82" class="headerlink" title="题组82"></a>题组82</h1><p>本题组来源于<a href="https://cvnis.xidian.edu.cn/">西电oj</a>的82题组，题目很简单，适合萌新。</p><p>本题涉及的所有文件都会在<a href="https://wwp.lanzouw.com/ioI3U0dgvmyh">蓝奏云</a>上发布。</p><p><strong>本人新手，第一次写题解，如有不当之处，多多包涵，如有错误，请指正谢谢！</strong></p><span id="more"></span><h2 id="电专必看"><a href="#电专必看" class="headerlink" title="电专必看"></a>电专必看</h2><p><strong>如果你提交的时候一直编译错误：</strong></p><p>请确保你<strong>提交的题目</strong>和<strong>选择的文件</strong>匹配。</p><p>请确保你选择的<strong>编译选项正确</strong>，一般有两个选项visual c++和GNU C&#x2F;C++（通常其他的编译器如devc++选择这个）。<del>编者因为选错报错了一次</del></p><p>请确保你使用的标准是ANSIC或者C99，<strong>没有任何奇奇怪怪的东西</strong>（如vs的scanf_s函数等）。</p><h2 id="T9"><a href="#T9" class="headerlink" title="T9"></a>T9</h2><p><strong>题目：</strong>计算球体重量</p><p><strong>时间限制：</strong>1s</p><p><strong>内存限制：</strong>10000Kb</p><p><strong>问题描述：</strong>已知铁的比重是7.86(克&#x2F;立方厘米)，金的比重是19.3(克&#x2F;立方厘米)。写一个程序，分别计算出给定直径的铁球与金球的质量，假定PI&#x3D;3.1415926</p><p><strong>输入说明：</strong>输入两个整数，分别表示铁球与金球的直径（单位为毫米）。</p><p><strong>输出说明：</strong>输出两个浮点数，分别表示铁球与金球的质量（单位为克），小数点后保留3位小数，两个浮点数之间用空格分隔。</p><p><strong>输入样例：</strong></p><p>100 100</p><p><strong>输出样例：</strong></p><p>4115.486 10105.456</p><p><strong>提示</strong>：用scanf输入，用printf输出，保留3位小数的格式控制字符为%.3f</p><h3 id="本题小解析"><a href="#本题小解析" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>这道题主要是要注意运用球的体积公式<strong>（注意直径）</strong>，还有就是<strong>注意单位换算</strong>（&#x2F;1000），其他的小注意点如<strong>格式控制字符</strong>，<strong>实数运算</strong>等。</p><h3 id="弱鸡代码"><a href="#弱鸡代码" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> d1,d2;</span><br><span class="line"><span class="type">double</span> m1,m2;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> PI=<span class="number">3.1415926</span>;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;d1,&amp;d2);</span><br><span class="line">m1=PI*d1*d1*d1/<span class="number">6000</span>*<span class="number">7.86</span>;</span><br><span class="line">m2=PI*d2*d2*d2/<span class="number">6000</span>*<span class="number">19.3</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%.3f %.3f&quot;</span>,m1,m2);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure><h2 id="T10"><a href="#T10" class="headerlink" title="T10"></a>T10</h2><p><strong>题目：</strong>温度转换</p><p><strong>时间限制：</strong>1s</p><p><strong>内存限制：</strong>10000Kb</p><p><strong>问题描述：</strong>已知华氏温度到摄氏温度的转换公式为：摄氏温度&#x3D; (华氏温度- 32)×5&#x2F;9，写程序将给定的华氏温度转换为摄氏温度输出。</p><p><strong>输入说明：</strong>只有一个整数，表示输入的华氏温度。</p><p><strong>输出说明：</strong>输出一个表示摄氏温度的实数，小数点后保留2位有效数字，多余部分四舍五入。</p><p><strong>输入样例：</strong></p><p>50</p><p><strong>输出样例：</strong></p><p>10.00</p><p><strong>提示：</strong></p><p>用scanf输入，用printf输出，保留2位小数的格式控制字符为%.2f</p><h3 id="本题小解析-1"><a href="#本题小解析-1" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>注意<strong>精度控制</strong>和<strong>实数运算</strong>即可。</p><h3 id="弱鸡代码-1"><a href="#弱鸡代码-1" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> f;</span><br><span class="line"><span class="type">double</span> c;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;f);</span><br><span class="line">c=(f<span class="number">-32</span>)*<span class="number">5.0</span>/<span class="number">9.0</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%.2f&quot;</span>,c);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure><h2 id="T11"><a href="#T11" class="headerlink" title="T11"></a>T11</h2><p><strong>题目：</strong>整数简单运算</p><p><strong>问题描述：</strong>编写程序，计算用户输入的两个整数的和、差、乘积（*）和商（&#x2F;）。</p><p><strong>输入格式：</strong>输入两个整数，整数之间用空格分隔。</p><p>输出格式：输出四个整数结果，分别表示和、差、积和商，每输出一个结果换行。</p><p><strong>输入样例：</strong></p><p>3 4</p><p><strong>输出样例：</strong></p><p>7</p><p>-1</p><p>12</p><p>0</p><h3 id="本题小解析-2"><a href="#本题小解析-2" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>照样子做就行，可以选择定义结果的变量也可以选择直接输出。</p><p><del>没有&#x2F;0差评。</del></p><h3 id="弱鸡代码-2"><a href="#弱鸡代码-2" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> a,b;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a+b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a-b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a*b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a/b);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure><h2 id="T16"><a href="#T16" class="headerlink" title="T16"></a>T16</h2><p><strong>题目：</strong>字符输入输出</p><p><strong>问题描述：</strong>通过键盘输入5个大写字母，输出其对应的小写字母，并在末尾加上“！”。</p><p><strong>输入说明：</strong>5个大写字母通过键盘输入，字母之间以竖线“|”分隔。</p><p><strong>输出说明：</strong>输出5个大写字母对应的小写字母，之间无分隔，并在末尾加上‘！’。</p><p><strong>输入样例：</strong></p><p>H|E|L|L|O</p><p><strong>输出样例：</strong></p><p>hello!</p><h3 id="本题小解析-3"><a href="#本题小解析-3" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>这道题主要注意的就是字母大小写的转换，<strong>需要查询ASCII码表，并直接对ASCII码进行操作（-32）</strong>。</p><p>另外注意输入样例的时候，<strong>scanf函数对非格式控制符是需要进行原样输入的</strong>。举个栗子，弱鸡代码里面的就需要输入A|B|C|D|E才能正常读取所有变量，<strong>即|字符需要原样输入。</strong></p><p>可以选择输入字符串然后取出五个字符，或者直接输入五个字符。<del>我tm在讲什么狗屁</del></p><h3 id="弱鸡代码-3"><a href="#弱鸡代码-3" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">char</span> a,b,c,d,e;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%c|%c|%c|%c|%c&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d,&amp;e);</span><br><span class="line">a+=<span class="number">32</span>;</span><br><span class="line">b+=<span class="number">32</span>;</span><br><span class="line">c+=<span class="number">32</span>;</span><br><span class="line">d+=<span class="number">32</span>;</span><br><span class="line">e+=<span class="number">32</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%c%c%c%c%c!&quot;</span>,a,b,c,d,e);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="T18"><a href="#T18" class="headerlink" title="T18"></a>T18</h2><p><strong>题目：</strong>数字字符</p><p><strong>问题描述：</strong>通过键盘输入1个整数a（0&lt;&#x3D;a&lt;&#x3D;4）,1个数字字符b（’0’&lt;&#x3D;b&lt;&#x3D;’5’），求a+b。</p><p><strong>输入说明：</strong>整形数据、数字字符通过键盘输入，输入的整形数据介于0和4之间，输入的数字字符介于‘0’和‘5’之间，二个输入数之间用“,”分隔。</p><p><strong>输出说明：</strong>分别以整数形式及字符形式输出a+b，输出的二个数之间用“,”分隔。</p><p><strong>输入样例：</strong></p><p>3,5</p><p><strong>输出样例：</strong></p><p>56,8</p><h3 id="本题小解析-4"><a href="#本题小解析-4" class="headerlink" title="本题小解析"></a>本题小解析</h3><p><strong>直接照着要求做，该怎么输入怎么输出就怎么搞，别想太多</strong>。</p><h3 id="弱鸡代码-4"><a href="#弱鸡代码-4" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> a;</span><br><span class="line"><span class="type">char</span> b;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d,%c&quot;</span>,&amp;a,&amp;b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d,%c&quot;</span>,a+b,a+b);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="T19"><a href="#T19" class="headerlink" title="T19"></a>T19</h2><p><strong>题目：</strong>实数运算</p><p><strong>问题描述：</strong>通过键盘输入长方体的长、宽、高，求长方体的体积V（单精度）。</p><p><strong>输入说明：</strong>十进制形式输入长、宽、高，输入数据间用空格分隔。</p><p><strong>输出说明：</strong>单精度形式输出长方体体积V，保留小数点后3位，左对齐。</p><p><strong>输入样例：</strong></p><p>15 8.12 6.66</p><p><strong>输出样例：</strong></p><p>811.188</p><h3 id="本题小解析-5"><a href="#本题小解析-5" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>主要是注意<strong>精度</strong>问题，<strong>输出格式</strong>问题和<strong>左对齐</strong>问题。</p><p><strong>用printf函数修饰符-来控制左对齐，在没有设置域宽（如本题）的时候，一般不用修饰符-，即默认左对齐。</strong></p><h3 id="弱鸡代码-5"><a href="#弱鸡代码-5" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">float</span> a,b,c;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%f %f %f&quot;</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%.3f&quot;</span>,a*b*c);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="T20"><a href="#T20" class="headerlink" title="T20"></a>T20</h2><p><strong>题目：</strong>四则运算</p><p><strong>问题描述：</strong>输入两个整数和一个四则运算符，根据运算符计算并输出其运算结果（和、差、积、商、余之一）。注意做整除及求余运算时，除数不能为零。</p><p><strong>输入说明：</strong>使用scanf()函数输入两个整数和一个运算符，格式见输入样例。</p><p><strong>输出说明：</strong>输出使用printf()函数，格式见输出样例。</p><p><strong>输入样例：</strong> </p><p>5%2</p><p><strong>输出样例：</strong></p><p>5%2&#x3D;1</p><h3 id="本题小解析-6"><a href="#本题小解析-6" class="headerlink" title="本题小解析"></a>本题小解析</h3><p><strong>首先，本题不需要你考虑数据为0的情况。</strong></p><p>其次，本题需要用到条件判断，即if…elseif…else…或者switch….case….语句来进行编写，<strong>已经超出了本课教学的范围</strong>。<del>虽然教学啥都bushi</del></p><blockquote><p>如果你要写if语句的话，就需要条件表达式，比如说if(op&#x3D;&#x3D;’+’)（这里的op是运算符的意思，不是你想的那个），这时候就会涉及到逻辑运算符&#x3D;&#x3D;的问题，而&#x3D;&#x3D;代表相等的意思。</p><p>如果你要写switch语句的话，注意case语句后面都需要加上break;防止执行混乱。</p></blockquote><p><strong>最后，用%%来代表输出一个百分号%，亦可用输出op运算符替代。</strong></p><h3 id="弱鸡代码-6"><a href="#弱鸡代码-6" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> a,b;</span><br><span class="line"><span class="type">char</span> op;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d%c%d&quot;</span>,&amp;a,&amp;op,&amp;b);</span><br><span class="line"><span class="keyword">switch</span>(op)&#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a+b);<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a-b);<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a*b);<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a/b);<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&#x27;%&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a%b);<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure><h2 id="T21"><a href="#T21" class="headerlink" title="T21"></a>T21</h2><p><strong>题目：</strong>数位输出</p><p><strong>问题描述：</strong>输入一个5位整数，求出其各数位数值，并按照从高位到低位的顺序输出，如：输入12345，输出为1 2 3 4 5。</p><p><strong>输入说明：</strong>输入一个五位正整数。</p><p><strong>输出说明：</strong>按数位从高到低依次输出，各数位之间以一个空格相分隔。</p><p><strong>输入样例：</strong></p><p>96237</p><p><strong>输出样例：</strong></p><p>9 6 2 3 7</p><h3 id="本题小解析-7"><a href="#本题小解析-7" class="headerlink" title="本题小解析"></a>本题小解析</h3><p><strong>看成是你输入五个字符，然后往这五个字符里面加入空格即可。</strong></p><h3 id="弱鸡代码-7"><a href="#弱鸡代码-7" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">char</span> a,b,c,d,e;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%c%c%c%c%c&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d,&amp;e);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%c %c %c %c %c&quot;</span>,a,b,c,d,e);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>Hexo+Next建站配置详细版</title>
+    <url>/Hexo+Next%E5%BB%BA%E7%AB%99%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E7%89%88/</url>
+    <content><![CDATA[<p><strong>本文章将持续更新</strong></p>
+<p>这篇文章将详细讲述所有的Hexo和Next的config详细配置内容。</p>
+<span id="more"></span>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="为什么要写这篇文章"><a href="#为什么要写这篇文章" class="headerlink" title="为什么要写这篇文章"></a>为什么要写这篇文章</h2><p>主要是为了对文档的一个简单普及和更新，很多博客的内容都是20年前的内容，Next5.x版本的，在搜集的过程中造成了很大的困扰。同时网上存在部分Next7.x的文档不易被人搜索得到。</p>
+<p>由于本人的水平所限，本文章可能会对部门内容的讲解有所偏差，如看到请指正谢谢。</p>
+<p>关于最新版本的建站，可以参考好友<a href="https://changakira.github.io/">Akira</a>的<a href="https://changakira.github.io/2022/09/02/Hexo%E5%BB%BA%E7%AB%99%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/#more">建站教程</a>。本人将在以后逐步更新。</p>
+<p>本文章的配置环境：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hexo:6.2.0</span><br><span class="line">Next:7.7.2</span><br><span class="line">Node.16.17.0</span><br></pre></td></tr></table></figure>
+
+<h2 id="本文参考的内容链接"><a href="#本文参考的内容链接" class="headerlink" title="本文参考的内容链接"></a>本文参考的内容链接</h2><p><a href="https://hexo.io/zh-cn/docs/index.html">Hexo开发文档</a></p>
+<p><a href="https://theme-next.js.org/">Next开发文档</a></p>
+<p><a href="https://hexo-next.readthedocs.io/zh_CN/latest/">Hexo-Next开发文档</a></p>
+<p>其他相关内容将在相关板块讲述。</p>
+<h2 id="常见指令"><a href="#常见指令" class="headerlink" title="常见指令"></a>常见指令</h2><p>以下指令请在<strong>博客根目录</strong>运行<strong>Git Bash</strong>来进行操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>生成静态文件。</p>
+<p>可在后面加入-d或–deploy来进行立即部署。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo server</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>启动服务器。默认情况下，访问网址<code>http://localhost:4000/</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>部署网站。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<p>清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</p>
+<p>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<p>title指文件名，会默认在.&#x2F;source&#x2F;_post目录下生成md文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<p>title指文件夹名，会默认在.&#x2F;source目录下生成名文件夹，同时会在文件夹内生成md文件，<strong>通常用于Next的页面配置</strong>。</p>
+<h1 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h1><p>Hexo的配置大部分在_config.yml（位于博客根目录）中进行修改，本文中统称为<strong>网站配置文件</strong>。</p>
+<p>使用notepad++或其他文本编辑器进行编辑。</p>
+<p><strong>注意！所有配置内容在冒号和个人信息后面都需要加空格，同时非配置内容前面需要加#以进行注释！</strong></p>
+<p>下面是个栗子</p>
+<p>title: 风流倜傥英俊潇洒玉树临风的晨曦的个人站   #别打我啊啊啊！</p>
+<h2 id="网站配置区"><a href="#网站配置区" class="headerlink" title="网站配置区"></a>网站配置区</h2><p>本配置主要讲述常见的配置，更多内容请查看<a href="https://hexo.io/zh-cn/docs/index.html">官方的开发文档</a>。</p>
+<p>个人博客在建成后，首先需要进行的修改的就是个人信息的相关内容。这需要对网站配置文件进行修改。</p>
+<h3 id="网站信息设置"><a href="#网站信息设置" class="headerlink" title="网站信息设置"></a>网站信息设置</h3><p>打开网站配置文件后，搜索Site区域<del>其实就在开头</del>，并进行修改。</p>
+<p>title: 网站标题，常见于网站标题的显示和博客标题的显示。</p>
+<p>subtitle: 网站副标题，在Next主题中，常见于网站标题下面。</p>
+<p>description: 网站描述，在Next主题中，会显示在侧边栏。</p>
+<p>keywords: 网站的关键词，通常用于SEO搜索引擎优化，<strong>通常不用设置</strong>。</p>
+<p>language: 语言，使用不同的主题可能需要设置成不同的值，请参考你的主题的文档自行设置，常见的有 <code>zh-Hans</code>和 <code>zh-CN</code>，<strong>本文档的设定为zh-CN</strong>。</p>
+<p>timezone: 时区，网站时区。Hexo 默认使用您电脑的时区。请参考 <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">时区列表</a> 进行设置，如 <code>America/New_York</code>, <code>Japan</code>, 和 <code>UTC</code> 。一般的，对于中国大陆地区可以使用 <code>Asia/Shanghai</code>，<strong>通常不用设置</strong>。</p>
+<p>以下为一个栗子</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 风流倜傥英俊潇洒玉树临风的晨曦的个人站</span><br><span class="line">subtitle: 嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎</span><br><span class="line">description: 嘎嘎嘎嘎嘎嘎嘎嘎嘎</span><br><span class="line">keywords: </span><br><span class="line">author: 晨曦</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: </span><br></pre></td></tr></table></figure>
+
+<h3 id="网址信息设置"><a href="#网址信息设置" class="headerlink" title="网址信息设置"></a>网址信息设置</h3><p>搜索URL并找到网址信息配置区域。</p>
+<p>url: 博客的网址，<strong>必须以 <code>http://</code> 或 <code>https://</code> 开头</strong> 。</p>
+<p>permalink: 文章的 <a href="https://hexo.io/zh-cn/docs/permalinks">永久链接</a> 格式，一般显示为:year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;，比如A&#x2F;2022&#x2F;09&#x2F;02&#x2F;A.md，当然也可以设置为:title&#x2F;。</p>
+<p>其他内容可以根据自己需求设置。</p>
+<p>以下为一个栗子</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: http://dreamskycx.github.io</span><br><span class="line">permalink: :title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：网站存放在子目录的情况</strong></p>
+<p>如果您的网站存放在子目录中，例如 <code>http://example.com/blog</code>，则请将您的 <code>url</code> 设为 <code>http://example.com/blog</code> 并把 <code>root</code> 设为 <code>/blog/</code>。</p>
+<p>以下为一个栗子</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 比如，一个页面的永久链接是 http://example.com/foo/bar/index.html</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: false</span><br><span class="line"># 此时页面的永久链接会变为 http://example.com/foo/bar/</span><br></pre></td></tr></table></figure>
+
+<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>搜索Extensions，找到主题配置区。</p>
+<p><strong>把theme: 后面的内容改为next。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p><strong>在任何修改后，都建议运行以下指令，并在本地服务器上查看，以保证博客的正常运行。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p><strong>在保证功能正确后运行以下指令进行更新。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>好了经过上面的步骤，你应该是可以初步的看到一个简单的Next界面的。但是，原始的Next界面可能并不符合个人习惯，同时也显得同质化。</p>
+<p>这就需要用到下文的Next配置。</p>
+<h1 id="Next配置"><a href="#Next配置" class="headerlink" title="Next配置"></a>Next配置</h1><p>Next经过几代的革新，和以往版本最大的特点就是：<strong>Next的新版本集成了大量的功能，使得个人博客拥有者不需要对其他文件修改，只需要修改.&#x2F;theme&#x2F;next&#x2F;_config.yml文件，就可以实现大部分的个性化功能。</strong></p>
+<p>由于新老教程的冲突，部分老教程的修改可能会导致原本Next配置出错，甚至在generate的时候报错，导致博客无法正常运行。所以新教程的Next配置主要是基于对Next目录下_config.yml的文件修改来实现的，在本文中我们之为<strong>主题配置文件</strong>。</p>
+<h2 id="基本内容配置区"><a href="#基本内容配置区" class="headerlink" title="基本内容配置区"></a>基本内容配置区</h2><p><strong>未完待续？</strong></p>
+]]></content>
       <categories>
-          
-          <category> C </category>
-          
+        <category>Hexo建站</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 题解 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>梦开始的地方</title>
-      <link href="/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/"/>
-      <url>/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</url>
-      
-        <content type="html"><![CDATA[<p>壬寅之秋，八月廿三，与舍友op，同落兄畅聊，饮阔乐，<del>大醉</del>，作此篇。</p><span id="more"></span><p>有的时候回想起以前做的东西，有激情，有热血，但都败给了生活的残酷。最终自己和别人一样，泯然众生，最终平凡。</p><p>但是人总该是做点什么的，个人价值的实现才会有社会价值，如果这时候就摆烂了，那以后干什么呢？<del>当然是继续摆烂了！</del></p><p>所以，不忘初心，方得始终！</p><p>愿逐梦之人，所得皆所愿！</p><p>PS：欢迎来加小游戏群！！！！</p>]]></content>
-      
-      
+      <tags>
+        <tag>指南</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2022年Minecraft综合能力合格性测试</title>
+    <url>/2022%E5%B9%B4Minecraft%E7%BB%BC%E5%90%88%E8%83%BD%E5%8A%9B%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>这是一份我和<a href="https://www.zhihu.com/people/qi-qi-37-74-70-86">琦琦</a>一起写的一份我的世界综合能力评估测试。本卷致力于筛选出玩我的世界和不玩我的世界的人，理论上试卷难度不大，但是题目的难度与区分度仍难以把控，如有问题请多多包涵。</p>
+<p>试卷已经在<a href="https://www.zhihu.com/question/541683824">知乎</a>发布，亦可移步<a href="https://ks.wjx.top/vm/YDuuA6g.aspx">问卷星在线答题页面</a>。</p>
+<span id="more"></span>
+
+<blockquote>
+<p> 本卷编写年月：2022.7<br> 考生在答题前请认真阅读本注意事项及各题答题要求<br> 本试卷共10页，包含选择题(第1题～第20题，共28题)、非选择题(第29题～第30题，共5题)两分．本卷满分为100分，考试时间为60分钟．考试结束后，请将答题卡或答题纸交回；<br> 答题前，请您务必将自己的姓名、考试号用0．5毫米黑色墨水的签字笔填写在答题卡或答题纸的规定位置；<br> 作答选择题时，必须用2B铅笔将答题卡上对应选项的方框涂满、涂黑；如需改动，请用橡皮擦干净后，再选涂其他答案．作答非选择题时，必须用0．5毫米黑色墨水签字笔在答题卡或答题纸上的指定区域内作答，在其他区域作答一律无效；<br> 如需作图，须用2B铅笔绘、写清楚，线条、符号等需加黑、加粗；<br> 本卷如无特殊说明，则所有题目版本背景都是无作弊生存模式下Java版1.17我的世界．</p>
+</blockquote>
+<h2 id="选择部分"><a href="#选择部分" class="headerlink" title="选择部分"></a>选择部分</h2><p><strong>一、选择题：本部分共有28小题，每小题3分，共84分．每小题有且只有一个选项是正确答案．答案请填涂在相应的答题区域．</strong><br>1．在Minecraft中，绝大部分的物品都需要使用工作台合成．以下物品<u>不需要</u>使用工作台合成的是<br>A．石镐	B．火把	C．熔炉	D．钻石块<br>2．食物是Minecraft的一大特色，以下哪种食物可以被玩家直接食用?<br>A．鸡蛋	B．南瓜块	C．腐肉	D．小麦<br><em>夜晚是新手玩MC所遇到的第一个挑战，据此回答3～4题．</em><br>3．床是Minecraft玩家的必备物品，以下说法<u>不正确</u>的是<br>A．床需要3个木板和3个羊毛合成	B．床可以设置出生点<br>C．床可以使Steve度过夜晚	D．床在任何地方都可以稳定使用<br>4．Steve决定在夜晚出去探索，结果被炸死了，他最有可能遇到了<br>A．末影人	B．骷髅	C．苦力怕	D．僵尸<br><em>Steve不可避免会受到摔落伤害，为了减少摔落伤害带来的影响，Steve想了许多办法来减少自己的摔落伤害，据此回答5～6题．</em><br>5．关于摔落伤害，下列说法<u>不正确</u>的是<br>A．若Steve从的摔落高度为30，且受到伤害，则其受到的伤害足以让满血的Steve死亡<br>B．若Steve在方块上潜行，可以有效避免从方块边缘摔落<br>C．若Steve骑乘的生物受到摔落伤害，Steve也会受到摔落伤害<br>D．若Steve没有任何防护和增益，则其受到的摔落伤害x与摔落高度y的关系为x＝y－3<br>6．Steve掉落在以下方块上，<u>不能</u>完全免疫摔落伤害的是<br>A．干草块	B．水	C．粘液块	D．梯子<br>7．自己动手，丰衣足食，Steve想通过种田来解决自己的食物来源问题．下列说法中，<u>不正确</u>的是<br>A．Steve在耕地上跳跃会使耕地变成泥土<br>B．使用锄来开垦泥土或草方块使其变为耕地<br>C．在耕地附近范围无水的条件下，作物无法成熟并收割<br>D．对作物使用骨粉或在作物附近养殖蜜蜂均可加速作物生长速度<br>8．对于一些物品的合成，其原材料的排放位置无关紧要，这些配方称为无序配方．下列物品的合成配方<u>不属于</u>无序配方的是<br>A．蘑菇煲	B．染色羊毛	C．书	D．胡萝卜钓竿<br>9．一组煤炭作为燃料，用熔炉可以烧制（          ）组物品<br>A．8	B．10	C．16	D．64<br>10．耐久最低的镐子是<br>A．木镐	B．石镐	C．金镐	D．下界合金镐<br>11．随着版本的更新，Minecraft的建筑高度范围从原本的0～256变成了－64～320，在版本更新后，下列说法正确的是<br>A．基岩层为y＝0<br>B． y＜－64的区域是虚空，Steve在生存模式下掉入虚空最终都会死亡<br>C．若Steve处于飞行状态，Steve的位置y＝500是不可能的<br>D．Steve有一定概率在y＝319的地方挖到矿石<br>12．以下矿石挖掘后掉落的方块需要通过熔炼才能获得相应矿石的是<br>A．红石矿石	B．铁矿石	C．钻石矿石	D．青金石矿石<br><em>Steve积攒了大量的经验，他想通过一定的方式来使用经验．据此回答13～15题．</em><br>13．在Minecraft中获得经验的方式很多，但<u>不包括</u>以下哪个方式?<br>A．与村民交易	B．挖矿	C．烧炼物品	D．驯服生物<br>14．附魔是使用经验的有效方式，下列说法不正确的是<br>A．附魔在需要经验的同时需要青金石<br>B．可以通过铁砧来进行附魔<br>C．Steve可以持续刷新附魔，以获得自己需要的附魔<br>D．Steve可以在附魔台附近以一定的方式摆放一定数量的的书架，以提高附魔等级，获得更好的附魔<br>15．无法通过附魔台得到的附魔称为宝藏性附魔．以下哪类附魔为宝藏性附魔?<br>A．绑定诅咒	B．时运	 C．截肢杀手	D．火焰附加<br><em>Steve决定探索下界，据此回答16～17题．</em><br>16．下列说法正确的是<br>A．下界传送门的框架大小固定为4×5<br>B．下界传送门可能会被爆炸所破坏<br>C．主世界的坐标和下界坐标的比例为8：1<br>D．在下界使用指南针可以定位到下界传送门<br>17．下界中有许多的生物，下列说法<u>不正确</u>的是<br>A．Steve可以和成年猪灵用金锭以物易物	B．Steve可以击杀岩浆怪获得岩浆膏<br>C．Steve可以在下界击杀骷髅	D．Steve可以骑乘赤足兽和恶魂<br>18．Steve决定在河边钓鱼，他<u>不可能</u>钓上来<br>A．小麦种子	B．木棍	C．钓鱼竿	D．水瓶<br>19．Steve决定使用指令，以下指令正确的是<br>A．清除所有实体：&#x2F;clear<br>B．设置时间约为中午：&#x2F;time 18000<br>C．切换生存模式：&#x2F;gamemode 1<br>D．在当前位置生成闪电：&#x2F;summon lightning_bolt ～ ～ ～<br>20．如果在一个大箱子中54格储存空间内全部放满鸡蛋，则该箱子中鸡蛋的存储数量为<br>A．864	B．3456	C．1728	D．432<br>21．村民是村庄的重要组成成分．下列说法中<u>不正确</u>的是<br>A．村民可在村庄中有床的房屋里生成<br>B．村民可以主动攀爬梯子并打开活板门<br>C．村庄内可能会有多只铁傀儡<br>D．治愈僵尸村民可以让Steve在和村民的交易中获得打折<br><em>红石电路是Minecraft的重要组成部分，据此回答22～23题．</em><br>22．红石元器件是指既可以被充能，又可以给其他方块充能的红石元件．下列属于红石元器件的是<br>A．活塞	B．红石块	C．红石比较器	D．压力板<br>23．红石电路有时需要判断输入信号，经过一定的算法产生一个输出，这类电路即为人们耳熟能详的逻辑门．根据以下输入，可以判断该门<u>不属于</u><br>输入：1 0 输出：1<br>A．或门	B．异或门	C．与门	D．与非门<br>24．下面关于进度的说法不正确的是<br>A．结束了?：杀死末影龙	B．隔墙有眼：进入要塞<br>C．冰桶挑战：创造并获得一块黑曜石	D．来硬的：获得一块铁锭<br>25．在水中，Steve的会受到各种影响，下列说法正确的是<br>A．Steve在不携带任何装备时，在潜水过程中有约30秒的活动时间，超后就会受到伤害<br>B．所有生物都可在水中移动<br>C．Steve在海底向下挖掘时，挖掘速度约为陆地上挖掘同种方块的1&#x2F;5<br>D．水的传播距离为9格<br><em>为增强游戏体验，Steve在某地图存档中加入了3种合成不同方向的蛋糕的合成表．因此，在该地图中，Steve可以合成上、下、左、右四种不同方向的蛋糕，其合成所需的材料与正常蛋糕相同，只是其摆放方式不同，摆放方向与蛋糕所朝方向一致．且当Steve手持过方向向下的蛋糕后，由于手很“黏”，会使自己在一段时间内挖掘任意方块的速度减慢，但移动速度不受影响．据此回答26～27题．</em><br>26．下图所示的材料在工作台上的摆放方式可以合成下面哪种蛋糕?</p>
+<table>
+<thead>
+<tr>
+<th>小麦</th>
+<th>小麦</th>
+<th>小麦</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>糖</strong></td>
+<td><strong>鸡蛋</strong></td>
+<td><strong>糖</strong></td>
+</tr>
+<tr>
+<td><strong>牛奶桶</strong></td>
+<td><strong>牛奶桶</strong></td>
+<td><strong>牛奶桶</strong></td>
+</tr>
+</tbody></table>
+<p>A．图片朝上的蛋糕	B．图片朝下的蛋糕	C．图片朝左的蛋糕 	D．图片朝右的蛋糕<br>27．题中划线处的效果与下列哪个效果相似?<br>A．失明	B．缓慢	C．力量	D．挖掘疲劳<br>28．以下是Steve在玩Minecraft时的一些行为，则下列行为中<u>不正确</u>的是<br>A．在国际服务器中，面对与自己观点不合的人，Steve直接在聊天区中开骂对方<br>B．作为某服务器的管理员，Steve总会满足玩家合理的需求，不会无理由地破坏玩家的游戏体验<br>C．在与其他游戏玩家的聊天中，Steve不会出现违规、涉敏词汇<br>D．在观看与Minecraft无关或关联性不大的视频中，Steve不会在视频评论区刷大量有关Minecraft的内容</p>
+<h2 id="非选择部分"><a href="#非选择部分" class="headerlink" title="非选择部分"></a>非选择部分</h2><p><strong>二、填空题：共16分．如无特殊说明，每空2分．答案请填写在相应的答题区域．在涉及游戏内译名相关的问题中，答案一律以简体中文(中国)的标准译名为准，否则不得分．</strong><br>29．(6分)除了工作台，在Minecraft种也有许多有用的方块，如炼药锅和酿造台．<br>(1)在使用炼药锅时，需要准备好相关的材料，如水瓶、烈焰粉和酿造材料．<br>①水瓶可以通过手持玻璃瓶对着水源点击使用键获得．玻璃瓶可以在工作台上用（          ）合成获得．<br>②烈焰粉可以通过击杀（          ）获得烈焰棒，并将其分解成烈焰粉．<br>(2)炼药锅在游戏中有许多的功能，如：（          ）(举一例即可)．<br>30．(10分)铁是Minecraft中一种常见但重要的一种矿物．<br>(1)铁在Minecraft中有许多的获得方法．除了通过挖掘铁矿石并烧炼获得铁锭外，还有击杀（          ）、　（          ）或开箱子战利品等方法．<br>(2)铁在Minecraft中有许多的用途．<br>①铁可以用于合成盔甲．若Steve想用铁来合成“铁4件套”(1个铁头盔＋1个铁胸甲＋1个铁护腿＋1个铁靴子)，则Steve需要（          ）个铁锭才能合成一个“铁4件套”<br>②铁可以用来合成铁砧．<br>(i)合成一个铁砧需要的铁锭数量为（          ）(其中1个铁块记为9个铁锭)．<br>(ii)铁砧除了可以用来修复装备、给装备附魔外，还可以用来（          ）(举一例即可)．</p>
+]]></content>
       <categories>
-          
-          <category> 闲聊 </category>
-          
+        <category>我的世界</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 心声 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hexo+Next建站配置详细版</title>
-      <link href="/Hexo+Next%E5%BB%BA%E7%AB%99%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E7%89%88/"/>
-      <url>/Hexo+Next%E5%BB%BA%E7%AB%99%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E7%89%88/</url>
-      
-        <content type="html"><![CDATA[<p><strong>本文章将持续更新</strong></p><p>这篇文章将详细讲述所有的Hexo和Next的config详细配置内容。</p><span id="more"></span><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="为什么要写这篇文章"><a href="#为什么要写这篇文章" class="headerlink" title="为什么要写这篇文章"></a>为什么要写这篇文章</h2><p>主要是为了对文档的一个简单普及和更新，很多博客的内容都是20年前的内容，Next5.x版本的，在搜集的过程中造成了很大的困扰。同时网上存在部分Next7.x的文档不易被人搜索得到。</p><p>由于本人的水平所限，本文章可能会对部门内容的讲解有所偏差，如看到请指正谢谢。</p><p>关于最新版本的建站，可以参考好友<a href="https://changakira.github.io/">Akira</a>的<a href="https://changakira.github.io/2022/09/02/Hexo%E5%BB%BA%E7%AB%99%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/#more">建站教程</a>。本人将在以后逐步更新。</p><p>本文章的配置环境：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hexo:6.2.0</span><br><span class="line">Next:7.7.2</span><br><span class="line">Node.16.17.0</span><br></pre></td></tr></table></figure><h2 id="本文参考的内容链接"><a href="#本文参考的内容链接" class="headerlink" title="本文参考的内容链接"></a>本文参考的内容链接</h2><p><a href="https://hexo.io/zh-cn/docs/index.html">Hexo开发文档</a></p><p><a href="https://theme-next.js.org/">Next开发文档</a></p><p><a href="https://hexo-next.readthedocs.io/zh_CN/latest/">Hexo-Next开发文档</a></p><p>其他相关内容将在相关板块讲述。</p><h2 id="常见指令"><a href="#常见指令" class="headerlink" title="常见指令"></a>常见指令</h2><p>以下指令请在<strong>博客根目录</strong>运行<strong>Git Bash</strong>来进行操作。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure><p>生成静态文件。</p><p>可在后面加入-d或–deploy来进行立即部署。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure><p>启动服务器。默认情况下，访问网址<code>http://localhost:4000/</code>。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>部署网站。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure><p>清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</p><p>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;title&gt;</span><br></pre></td></tr></table></figure><p>title指文件名，会默认在.&#x2F;source&#x2F;_post目录下生成md文件。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &lt;title&gt;</span><br></pre></td></tr></table></figure><p>title指文件夹名，会默认在.&#x2F;source目录下生成名文件夹，同时会在文件夹内生成md文件，<strong>通常用于Next的页面配置</strong>。</p><h1 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h1><p>Hexo的配置大部分在_config.yml（位于博客根目录）中进行修改，本文中统称为<strong>网站配置文件</strong>。</p><p>使用notepad++或其他文本编辑器进行编辑。</p><p><strong>注意！所有配置内容在冒号和个人信息后面都需要加空格，同时非配置内容前面需要加#以进行注释！</strong></p><p>下面是个栗子</p><p>title: 风流倜傥英俊潇洒玉树临风的晨曦的个人站   #别打我啊啊啊！</p><h2 id="网站配置区"><a href="#网站配置区" class="headerlink" title="网站配置区"></a>网站配置区</h2><p>本配置主要讲述常见的配置，更多内容请查看<a href="https://hexo.io/zh-cn/docs/index.html">官方的开发文档</a>。</p><p>个人博客在建成后，首先需要进行的修改的就是个人信息的相关内容。这需要对网站配置文件进行修改。</p><h3 id="网站信息设置"><a href="#网站信息设置" class="headerlink" title="网站信息设置"></a>网站信息设置</h3><p>打开网站配置文件后，搜索Site区域<del>其实就在开头</del>，并进行修改。</p><p>title: 网站标题，常见于网站标题的显示和博客标题的显示。</p><p>subtitle: 网站副标题，在Next主题中，常见于网站标题下面。</p><p>description: 网站描述，在Next主题中，会显示在侧边栏。</p><p>keywords: 网站的关键词，通常用于SEO搜索引擎优化，<strong>通常不用设置</strong>。</p><p>language: 语言，使用不同的主题可能需要设置成不同的值，请参考你的主题的文档自行设置，常见的有 <code>zh-Hans</code>和 <code>zh-CN</code>，<strong>本文档的设定为zh-CN</strong>。</p><p>timezone: 时区，网站时区。Hexo 默认使用您电脑的时区。请参考 <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">时区列表</a> 进行设置，如 <code>America/New_York</code>, <code>Japan</code>, 和 <code>UTC</code> 。一般的，对于中国大陆地区可以使用 <code>Asia/Shanghai</code>，<strong>通常不用设置</strong>。</p><p>以下为一个栗子</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 风流倜傥英俊潇洒玉树临风的晨曦的个人站</span><br><span class="line">subtitle: 嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎</span><br><span class="line">description: 嘎嘎嘎嘎嘎嘎嘎嘎嘎</span><br><span class="line">keywords: </span><br><span class="line">author: 晨曦</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: </span><br></pre></td></tr></table></figure><h3 id="网址信息设置"><a href="#网址信息设置" class="headerlink" title="网址信息设置"></a>网址信息设置</h3><p>搜索URL并找到网址信息配置区域。</p><p>url: 博客的网址，<strong>必须以 <code>http://</code> 或 <code>https://</code> 开头</strong> 。</p><p>permalink: 文章的 <a href="https://hexo.io/zh-cn/docs/permalinks">永久链接</a> 格式，一般显示为:year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;，比如A&#x2F;2022&#x2F;09&#x2F;02&#x2F;A.md，当然也可以设置为:title&#x2F;。</p><p>其他内容可以根据自己需求设置。</p><p>以下为一个栗子</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: http://dreamskycx.github.io</span><br><span class="line">permalink: :title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure><p><strong>注意：网站存放在子目录的情况</strong></p><p>如果您的网站存放在子目录中，例如 <code>http://example.com/blog</code>，则请将您的 <code>url</code> 设为 <code>http://example.com/blog</code> 并把 <code>root</code> 设为 <code>/blog/</code>。</p><p>以下为一个栗子</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 比如，一个页面的永久链接是 http://example.com/foo/bar/index.html</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: false</span><br><span class="line"># 此时页面的永久链接会变为 http://example.com/foo/bar/</span><br></pre></td></tr></table></figure><h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>搜索Extensions，找到主题配置区。</p><p><strong>把theme: 后面的内容改为next。</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p><strong>在任何修改后，都建议运行以下指令，并在本地服务器上查看，以保证博客的正常运行。</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure><p><strong>在保证功能正确后运行以下指令进行更新。</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>好了经过上面的步骤，你应该是可以初步的看到一个简单的Next界面的。但是，原始的Next界面可能并不符合个人习惯，同时也显得同质化。</p><p>这就需要用到下文的Next配置。</p><h1 id="Next配置"><a href="#Next配置" class="headerlink" title="Next配置"></a>Next配置</h1><p>Next经过几代的革新，和以往版本最大的特点就是：<strong>Next的新版本集成了大量的功能，使得个人博客拥有者不需要对其他文件修改，只需要修改.&#x2F;theme&#x2F;next&#x2F;_config.yml文件，就可以实现大部分的个性化功能。</strong></p><p>由于新老教程的冲突，部分老教程的修改可能会导致原本Next配置出错，甚至在generate的时候报错，导致博客无法正常运行。所以新教程的Next配置主要是基于对Next目录下_config.yml的文件修改来实现的，在本文中我们之为<strong>主题配置文件</strong>。</p><h2 id="基本内容配置区"><a href="#基本内容配置区" class="headerlink" title="基本内容配置区"></a>基本内容配置区</h2><p><strong>未完待续？</strong></p>]]></content>
-      
-      
+      <tags>
+        <tag>整活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo评论小测试</title>
+    <url>/Hexo%E8%AF%84%E8%AE%BA%E5%B0%8F%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>似乎gitalk不挂梯子不能用，太难了….</p>
+<p><del>扔了算了，要他何用</del></p>
+<p><strong>来必力不香吗！</strong></p>
+<span id="more"></span>
+
+<h3 id="关于如何用来必力评论这件事"><a href="#关于如何用来必力评论这件事" class="headerlink" title="关于如何用来必力评论这件事"></a>关于如何用来必力评论这件事</h3><p>本次教程基于以下版本（我当时是最新的）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hexo:6.2.0</span><br><span class="line">Next:7.7.2</span><br></pre></td></tr></table></figure>
+
+
+<p>虽然来必力这玩意加载慢，但是能用哈！也支持国内的各大主流社交媒体账号。</p>
+<h4 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h4><p>先注册一个来必力账号。</p>
+<p><a href="https://livere.com/">注册页面</a></p>
+<p>网站会有点卡，有的时候会出现页面无法加载的现象，实测挂加速器无用，<del>估计是服务器太菜了吧</del>。界面部分为韩文（韩国网站），翻译即可。</p>
+<p>登陆的时候第一行填注册邮箱，第二行填密码即可。</p>
+<p>挂加速器可能会导致安装失败。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-ae6d613501f17e83cac2abbe6d00b04b_720w.jpg" alt="一张丢失了的图片"></p>
+<p>在注册成功后，点击安装，选择City版本进行安装。会要求你输入自己的网址（带https:&#x2F;&#x2F;），网站名（随便填），和网站用途（选择个人网站）即可。</p>
+<p><img src="https://pica.zhimg.com/80/v2-6fb025dab0883580834fb31c9f1d5bdb_1440w.jpg?source=3af55fa1" alt="一张丢失了的图片"></p>
+<h4 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h4><p>申请成功后你会进入进入到代码管理界面。找到以下内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;xxxxxxx&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://pic2.zhimg.com/80/v2-532788e1038f4ead9f019583e5e30a9c_1440w.jpg?source=3af55fa1" alt="一张丢失了的图片"></p>
+<p><strong>记住data-uid里面的那一串字段，配置要用。</strong></p>
+<h4 id="Step3"><a href="#Step3" class="headerlink" title="Step3"></a>Step3</h4><p>打开你的<strong>主题配置文件</strong>（Next的配置文件themes&#x2F;next&#x2F;_config.yml），搜索livere，找到如下内容，把之前data-uid里面的字段复制到livere-uid:后面（注意字段和冒号中间要有空格）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># LiveRe comments system</span><br><span class="line"># You can get your uid from https://livere.com/insight/myCode (General web site)</span><br><span class="line">livere_uid:  #&lt;your_uid&gt;</span><br></pre></td></tr></table></figure>
+<p>同时搜索comments，找到如下内容，在active:后面打上livere。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">comments:</span><br><span class="line">  # Available values: tabs | buttons</span><br><span class="line">  style: tabs</span><br><span class="line">  # Choose a comment system to be displayed by default.</span><br><span class="line">  # Available values: changyan | disqus | disqusjs | gitalk | livere | valine</span><br><span class="line">  active: livere</span><br><span class="line">  # Setting `true` means remembering the comment system selected by the visitor.</span><br><span class="line">  storage: true</span><br><span class="line">  # Lazyload all comment systems.</span><br><span class="line">  lazyload: false</span><br></pre></td></tr></table></figure>
+
+<p>大功告成！（看了下网上的博客有讲到要编辑其他文件的，是老版本）</p>
+<h4 id="Step4"><a href="#Step4" class="headerlink" title="Step4"></a>Step4</h4><p>运行以下代码查看效果！</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$hexo clean</span><br><span class="line">$hexo g </span><br><span class="line">$hexo s</span><br></pre></td></tr></table></figure>
+<p>如果你试图想改变一下他的样式的话，可能会很难（不嫌弃丑，找到一个能用的评论系统是真心不容易）。</p>
+<p><img src="https://picx.zhimg.com/80/v2-83a5dcc38aa8d596793e265cc20e4de7_1440w.jpg?source=3af55fa1" alt="一张丢失了的图片"></p>
+<p>进行部署:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$hexo clean</span><br><span class="line">$hexo g </span><br><span class="line">$hexo d</span><br></pre></td></tr></table></figure>
+<h4 id="Step5"><a href="#Step5" class="headerlink" title="Step5"></a>Step5</h4><p>如果需要查看数据，可以到来必力的后台进行查看。</p>
+<p><a href="https://livere.com/insight">数据查看网址</a> </p>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>可能是我脸黑还是啥原因，我的电脑浏览器一直加载不出来，但手机可以查看评论，别人的浏览器也可以查看评论。</p>
+<p><del>属于未解决谜题之一了害。</del>所以为什么挂梯子不能用来必力啊啊啊啊啊啊啊啊啊啊！！！简直就和Gitalk对着干，太离谱了。</p>
+<p>关于设置true的问题，好友<a href="https://changakira.github.io/">Akira</a>设置的<a href="https://changakira.github.io/2022/09/01/gitalk/#more">教程</a>有误，<del>本来就是一篇沙雕文哈哈哈</del>。</p>
+<h6 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h6><p><a href="https://zhuanlan.zhihu.com/p/460830283">hexo博客新增来必力评论功能</a></p>
+]]></content>
       <categories>
-          
-          <category> Hexo建站 </category>
-          
+        <category>Hexo建站</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 指南 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>van游戏</title>
-      <link href="/van%E6%B8%B8%E6%88%8F/"/>
-      <url>/van%E6%B8%B8%E6%88%8F/</url>
-      
-        <content type="html"><![CDATA[<p>都来给我van游戏！</p><p><a href="https://dreamskycx.github.io/RapeSenpai/index.html">秦van小游戏（钢琴块）</a></p><span id="more"></span><h2 id="小宣传"><a href="#小宣传" class="headerlink" title="小宣传"></a>小宣传</h2><p>你爱我，我爱你，小秦哼啊甜蜜蜜 -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p><p>在吗？你知道我为什么不和你聊天吗，因为我在van一款全新的秦van小游戏，在线玩无需安装，里面的东东让我激情四射，爱不释手 -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p><p>我的名字叫秦van，是个艺术家，一个行为艺术家，我喜欢van游戏，我在van一款全新的秦van小游戏，在线玩无需安装，Do you like van游戏 -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p><p>在吗？我正在玩秦van！哼哼、啊啊，哼哼哼啊啊啊，根本停不下来！速来，等你！ -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p>]]></content>
-      
-      
+      <tags>
+        <tag>指南</tag>
+        <tag>心声</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>向世界问个好</title>
+    <url>/%E5%90%91%E4%B8%96%E7%95%8C%E9%97%AE%E4%B8%AA%E5%A5%BD/</url>
+    <content><![CDATA[<p>建站整日，一路风雨兼程，许多不容易。<br>任何看似很容易的事情，实际上都是艰难的，看了无数大佬的作品以及好友Akira（同一个学校的捏）的个人站，真的感觉自己有很多东西要学。总之一句话——自己太菜了。<br>本来建好个人站是一件喜悦的事情，怎奈已是深夜，望月伤怀，借阔乐浇愁愁更愁，只好抒发一下个人情感了。</p>
+<span id="more"></span>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本人是一名大一新生，计算机系，萌新一只。<br>为什么叫萌新呢，当时看到了西电的moectf（西电萌新夺旗赛），学到了很多，也发现了自己和别人的差距。在做Web题的时候，我只会拿着F12对着代码硬刚，完全不知道怎么抓包（笑死这就是小白吗），被Rx大佬调侃基础领域知识缺失，看着代码不知道如何下手，你会发现——其实还有很多知识要学。<br>来西电计算机是个偶然，当初说怎么也不去西电，太远了，逼乎上风评又是这个样子。可既来之则安之，我因为菜来到了西电，如果说我真的有一个使命的话，或许是“离开西电”——西电可以给我平台让我飞往更远的地方；或许不是——谁知道自己的未来会是怎样。毕竟，人生最精彩的就是这阴差阳错，命运让大家相聚在一起，就要好好珍惜。</p>
+<h2 id="改变"><a href="#改变" class="headerlink" title="改变"></a>改变</h2><p>人会改变，或许是因为自己内心想改变而改变，或许是因为社会的压力而不得不改变。而这个过程是痛苦的，从自己的舒适圈里面跳出来，去面对位置，面对自己灵魂里恐惧的东西，可能会难受到让你哭出来。<br>看到过很多朋友和大佬都有自己的成果，突然就想起了很多年的那些立下的目标和天坑，还有自己的破黑窗口游戏，自己和同伴一起讨论的日日夜夜。可惜早已是物是人非。<br>或许未来的四年也是一种改变吧。</p>
+<h2 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h2><p>不敢说有啥期望吧，不辜负自己的努力就行。如果十年后的自己看到自己第一篇内容，或许会一笑而过（写的都是些啥玩意啊）。</p>
+<h2 id="为啥要建站呢"><a href="#为啥要建站呢" class="headerlink" title="为啥要建站呢"></a>为啥要建站呢</h2><p>终于说道正头上了，就希望能和大家探讨交流下吧（评论这**玩意到现在还用不了），顺便分享一下自己学习道路上的一些心得体会，踩过的坑，以及所有让人觉得值得探讨的问题。奇奇怪怪的东西也可以扔上来（</p>
+]]></content>
       <categories>
-          
-          <category> 游戏 </category>
-          
+        <category>闲聊</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 整活 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hexo评论小测试</title>
-      <link href="/Hexo%E8%AF%84%E8%AE%BA%E5%B0%8F%E6%B5%8B%E8%AF%95/"/>
-      <url>/Hexo%E8%AF%84%E8%AE%BA%E5%B0%8F%E6%B5%8B%E8%AF%95/</url>
-      
-        <content type="html"><![CDATA[<p>似乎gitalk不挂梯子不能用，太难了….</p><p><del>扔了算了，要他何用</del></p><p><strong>来必力不香吗！</strong></p><span id="more"></span><h3 id="关于如何用来必力评论这件事"><a href="#关于如何用来必力评论这件事" class="headerlink" title="关于如何用来必力评论这件事"></a>关于如何用来必力评论这件事</h3><p>本次教程基于以下版本（我当时是最新的）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hexo:6.2.0</span><br><span class="line">Next:7.7.2</span><br></pre></td></tr></table></figure><p>虽然来必力这玩意加载慢，但是能用哈！也支持国内的各大主流社交媒体账号。</p><h4 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h4><p>先注册一个来必力账号。</p><p><a href="https://livere.com/">注册页面</a></p><p>网站会有点卡，有的时候会出现页面无法加载的现象，实测挂加速器无用，<del>估计是服务器太菜了吧</del>。界面部分为韩文（韩国网站），翻译即可。</p><p>登陆的时候第一行填注册邮箱，第二行填密码即可。</p><p>挂加速器可能会导致安装失败。</p><p><img src="https://pic4.zhimg.com/80/v2-ae6d613501f17e83cac2abbe6d00b04b_720w.jpg" alt="一张丢失了的图片"></p><p>在注册成功后，点击安装，选择City版本进行安装。会要求你输入自己的网址（带https:&#x2F;&#x2F;），网站名（随便填），和网站用途（选择个人网站）即可。</p><p><img src="https://pica.zhimg.com/80/v2-6fb025dab0883580834fb31c9f1d5bdb_1440w.jpg?source=3af55fa1" alt="一张丢失了的图片"></p><h4 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h4><p>申请成功后你会进入进入到代码管理界面。找到以下内容。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;xxxxxxx&quot;&gt;</span><br></pre></td></tr></table></figure><p><img src="https://pic2.zhimg.com/80/v2-532788e1038f4ead9f019583e5e30a9c_1440w.jpg?source=3af55fa1" alt="一张丢失了的图片"></p><p><strong>记住data-uid里面的那一串字段，配置要用。</strong></p><h4 id="Step3"><a href="#Step3" class="headerlink" title="Step3"></a>Step3</h4><p>打开你的<strong>主题配置文件</strong>（Next的配置文件themes&#x2F;next&#x2F;_config.yml），搜索livere，找到如下内容，把之前data-uid里面的字段复制到livere-uid:后面（注意字段和冒号中间要有空格）。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># LiveRe comments system</span><br><span class="line"># You can get your uid from https://livere.com/insight/myCode (General web site)</span><br><span class="line">livere_uid:  #&lt;your_uid&gt;</span><br></pre></td></tr></table></figure><p>同时搜索comments，找到如下内容，在active:后面打上livere。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">comments:</span><br><span class="line">  # Available values: tabs | buttons</span><br><span class="line">  style: tabs</span><br><span class="line">  # Choose a comment system to be displayed by default.</span><br><span class="line">  # Available values: changyan | disqus | disqusjs | gitalk | livere | valine</span><br><span class="line">  active: livere</span><br><span class="line">  # Setting `true` means remembering the comment system selected by the visitor.</span><br><span class="line">  storage: true</span><br><span class="line">  # Lazyload all comment systems.</span><br><span class="line">  lazyload: false</span><br></pre></td></tr></table></figure><p>大功告成！（看了下网上的博客有讲到要编辑其他文件的，是老版本）</p><h4 id="Step4"><a href="#Step4" class="headerlink" title="Step4"></a>Step4</h4><p>运行以下代码查看效果！</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$hexo clean</span><br><span class="line">$hexo g </span><br><span class="line">$hexo s</span><br></pre></td></tr></table></figure><p>如果你试图想改变一下他的样式的话，可能会很难（不嫌弃丑，找到一个能用的评论系统是真心不容易）。</p><p><img src="https://picx.zhimg.com/80/v2-83a5dcc38aa8d596793e265cc20e4de7_1440w.jpg?source=3af55fa1" alt="一张丢失了的图片"></p><p>进行部署:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$hexo clean</span><br><span class="line">$hexo g </span><br><span class="line">$hexo d</span><br></pre></td></tr></table></figure><h4 id="Step5"><a href="#Step5" class="headerlink" title="Step5"></a>Step5</h4><p>如果需要查看数据，可以到来必力的后台进行查看。</p><p><a href="https://livere.com/insight">数据查看网址</a> </p><h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>可能是我脸黑还是啥原因，我的电脑浏览器一直加载不出来，但手机可以查看评论，别人的浏览器也可以查看评论。</p><p><del>属于未解决谜题之一了害。</del>所以为什么挂梯子不能用来必力啊啊啊啊啊啊啊啊啊啊！！！简直就和Gitalk对着干，太离谱了。</p><p>关于设置true的问题，好友<a href="https://changakira.github.io/">Akira</a>设置的<a href="https://changakira.github.io/2022/09/01/gitalk/#more">教程</a>有误，<del>本来就是一篇沙雕文哈哈哈</del>。</p><h6 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h6><p><a href="https://zhuanlan.zhihu.com/p/460830283">hexo博客新增来必力评论功能</a></p>]]></content>
-      
-      
+      <tags>
+        <tag>心声</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>van游戏</title>
+    <url>/van%E6%B8%B8%E6%88%8F/</url>
+    <content><![CDATA[<p>都来给我van游戏！</p>
+<p><a href="https://dreamskycx.github.io/RapeSenpai/index.html">秦van小游戏（钢琴块）</a></p>
+<span id="more"></span>
+
+<h2 id="小宣传"><a href="#小宣传" class="headerlink" title="小宣传"></a>小宣传</h2><p>你爱我，我爱你，小秦哼啊甜蜜蜜 -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p>
+<p>在吗？你知道我为什么不和你聊天吗，因为我在van一款全新的秦van小游戏，在线玩无需安装，里面的东东让我激情四射，爱不释手 -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p>
+<p>我的名字叫秦van，是个艺术家，一个行为艺术家，我喜欢van游戏，我在van一款全新的秦van小游戏，在线玩无需安装，Do you like van游戏 -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p>
+<p>在吗？我正在玩秦van！哼哼、啊啊，哼哼哼啊啊啊，根本停不下来！速来，等你！ -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p>
+]]></content>
       <categories>
-          
-          <category> Hexo建站 </category>
-          
+        <category>游戏</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 指南 </tag>
-            
-            <tag> 心声 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>2022年Minecraft综合能力合格性测试</title>
-      <link href="/2022%E5%B9%B4Minecraft%E7%BB%BC%E5%90%88%E8%83%BD%E5%8A%9B%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95/"/>
-      <url>/2022%E5%B9%B4Minecraft%E7%BB%BC%E5%90%88%E8%83%BD%E5%8A%9B%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95/</url>
-      
-        <content type="html"><![CDATA[<p>这是一份我和<a href="https://www.zhihu.com/people/qi-qi-37-74-70-86">琦琦</a>一起写的一份我的世界综合能力评估测试。本卷致力于筛选出玩我的世界和不玩我的世界的人，理论上试卷难度不大，但是题目的难度与区分度仍难以把控，如有问题请多多包涵。</p><p>试卷已经在<a href="https://www.zhihu.com/question/541683824">知乎</a>发布，亦可移步<a href="https://ks.wjx.top/vm/YDuuA6g.aspx">问卷星在线答题页面</a>。</p><span id="more"></span><blockquote><p> 本卷编写年月：2022.7<br> 考生在答题前请认真阅读本注意事项及各题答题要求<br> 本试卷共10页，包含选择题(第1题～第20题，共28题)、非选择题(第29题～第30题，共5题)两分．本卷满分为100分，考试时间为60分钟．考试结束后，请将答题卡或答题纸交回；<br> 答题前，请您务必将自己的姓名、考试号用0．5毫米黑色墨水的签字笔填写在答题卡或答题纸的规定位置；<br> 作答选择题时，必须用2B铅笔将答题卡上对应选项的方框涂满、涂黑；如需改动，请用橡皮擦干净后，再选涂其他答案．作答非选择题时，必须用0．5毫米黑色墨水签字笔在答题卡或答题纸上的指定区域内作答，在其他区域作答一律无效；<br> 如需作图，须用2B铅笔绘、写清楚，线条、符号等需加黑、加粗；<br> 本卷如无特殊说明，则所有题目版本背景都是无作弊生存模式下Java版1.17我的世界．</p></blockquote><h2 id="选择部分"><a href="#选择部分" class="headerlink" title="选择部分"></a>选择部分</h2><p><strong>一、选择题：本部分共有28小题，每小题3分，共84分．每小题有且只有一个选项是正确答案．答案请填涂在相应的答题区域．</strong><br>1．在Minecraft中，绝大部分的物品都需要使用工作台合成．以下物品<u>不需要</u>使用工作台合成的是<br>A．石镐B．火把C．熔炉D．钻石块<br>2．食物是Minecraft的一大特色，以下哪种食物可以被玩家直接食用?<br>A．鸡蛋B．南瓜块C．腐肉D．小麦<br><em>夜晚是新手玩MC所遇到的第一个挑战，据此回答3～4题．</em><br>3．床是Minecraft玩家的必备物品，以下说法<u>不正确</u>的是<br>A．床需要3个木板和3个羊毛合成B．床可以设置出生点<br>C．床可以使Steve度过夜晚D．床在任何地方都可以稳定使用<br>4．Steve决定在夜晚出去探索，结果被炸死了，他最有可能遇到了<br>A．末影人B．骷髅C．苦力怕D．僵尸<br><em>Steve不可避免会受到摔落伤害，为了减少摔落伤害带来的影响，Steve想了许多办法来减少自己的摔落伤害，据此回答5～6题．</em><br>5．关于摔落伤害，下列说法<u>不正确</u>的是<br>A．若Steve从的摔落高度为30，且受到伤害，则其受到的伤害足以让满血的Steve死亡<br>B．若Steve在方块上潜行，可以有效避免从方块边缘摔落<br>C．若Steve骑乘的生物受到摔落伤害，Steve也会受到摔落伤害<br>D．若Steve没有任何防护和增益，则其受到的摔落伤害x与摔落高度y的关系为x＝y－3<br>6．Steve掉落在以下方块上，<u>不能</u>完全免疫摔落伤害的是<br>A．干草块B．水C．粘液块D．梯子<br>7．自己动手，丰衣足食，Steve想通过种田来解决自己的食物来源问题．下列说法中，<u>不正确</u>的是<br>A．Steve在耕地上跳跃会使耕地变成泥土<br>B．使用锄来开垦泥土或草方块使其变为耕地<br>C．在耕地附近范围无水的条件下，作物无法成熟并收割<br>D．对作物使用骨粉或在作物附近养殖蜜蜂均可加速作物生长速度<br>8．对于一些物品的合成，其原材料的排放位置无关紧要，这些配方称为无序配方．下列物品的合成配方<u>不属于</u>无序配方的是<br>A．蘑菇煲B．染色羊毛C．书D．胡萝卜钓竿<br>9．一组煤炭作为燃料，用熔炉可以烧制（          ）组物品<br>A．8B．10C．16D．64<br>10．耐久最低的镐子是<br>A．木镐B．石镐C．金镐D．下界合金镐<br>11．随着版本的更新，Minecraft的建筑高度范围从原本的0～256变成了－64～320，在版本更新后，下列说法正确的是<br>A．基岩层为y＝0<br>B． y＜－64的区域是虚空，Steve在生存模式下掉入虚空最终都会死亡<br>C．若Steve处于飞行状态，Steve的位置y＝500是不可能的<br>D．Steve有一定概率在y＝319的地方挖到矿石<br>12．以下矿石挖掘后掉落的方块需要通过熔炼才能获得相应矿石的是<br>A．红石矿石B．铁矿石C．钻石矿石D．青金石矿石<br><em>Steve积攒了大量的经验，他想通过一定的方式来使用经验．据此回答13～15题．</em><br>13．在Minecraft中获得经验的方式很多，但<u>不包括</u>以下哪个方式?<br>A．与村民交易B．挖矿C．烧炼物品D．驯服生物<br>14．附魔是使用经验的有效方式，下列说法不正确的是<br>A．附魔在需要经验的同时需要青金石<br>B．可以通过铁砧来进行附魔<br>C．Steve可以持续刷新附魔，以获得自己需要的附魔<br>D．Steve可以在附魔台附近以一定的方式摆放一定数量的的书架，以提高附魔等级，获得更好的附魔<br>15．无法通过附魔台得到的附魔称为宝藏性附魔．以下哪类附魔为宝藏性附魔?<br>A．绑定诅咒B．时运 C．截肢杀手D．火焰附加<br><em>Steve决定探索下界，据此回答16～17题．</em><br>16．下列说法正确的是<br>A．下界传送门的框架大小固定为4×5<br>B．下界传送门可能会被爆炸所破坏<br>C．主世界的坐标和下界坐标的比例为8：1<br>D．在下界使用指南针可以定位到下界传送门<br>17．下界中有许多的生物，下列说法<u>不正确</u>的是<br>A．Steve可以和成年猪灵用金锭以物易物B．Steve可以击杀岩浆怪获得岩浆膏<br>C．Steve可以在下界击杀骷髅D．Steve可以骑乘赤足兽和恶魂<br>18．Steve决定在河边钓鱼，他<u>不可能</u>钓上来<br>A．小麦种子B．木棍C．钓鱼竿D．水瓶<br>19．Steve决定使用指令，以下指令正确的是<br>A．清除所有实体：&#x2F;clear<br>B．设置时间约为中午：&#x2F;time 18000<br>C．切换生存模式：&#x2F;gamemode 1<br>D．在当前位置生成闪电：&#x2F;summon lightning_bolt ～ ～ ～<br>20．如果在一个大箱子中54格储存空间内全部放满鸡蛋，则该箱子中鸡蛋的存储数量为<br>A．864B．3456C．1728D．432<br>21．村民是村庄的重要组成成分．下列说法中<u>不正确</u>的是<br>A．村民可在村庄中有床的房屋里生成<br>B．村民可以主动攀爬梯子并打开活板门<br>C．村庄内可能会有多只铁傀儡<br>D．治愈僵尸村民可以让Steve在和村民的交易中获得打折<br><em>红石电路是Minecraft的重要组成部分，据此回答22～23题．</em><br>22．红石元器件是指既可以被充能，又可以给其他方块充能的红石元件．下列属于红石元器件的是<br>A．活塞B．红石块C．红石比较器D．压力板<br>23．红石电路有时需要判断输入信号，经过一定的算法产生一个输出，这类电路即为人们耳熟能详的逻辑门．根据以下输入，可以判断该门<u>不属于</u><br>输入：1 0 输出：1<br>A．或门B．异或门C．与门D．与非门<br>24．下面关于进度的说法不正确的是<br>A．结束了?：杀死末影龙B．隔墙有眼：进入要塞<br>C．冰桶挑战：创造并获得一块黑曜石D．来硬的：获得一块铁锭<br>25．在水中，Steve的会受到各种影响，下列说法正确的是<br>A．Steve在不携带任何装备时，在潜水过程中有约30秒的活动时间，超后就会受到伤害<br>B．所有生物都可在水中移动<br>C．Steve在海底向下挖掘时，挖掘速度约为陆地上挖掘同种方块的1&#x2F;5<br>D．水的传播距离为9格<br><em>为增强游戏体验，Steve在某地图存档中加入了3种合成不同方向的蛋糕的合成表．因此，在该地图中，Steve可以合成上、下、左、右四种不同方向的蛋糕，其合成所需的材料与正常蛋糕相同，只是其摆放方式不同，摆放方向与蛋糕所朝方向一致．且当Steve手持过方向向下的蛋糕后，由于手很“黏”，会使自己在一段时间内挖掘任意方块的速度减慢，但移动速度不受影响．据此回答26～27题．</em><br>26．下图所示的材料在工作台上的摆放方式可以合成下面哪种蛋糕?</p><table><thead><tr><th>小麦</th><th>小麦</th><th>小麦</th></tr></thead><tbody><tr><td><strong>糖</strong></td><td><strong>鸡蛋</strong></td><td><strong>糖</strong></td></tr><tr><td><strong>牛奶桶</strong></td><td><strong>牛奶桶</strong></td><td><strong>牛奶桶</strong></td></tr></tbody></table><p>A．图片朝上的蛋糕B．图片朝下的蛋糕C．图片朝左的蛋糕 D．图片朝右的蛋糕<br>27．题中划线处的效果与下列哪个效果相似?<br>A．失明B．缓慢C．力量D．挖掘疲劳<br>28．以下是Steve在玩Minecraft时的一些行为，则下列行为中<u>不正确</u>的是<br>A．在国际服务器中，面对与自己观点不合的人，Steve直接在聊天区中开骂对方<br>B．作为某服务器的管理员，Steve总会满足玩家合理的需求，不会无理由地破坏玩家的游戏体验<br>C．在与其他游戏玩家的聊天中，Steve不会出现违规、涉敏词汇<br>D．在观看与Minecraft无关或关联性不大的视频中，Steve不会在视频评论区刷大量有关Minecraft的内容</p><h2 id="非选择部分"><a href="#非选择部分" class="headerlink" title="非选择部分"></a>非选择部分</h2><p><strong>二、填空题：共16分．如无特殊说明，每空2分．答案请填写在相应的答题区域．在涉及游戏内译名相关的问题中，答案一律以简体中文(中国)的标准译名为准，否则不得分．</strong><br>29．(6分)除了工作台，在Minecraft种也有许多有用的方块，如炼药锅和酿造台．<br>(1)在使用炼药锅时，需要准备好相关的材料，如水瓶、烈焰粉和酿造材料．<br>①水瓶可以通过手持玻璃瓶对着水源点击使用键获得．玻璃瓶可以在工作台上用（          ）合成获得．<br>②烈焰粉可以通过击杀（          ）获得烈焰棒，并将其分解成烈焰粉．<br>(2)炼药锅在游戏中有许多的功能，如：（          ）(举一例即可)．<br>30．(10分)铁是Minecraft中一种常见但重要的一种矿物．<br>(1)铁在Minecraft中有许多的获得方法．除了通过挖掘铁矿石并烧炼获得铁锭外，还有击杀（          ）、　（          ）或开箱子战利品等方法．<br>(2)铁在Minecraft中有许多的用途．<br>①铁可以用于合成盔甲．若Steve想用铁来合成“铁4件套”(1个铁头盔＋1个铁胸甲＋1个铁护腿＋1个铁靴子)，则Steve需要（          ）个铁锭才能合成一个“铁4件套”<br>②铁可以用来合成铁砧．<br>(i)合成一个铁砧需要的铁锭数量为（          ）(其中1个铁块记为9个铁锭)．<br>(ii)铁砧除了可以用来修复装备、给装备附魔外，还可以用来（          ）(举一例即可)．</p>]]></content>
-      
-      
+      <tags>
+        <tag>整活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>梦开始的地方</title>
+    <url>/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</url>
+    <content><![CDATA[<p>壬寅之秋，八月廿三，与舍友op，同落兄畅聊，饮阔乐，<del>大醉</del>，作此篇。</p>
+<span id="more"></span>
+
+<p>有的时候回想起以前做的东西，有激情，有热血，但都败给了生活的残酷。最终自己和别人一样，泯然众生，最终平凡。</p>
+<p>但是人总该是做点什么的，个人价值的实现才会有社会价值，如果这时候就摆烂了，那以后干什么呢？<del>当然是继续摆烂了！</del></p>
+<p>所以，不忘初心，方得始终！</p>
+<p>愿逐梦之人，所得皆所愿！</p>
+<p>PS：欢迎来加小游戏群！！！！</p>
+]]></content>
       <categories>
-          
-          <category> 我的世界 </category>
-          
+        <category>闲聊</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 整活 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>向世界问个好</title>
-      <link href="/%E5%90%91%E4%B8%96%E7%95%8C%E9%97%AE%E4%B8%AA%E5%A5%BD/"/>
-      <url>/%E5%90%91%E4%B8%96%E7%95%8C%E9%97%AE%E4%B8%AA%E5%A5%BD/</url>
-      
-        <content type="html"><![CDATA[<p>建站整日，一路风雨兼程，许多不容易。<br>任何看似很容易的事情，实际上都是艰难的，看了无数大佬的作品以及好友Akira（同一个学校的捏）的个人站，真的感觉自己有很多东西要学。总之一句话——自己太菜了。<br>本来建好个人站是一件喜悦的事情，怎奈已是深夜，望月伤怀，借阔乐浇愁愁更愁，只好抒发一下个人情感了。</p><span id="more"></span><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本人是一名大一新生，计算机系，萌新一只。<br>为什么叫萌新呢，当时看到了西电的moectf（西电萌新夺旗赛），学到了很多，也发现了自己和别人的差距。在做Web题的时候，我只会拿着F12对着代码硬刚，完全不知道怎么抓包（笑死这就是小白吗），被Rx大佬调侃基础领域知识缺失，看着代码不知道如何下手，你会发现——其实还有很多知识要学。<br>来西电计算机是个偶然，当初说怎么也不去西电，太远了，逼乎上风评又是这个样子。可既来之则安之，我因为菜来到了西电，如果说我真的有一个使命的话，或许是“离开西电”——西电可以给我平台让我飞往更远的地方；或许不是——谁知道自己的未来会是怎样。毕竟，人生最精彩的就是这阴差阳错，命运让大家相聚在一起，就要好好珍惜。</p><h2 id="改变"><a href="#改变" class="headerlink" title="改变"></a>改变</h2><p>人会改变，或许是因为自己内心想改变而改变，或许是因为社会的压力而不得不改变。而这个过程是痛苦的，从自己的舒适圈里面跳出来，去面对位置，面对自己灵魂里恐惧的东西，可能会难受到让你哭出来。<br>看到过很多朋友和大佬都有自己的成果，突然就想起了很多年的那些立下的目标和天坑，还有自己的破黑窗口游戏，自己和同伴一起讨论的日日夜夜。可惜早已是物是人非。<br>或许未来的四年也是一种改变吧。</p><h2 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h2><p>不敢说有啥期望吧，不辜负自己的努力就行。如果十年后的自己看到自己第一篇内容，或许会一笑而过（写的都是些啥玩意啊）。</p><h2 id="为啥要建站呢"><a href="#为啥要建站呢" class="headerlink" title="为啥要建站呢"></a>为啥要建站呢</h2><p>终于说道正头上了，就希望能和大家探讨交流下吧（评论这**玩意到现在还用不了），顺便分享一下自己学习道路上的一些心得体会，踩过的坑，以及所有让人觉得值得探讨的问题。奇奇怪怪的东西也可以扔上来（</p>]]></content>
-      
-      
+      <tags>
+        <tag>心声</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电专c语言oj探秘</title>
+    <url>/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%981/</url>
+    <content><![CDATA[<h1 id="题组86"><a href="#题组86" class="headerlink" title="题组86"></a>题组86</h1><p>本题组来源于<a href="https://cvnis.xidian.edu.cn/">西电oj</a>的86题组（hqy老师课程课后习题），题目很简单，适合萌新。</p>
+<p>本题涉及的所有文件都会在<a href="https://wwp.lanzouw.com/ioI3U0dgvmyh">蓝奏云</a>上发布。</p>
+<p><strong>本人新手，第一次写题解，如有不当之处，多多包涵，如有错误，请指正谢谢！</strong></p>
+<span id="more"></span>
+
+<h2 id="电专必看"><a href="#电专必看" class="headerlink" title="电专必看"></a>电专必看</h2><p><strong>如果你提交的时候一直编译错误：</strong></p>
+<p>请确保你<strong>提交的题目</strong>和<strong>选择的文件</strong>匹配。</p>
+<p>请确保你选择的<strong>编译选项正确</strong>，一般有两个选项visual c++和GNU C&#x2F;C++（通常其他的编译器如devc++选择这个）。<del>编者因为选错报错了一次</del></p>
+<p>请确保你使用的标准是ANSIC或者C99，<strong>没有任何奇奇怪怪的东西</strong>（如vs的scanf_s函数等）。</p>
+<h2 id="T9"><a href="#T9" class="headerlink" title="T9"></a>T9</h2><p><strong>题目：</strong>计算球体重量</p>
+<p><strong>时间限制：</strong>1s</p>
+<p><strong>内存限制：</strong>10000Kb</p>
+<p><strong>问题描述：</strong>已知铁的比重是7.86(克&#x2F;立方厘米)，金的比重是19.3(克&#x2F;立方厘米)。写一个程序，分别计算出给定直径的铁球与金球的质量，假定PI&#x3D;3.1415926</p>
+<p><strong>输入说明：</strong>输入两个整数，分别表示铁球与金球的直径（单位为毫米）。</p>
+<p><strong>输出说明：</strong>输出两个浮点数，分别表示铁球与金球的质量（单位为克），小数点后保留3位小数，两个浮点数之间用空格分隔。</p>
+<p><strong>输入样例：</strong></p>
+<p>100 100</p>
+<p><strong>输出样例：</strong></p>
+<p>4115.486 10105.456</p>
+<p><strong>提示</strong>：用scanf输入，用printf输出，保留3位小数的格式控制字符为%.3f</p>
+<h3 id="本题小解析"><a href="#本题小解析" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>这道题主要是要注意运用球的体积公式<strong>（注意直径）</strong>，还有就是<strong>注意单位换算</strong>（&#x2F;1000），其他的小注意点如<strong>格式控制字符</strong>，<strong>实数运算</strong>等。</p>
+<h3 id="弱鸡代码"><a href="#弱鸡代码" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> d1,d2;</span><br><span class="line">	<span class="type">double</span> m1,m2;</span><br><span class="line">	<span class="type">const</span> <span class="type">double</span> PI=<span class="number">3.1415926</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;d1,&amp;d2);</span><br><span class="line">	m1=PI*d1*d1*d1/<span class="number">6000</span>*<span class="number">7.86</span>;</span><br><span class="line">	m2=PI*d2*d2*d2/<span class="number">6000</span>*<span class="number">19.3</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.3f %.3f&quot;</span>,m1,m2);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+
+<h2 id="T10"><a href="#T10" class="headerlink" title="T10"></a>T10</h2><p><strong>题目：</strong>温度转换</p>
+<p><strong>时间限制：</strong>1s</p>
+<p><strong>内存限制：</strong>10000Kb</p>
+<p><strong>问题描述：</strong>已知华氏温度到摄氏温度的转换公式为：摄氏温度&#x3D; (华氏温度- 32)×5&#x2F;9，写程序将给定的华氏温度转换为摄氏温度输出。</p>
+<p><strong>输入说明：</strong>只有一个整数，表示输入的华氏温度。</p>
+<p><strong>输出说明：</strong>输出一个表示摄氏温度的实数，小数点后保留2位有效数字，多余部分四舍五入。</p>
+<p><strong>输入样例：</strong></p>
+<p>50</p>
+<p><strong>输出样例：</strong></p>
+<p>10.00</p>
+<p><strong>提示：</strong></p>
+<p>用scanf输入，用printf输出，保留2位小数的格式控制字符为%.2f</p>
+<h3 id="本题小解析-1"><a href="#本题小解析-1" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>注意<strong>精度控制</strong>和<strong>实数运算</strong>即可。</p>
+<h3 id="弱鸡代码-1"><a href="#弱鸡代码-1" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> f;</span><br><span class="line">	<span class="type">double</span> c;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;f);</span><br><span class="line">	c=(f<span class="number">-32</span>)*<span class="number">5.0</span>/<span class="number">9.0</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.2f&quot;</span>,c);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="T11"><a href="#T11" class="headerlink" title="T11"></a>T11</h2><p><strong>题目：</strong>整数简单运算</p>
+<p><strong>问题描述：</strong>编写程序，计算用户输入的两个整数的和、差、乘积（*）和商（&#x2F;）。</p>
+<p><strong>输入格式：</strong>输入两个整数，整数之间用空格分隔。</p>
+<p>输出格式：输出四个整数结果，分别表示和、差、积和商，每输出一个结果换行。</p>
+<p><strong>输入样例：</strong></p>
+<p>3 4</p>
+<p><strong>输出样例：</strong></p>
+<p>7</p>
+<p>-1</p>
+<p>12</p>
+<p>0</p>
+<h3 id="本题小解析-2"><a href="#本题小解析-2" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>照样子做就行，可以选择定义结果的变量也可以选择直接输出。</p>
+<p><del>没有&#x2F;0差评。</del></p>
+<h3 id="弱鸡代码-2"><a href="#弱鸡代码-2" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> a,b;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a+b);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a-b);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a*b);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a/b);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="T16"><a href="#T16" class="headerlink" title="T16"></a>T16</h2><p><strong>题目：</strong>字符输入输出</p>
+<p><strong>问题描述：</strong>通过键盘输入5个大写字母，输出其对应的小写字母，并在末尾加上“！”。</p>
+<p><strong>输入说明：</strong>5个大写字母通过键盘输入，字母之间以竖线“|”分隔。</p>
+<p><strong>输出说明：</strong>输出5个大写字母对应的小写字母，之间无分隔，并在末尾加上‘！’。</p>
+<p><strong>输入样例：</strong></p>
+<p>H|E|L|L|O</p>
+<p><strong>输出样例：</strong></p>
+<p>hello!</p>
+<h3 id="本题小解析-3"><a href="#本题小解析-3" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>这道题主要注意的就是字母大小写的转换，<strong>需要查询ASCII码表，并直接对ASCII码进行操作（-32）</strong>。</p>
+<p>另外注意输入样例的时候，<strong>scanf函数对非格式控制符是需要进行原样输入的</strong>。举个栗子，弱鸡代码里面的就需要输入A|B|C|D|E才能正常读取所有变量，<strong>即|字符需要原样输入。</strong></p>
+<p>可以选择输入字符串然后取出五个字符，或者直接输入五个字符。<del>我tm在讲什么狗屁</del></p>
+<h3 id="弱鸡代码-3"><a href="#弱鸡代码-3" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">char</span> a,b,c,d,e;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%c|%c|%c|%c|%c&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d,&amp;e);</span><br><span class="line">	a+=<span class="number">32</span>;</span><br><span class="line">	b+=<span class="number">32</span>;</span><br><span class="line">	c+=<span class="number">32</span>;</span><br><span class="line">	d+=<span class="number">32</span>;</span><br><span class="line">	e+=<span class="number">32</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%c%c%c%c%c!&quot;</span>,a,b,c,d,e);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="T18"><a href="#T18" class="headerlink" title="T18"></a>T18</h2><p><strong>题目：</strong>数字字符</p>
+<p><strong>问题描述：</strong>通过键盘输入1个整数a（0&lt;&#x3D;a&lt;&#x3D;4）,1个数字字符b（’0’&lt;&#x3D;b&lt;&#x3D;’5’），求a+b。</p>
+<p><strong>输入说明：</strong>整形数据、数字字符通过键盘输入，输入的整形数据介于0和4之间，输入的数字字符介于‘0’和‘5’之间，二个输入数之间用“,”分隔。</p>
+<p><strong>输出说明：</strong>分别以整数形式及字符形式输出a+b，输出的二个数之间用“,”分隔。</p>
+<p><strong>输入样例：</strong></p>
+<p>3,5</p>
+<p><strong>输出样例：</strong></p>
+<p>56,8</p>
+<h3 id="本题小解析-4"><a href="#本题小解析-4" class="headerlink" title="本题小解析"></a>本题小解析</h3><p><strong>直接照着要求做，该怎么输入怎么输出就怎么搞，别想太多</strong>。</p>
+<h3 id="弱鸡代码-4"><a href="#弱鸡代码-4" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> a;</span><br><span class="line">	<span class="type">char</span> b;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d,%c&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d,%c&quot;</span>,a+b,a+b);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="T19"><a href="#T19" class="headerlink" title="T19"></a>T19</h2><p><strong>题目：</strong>实数运算</p>
+<p><strong>问题描述：</strong>通过键盘输入长方体的长、宽、高，求长方体的体积V（单精度）。</p>
+<p><strong>输入说明：</strong>十进制形式输入长、宽、高，输入数据间用空格分隔。</p>
+<p><strong>输出说明：</strong>单精度形式输出长方体体积V，保留小数点后3位，左对齐。</p>
+<p><strong>输入样例：</strong></p>
+<p>15 8.12 6.66</p>
+<p><strong>输出样例：</strong></p>
+<p>811.188</p>
+<h3 id="本题小解析-5"><a href="#本题小解析-5" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>主要是注意<strong>精度</strong>问题，<strong>输出格式</strong>问题和<strong>左对齐</strong>问题。</p>
+<p><strong>用printf函数修饰符-来控制左对齐，在没有设置域宽（如本题）的时候，一般不用修饰符-，即默认左对齐。</strong></p>
+<h3 id="弱鸡代码-5"><a href="#弱鸡代码-5" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">float</span> a,b,c;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%f %f %f&quot;</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.3f&quot;</span>,a*b*c);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="T20"><a href="#T20" class="headerlink" title="T20"></a>T20</h2><p><strong>题目：</strong>四则运算</p>
+<p><strong>问题描述：</strong>输入两个整数和一个四则运算符，根据运算符计算并输出其运算结果（和、差、积、商、余之一）。注意做整除及求余运算时，除数不能为零。</p>
+<p><strong>输入说明：</strong>使用scanf()函数输入两个整数和一个运算符，格式见输入样例。</p>
+<p><strong>输出说明：</strong>输出使用printf()函数，格式见输出样例。</p>
+<p><strong>输入样例：</strong> </p>
+<p>5%2</p>
+<p><strong>输出样例：</strong></p>
+<p>5%2&#x3D;1</p>
+<h3 id="本题小解析-6"><a href="#本题小解析-6" class="headerlink" title="本题小解析"></a>本题小解析</h3><p><strong>首先，本题不需要你考虑数据为0的情况。</strong></p>
+<p>其次，本题需要用到条件判断，即if…elseif…else…或者switch….case….语句来进行编写，<strong>已经超出了本课教学的范围</strong>。<del>虽然教学啥都bushi</del></p>
+<blockquote>
+<p>如果你要写if语句的话，就需要条件表达式，比如说if(op&#x3D;&#x3D;’+’)（这里的op是运算符的意思，不是你想的那个），这时候就会涉及到逻辑运算符&#x3D;&#x3D;的问题，而&#x3D;&#x3D;代表相等的意思。</p>
+<p>如果你要写switch语句的话，注意case语句后面都需要加上break;防止执行混乱。</p>
+</blockquote>
+<p><strong>最后，用%%来代表输出一个百分号%，亦可用输出op运算符替代。</strong></p>
+<h3 id="弱鸡代码-6"><a href="#弱鸡代码-6" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> a,b;</span><br><span class="line">	<span class="type">char</span> op;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%c%d&quot;</span>,&amp;a,&amp;op,&amp;b);</span><br><span class="line">	<span class="keyword">switch</span>(op)&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a+b);<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a-b);<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a*b);<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a/b);<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;%&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a%b);<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="T21"><a href="#T21" class="headerlink" title="T21"></a>T21</h2><p><strong>题目：</strong>数位输出</p>
+<p><strong>问题描述：</strong>输入一个5位整数，求出其各数位数值，并按照从高位到低位的顺序输出，如：输入12345，输出为1 2 3 4 5。</p>
+<p><strong>输入说明：</strong>输入一个五位正整数。</p>
+<p><strong>输出说明：</strong>按数位从高到低依次输出，各数位之间以一个空格相分隔。</p>
+<p><strong>输入样例：</strong></p>
+<p>96237</p>
+<p><strong>输出样例：</strong></p>
+<p>9 6 2 3 7</p>
+<h3 id="本题小解析-7"><a href="#本题小解析-7" class="headerlink" title="本题小解析"></a>本题小解析</h3><p><strong>看成是你输入五个字符，然后往这五个字符里面加入空格即可。</strong></p>
+<h3 id="弱鸡代码-7"><a href="#弱鸡代码-7" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3> <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">char</span> a,b,c,d,e;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%c%c%c%c%c&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d,&amp;e);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%c %c %c %c %c&quot;</span>,a,b,c,d,e);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
-          
-          <category> 闲聊 </category>
-          
+        <category>C</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 心声 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
 </search>
