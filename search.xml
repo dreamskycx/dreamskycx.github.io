@@ -1,259 +1,687 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>电专c语言oj探秘2</title>
-      <link href="/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%982/"/>
-      <url>/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%982/</url>
-      
-        <content type="html"><![CDATA[<h1 id="题组22"><a href="#题组22" class="headerlink" title="题组22"></a>题组22</h1><p>本题组来源于<a href="http://39.98.193.72/xdoj-ssm/login.jsp">西电oj</a>的22题组（hqy老师课程课后习题），题目还是很简单，依旧适合萌新。</p><blockquote><p>关于西电oj链接替换（已知hqy老师课程适用）的问题：</p><p>从第二份题组开始，所有的题目都会在新的链接发布，原本的链接将会被弃用。</p></blockquote><span id="more"></span><h2 id="电专必看"><a href="#电专必看" class="headerlink" title="电专必看"></a>电专必看</h2><p><strong>如果你提交的时候一直编译错误：</strong></p><p>请确保你<strong>提交的题目</strong>和<strong>选择的文件</strong>匹配。</p><p>请确保你选择的<strong>编译选项正确</strong>，一般有两个选项visual c++和GNU C&#x2F;C++（通常其他的编译器如devc++选择这个）。<del>编者因为选错报错了一次</del></p><p>请确保你使用的标准是ANSIC或者C99，<strong>没有任何奇奇怪怪的东西</strong>（如vs的scanf_s函数等）。</p><p><strong>如果你在本地一直编译错误或输出错误：</strong></p><p>阅读<a href="https://dreamskycx.github.io/%E7%94%B5%E4%B8%93%E7%BC%96%E8%AF%91%E5%B0%8F%E6%89%8B%E5%86%8C">电专编译小手册</a>（我写的别打我）。</p><p><strong>本题解仅供学习参考使用，懂的都懂。</strong></p><p>所以文件不给了（老子太懒啦~~~）</p><h2 id="T1-车牌限行"><a href="#T1-车牌限行" class="headerlink" title="T1 车牌限行"></a>T1 车牌限行</h2><p><strong>时间限制：</strong>1 秒<br><strong>内存限制：</strong>256KB</p><p><strong>问题描述：</strong><br>受雾霾天气影响，某市决定当雾霾指数超过设定值时对车辆进行限行，假设车牌号全为数字，且长度不超过6位，限行规则如下：<br>（1）限行时间段只包括周一至周五，周六周日不限行；<br>（2）如果雾霾指数低于200，不限行；<br>（3）如果雾霾指数大于等于200且低于400，每天限行两个尾号的汽车，周一限行1和6，周二限行2和7，周三限行3和8，周四限行4和9，周五限行5和0；<br>（4）如果雾霾指数大于等于400，每天限行五个尾号的汽车，周一、周三和周五限行1,3,5,7,9，周二和周四限行0,2,4,6,8。 </p><p>现在给出星期几、雾霾指数和车牌号，判断该车牌号是否限行。 </p><p><strong>输入说明</strong><br>输入分为三个整数，第一个整数表示星期几（1<del>7，1表示周一，2表示周二，依次类推，7表示周日），第二个整数表示雾霾指数（0</del>600），第三个整数表示车牌号，整数之间用空格分隔。</p><p><strong>输出说明</strong><br>输出为两个部分，第一部分为车牌最后一位数字，第二部分为限行情况，限行输出yes，不限行输出no。</p><p><strong>输入样例</strong><br>输入样例1<br>4 230 80801<br>输入样例2<br>3 300 67008</p><p><strong>输出样例</strong><br>输出样例1<br>1 no<br>输出样例2<br>8 yes </p><h3 id="本题小解析"><a href="#本题小解析" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>这道题的判断主要由这么几个，按照优先度排序是这样的：</p><p>1.今天星期几（仅周一到周五限行，周末不限行，<del>如果是疯狂星期四，v我50</del>）</p><p>2.雾霾指数（200,400分别为临界点）</p><p>3.车牌尾号（如何实现计算车牌尾号？%10就行）</p><p>注意点比如说<strong>输出格式问题</strong>，<strong>取余问题</strong>等。通常这题容易出现七八十分的情况，需要自己检查自己的条件语句写的有无出错和重复遗漏。</p><h3 id="弱鸡代码"><a href="#弱鸡代码" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> a,b,c,num;</span><br><span class="line"><span class="type">bool</span> xianxing=<span class="literal">false</span>;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">num=c%<span class="number">10</span>; </span><br><span class="line"><span class="keyword">if</span>(a==<span class="number">6</span>||a==<span class="number">7</span>)xianxing=<span class="literal">false</span>;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(b&lt;<span class="number">200</span>)xianxing=<span class="literal">false</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(b&gt;=<span class="number">200</span>&amp;&amp;b&lt;<span class="number">400</span>)&#123;</span><br><span class="line"><span class="keyword">switch</span> (a)&#123;</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>:<span class="keyword">if</span>(num==<span class="number">1</span>||num==<span class="number">6</span>)xianxing=<span class="literal">true</span>;<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:<span class="keyword">if</span>(num==<span class="number">2</span>||num==<span class="number">7</span>)xianxing=<span class="literal">true</span>;<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">3</span>:<span class="keyword">if</span>(num==<span class="number">3</span>||num==<span class="number">8</span>)xianxing=<span class="literal">true</span>;<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">4</span>:<span class="keyword">if</span>(num==<span class="number">4</span>||num==<span class="number">9</span>)xianxing=<span class="literal">true</span>;<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">5</span>:<span class="keyword">if</span>(num==<span class="number">5</span>||num==<span class="number">0</span>)xianxing=<span class="literal">true</span>;<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line"><span class="keyword">switch</span> (a)&#123;</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>:<span class="keyword">case</span> <span class="number">3</span>:<span class="keyword">case</span> <span class="number">5</span>:<span class="keyword">if</span>(num%<span class="number">2</span>!=<span class="number">0</span>)xianxing=<span class="literal">true</span>;<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:<span class="keyword">case</span> <span class="number">4</span>:<span class="keyword">if</span>(num%<span class="number">2</span>==<span class="number">0</span>)xianxing=<span class="literal">true</span>;<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,num);</span><br><span class="line"><span class="keyword">if</span>(xianxing==<span class="literal">true</span>)<span class="built_in">printf</span>(<span class="string">&quot;yes&quot;</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;no&quot;</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>弱鸡代码里面用到了bool变量，方便最后的输出。</p><p>用if…else…或者swtich…case…语句都可。</p><h2 id="T2-阶梯电价计费"><a href="#T2-阶梯电价计费" class="headerlink" title="T2 阶梯电价计费"></a>T2 阶梯电价计费</h2><p><strong>类别：</strong>流程控制</p><p><strong>时间限制：</strong>2S</p><p><strong>内存限制：</strong>10000Kb</p><p><strong>问题描述：</strong></p><p>电价分三个档次，[0,110]度电，每度电0.5元；(110,210]度电，超出110部分每度电0.55元，超过210度电，超出210部分每度电0.70元，给出一个家庭一月用电量，请计算出应缴的电费（四舍五入，保留小数点后两位小数）。</p><p><strong>输入说明：</strong></p><p>输入数据为一个正实数，表示一月用电量</p><p><strong>输出说明：</strong></p><p>输出应缴电费，四舍五入保留2位小数。</p><p><strong>输入样例：</strong></p><p>输入样例1</p><p>100</p><p>输入样例2</p><p>200</p><p>输入样例3</p><p>329.75</p><p><strong>输出样例：</strong></p><p>输出样例1</p><p>50.00</p><p>输出样例2</p><p>104.50</p><p>输出样例3</p><p>193.82</p><h3 id="本题小解析-1"><a href="#本题小解析-1" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>一个简单的计价判断问题。根据不同的阶梯计算出价格就行。</p><p>注意<strong>数据格式问题</strong>和<strong>精度问题</strong>。</p><h3 id="弱鸡代码-1"><a href="#弱鸡代码-1" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">double</span> a,num;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%lf&quot;</span>,&amp;a);</span><br><span class="line"><span class="keyword">if</span>(a&gt;<span class="number">0</span>&amp;&amp;a&lt;=<span class="number">110</span>)num=a*<span class="number">0.5</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(a&gt;<span class="number">110</span>&amp;&amp;a&lt;=<span class="number">210</span>)num=<span class="number">55</span>+(a<span class="number">-110</span>)*<span class="number">0.55</span>;</span><br><span class="line"><span class="keyword">else</span> num=<span class="number">110</span>+(a<span class="number">-210</span>)*<span class="number">0.7</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%.2f&quot;</span>,num);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure><h2 id="T3-计算某月天数"><a href="#T3-计算某月天数" class="headerlink" title="T3 计算某月天数"></a>T3 计算某月天数</h2><p><strong>类别：</strong>流程控制</p><p><strong>时间限制：</strong>2S</p><p><strong>内存限制：</strong>10000Kb</p><p><strong>问题描述：</strong></p><p>每年的1，3，5，7，8，10，12月有31天，4，6，9，11月有30天，闰年2月29天，其他年份2月28天，给定年份和月份求该月的天数</p><p><strong>输入说明：</strong></p><p>输入由两个正整数a和b构成，a表示年份，b表示月份，a和b之间用空格分隔</p><p><strong>输出说明：</strong></p><p>根据年份和月份计算该月天数并输出</p><p><strong>输入样例</strong></p><p>输入样例1</p><p>2000 3</p><p>输入样例2</p><p>2001 2</p><p><strong>输出样例</strong></p><p>输出样例1</p><p>31</p><p>输出样例2</p><p>28</p><h3 id="本题小解析-2"><a href="#本题小解析-2" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>本题其实是一个月份判断和年份判断的综合题。</p><p>注意<strong>闰年的定义：年份为4的倍数，不是100的倍数但为400倍数的，是闰年。</strong></p><h3 id="弱鸡代码-2"><a href="#弱鸡代码-2" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> a,b;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line"><span class="keyword">switch</span>(b)&#123;</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>:<span class="keyword">case</span> <span class="number">3</span>:<span class="keyword">case</span> <span class="number">5</span>:<span class="keyword">case</span> <span class="number">7</span>:<span class="keyword">case</span> <span class="number">8</span>:<span class="keyword">case</span> <span class="number">10</span>:<span class="keyword">case</span> <span class="number">12</span>:<span class="built_in">printf</span>(<span class="string">&quot;31&quot;</span>);<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">4</span>:<span class="keyword">case</span> <span class="number">6</span>:<span class="keyword">case</span> <span class="number">9</span>:<span class="keyword">case</span> <span class="number">11</span>:<span class="built_in">printf</span>(<span class="string">&quot;30&quot;</span>);<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line"><span class="keyword">if</span>(a%<span class="number">4</span>==<span class="number">0</span>)&#123;</span><br><span class="line"><span class="keyword">if</span>(a%<span class="number">100</span>==<span class="number">0</span>)&#123;</span><br><span class="line"><span class="keyword">if</span>(a%<span class="number">400</span>==<span class="number">0</span>)<span class="built_in">printf</span>(<span class="string">&quot;29&quot;</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;28&quot;</span>);</span><br><span class="line">&#125;<span class="keyword">else</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;29&quot;</span>);</span><br><span class="line">&#125;<span class="keyword">else</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;28&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>用if…else也可。</p><h2 id="T4-寻找最大整数"><a href="#T4-寻找最大整数" class="headerlink" title="T4 寻找最大整数"></a>T4 寻找最大整数</h2><p><strong>类别：</strong>流程控制</p><p><strong>时间限制：</strong>1S</p><p><strong>内存限制：</strong>1000Kb</p><p><strong>问题描述</strong><br>从键盘输入四个整数，找出其中的最大值并将其输出。</p><p><strong>输入说明</strong><br>输入4个整数，用空格分隔</p><p><strong>输出说明</strong><br>输出值最大的一个整数</p><p><strong>输入样例</strong><br>25 99 -46 0</p><p><strong>输出样例</strong><br>99</p><h3 id="本题小解析-3"><a href="#本题小解析-3" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>如何判断一个数最大呢？或许直接用if来比较a,b,c,d这四个数的大小并不合适。</p><p>但是，我们可以先选出一个数，让他和其他的数pk，如果这个数比其他的数小，换一个数当最大数，而如果这个数最大，就可以保留下来。</p><p>这样的话只需要n-1次比较就可以选出n个数里面的最大数。</p><h3 id="弱鸡代码-3"><a href="#弱鸡代码-3" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> a,b,c,d,max;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d %d&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d);</span><br><span class="line">max=a;</span><br><span class="line"><span class="keyword">if</span>(max&lt;b)max=b;</span><br><span class="line"><span class="keyword">if</span>(max&lt;c)max=c;</span><br><span class="line"><span class="keyword">if</span>(max&lt;d)max=d;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,max);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure><p>也可以设数组用循环，这里四个数就不搞这些了。</p><h2 id="T5-字符处理"><a href="#T5-字符处理" class="headerlink" title="T5 字符处理"></a>T5 字符处理</h2><p><strong>类别：</strong>流程控制<br><strong>时间限制：</strong>1S</p><p><strong>内存限制：</strong>1000Kb</p><p><strong>问题描述</strong><br>从键盘输入一个字符，若为小写字母，则输出其对应的大写字母；若为大写字母，则输出对应的小写字母；其他字符原样输出。</p><p><strong>输入说明</strong><br>输入一个字符</p><p><strong>输出说明</strong><br>输出一个字符</p><p><strong>输入样例</strong><br>样例1输入<br>a<br>样例2输入<br>B<br>样例3输入<br>2</p><p><strong>输出样例</strong><br>样例1输出<br>A<br>样例2输出<br>b<br>样例3输出<br>2</p><h3 id="本题小解析-4"><a href="#本题小解析-4" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>其实这题就两个点：</p><p>1.判断这个字母是大写字母还是小写字母还是其他字符，用ASCII码控制。</p><p>2.对大小写字符进行操作（+或-32）。</p><h3 id="弱鸡代码-4"><a href="#弱鸡代码-4" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">char</span> a;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>,&amp;a);</span><br><span class="line"><span class="keyword">if</span>(a&gt;=<span class="string">&#x27;a&#x27;</span>&amp;&amp;a&lt;=<span class="string">&#x27;z&#x27;</span>)a-=<span class="number">32</span>; </span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(a&gt;=<span class="string">&#x27;A&#x27;</span>&amp;&amp;a&lt;=<span class="string">&#x27;Z&#x27;</span>)a+=<span class="number">32</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,a);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>鉴于本人懒得查表看各位字符的ASCII码了，直接用字符代替。</p><h2 id="T6-成绩分级"><a href="#T6-成绩分级" class="headerlink" title="T6 成绩分级"></a>T6 成绩分级</h2><p><strong>类别：</strong>流程控制<br><strong>时间限制：</strong>1S</p><p><strong>内存限制：</strong>1000Kb</p><p><strong>问题描述</strong><br>给出一个百分制的成绩，要求输出成绩等级’A’,’B’,’C’,’D’,’E’。90分以上为’A’，80<del>89分为’B’,70</del>79分为’C’,60~69分为’D’，60分以下为’E’。</p><p><strong>输入说明</strong><br>输入一个正整数m（0&lt;&#x3D;m&lt;&#x3D;100）</p><p><strong>输出说明</strong><br>输出一个字符</p><p><strong>输入样例</strong><br>59</p><p><strong>输出样例</strong><br>E</p><h3 id="本题小解析-5"><a href="#本题小解析-5" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>一个可以用if…else…或者switch…case…的案例。</p><p>由于成绩是10分一等位，故可以&#x2F;10来进行转化并用swtich…case…语句。</p><h3 id="弱鸡代码-5"><a href="#弱鸡代码-5" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> m;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;m);</span><br><span class="line">m/=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">switch</span>(m)&#123;</span><br><span class="line"><span class="keyword">case</span> <span class="number">10</span>:<span class="keyword">case</span> <span class="number">9</span>:<span class="built_in">printf</span>(<span class="string">&quot;A&quot;</span>);<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">8</span>:<span class="built_in">printf</span>(<span class="string">&quot;B&quot;</span>);<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">7</span>:<span class="built_in">printf</span>(<span class="string">&quot;C&quot;</span>);<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">6</span>:<span class="built_in">printf</span>(<span class="string">&quot;D&quot;</span>);<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">default</span>:<span class="built_in">printf</span>(<span class="string">&quot;E&quot;</span>);<span class="keyword">break</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure><p>由于题目数据范围为0-100，在除去ABCD等第后，剩下的都为E等第，故用default代替。</p><h2 id="T7-直角三角形"><a href="#T7-直角三角形" class="headerlink" title="T7 直角三角形"></a>T7 直角三角形</h2><p><strong>类别：</strong>流程控制</p><p><strong>时间限制：</strong>1S</p><p><strong>内存限制：</strong>1000Kb</p><p><strong>问题描述</strong><br>设直角三角形两条直角边长度为a和b，斜边长度为c，则a，b，c满足a^2+b^2&#x3D;c^2，<br>输入三个整数a，b，c，判断对应的三角形是不是直角三角形，不是则输出“no”，是则输出其面积的2倍。</p><p><strong>输入说明</strong><br>数据由同一行的三个整数a，b，c构成，整数之间以空格分隔</p><p><strong>输出说明</strong><br>如果输入的三个整数可以构成一个直角三角形，则输出一个整数表示该三角形面积的2倍；否则输出“no”</p><p><strong>输入样例</strong><br>样例1输入<br>1 1 2<br>样例2输入<br>3 4 5</p><p><strong>输出样例</strong><br>样例1输出<br>no<br>样例2输出<br>12</p><h3 id="本题小解析-6"><a href="#本题小解析-6" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>本题主要是注意<strong>直角三角形的判断</strong>和<strong>三角形公式的运算</strong>。</p><p>在给定三角形三条边a,b,c的时候，有S&#x3D;sqrt(p(p-a)(p-b)(p-c))，p&#x3D;(a+b+c)&#x2F;2，称为<strong>海伦公式</strong>。</p><p>若a,b,c满足a^2+b^2&#x3D;c^2，必存在以a,b,c为三边的三角形。<strong>同时要注意a,b,c都为最长边的情况。</strong></p><p>如果使用sqrt函数,要<strong>包含&lt;math.h&gt;头文件</strong>。</p><p>注意输出要求，<strong>两倍的面积</strong>或no。</p><h3 id="弱鸡代码-6"><a href="#弱鸡代码-6" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span> </span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> a,b,c,area;</span><br><span class="line"><span class="type">float</span> p;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">p=(a+b+c)/<span class="number">2</span>; </span><br><span class="line">area=<span class="built_in">sqrt</span>(p*(p-a)*(p-b)*(p-c));</span><br><span class="line"><span class="keyword">if</span>(a*a+b*b==c*c||b*b+c*c==a*a||c*c+a*a==b*b)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,area*<span class="number">2</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;no&quot;</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="T8-工资计算"><a href="#T8-工资计算" class="headerlink" title="T8 工资计算"></a>T8 工资计算</h2><p><strong>问题描述</strong></p><p>小明的公司每个月给小明发工资，而小明拿到的工资为交完个人所得税之后的工资。假设他一个月的税前工资为S元，则他应交的个人所得税按如下公式计算：</p><p>　　1） 个人所得税起征点为3500元，若S不超过3500，则不交税，3500元以上的部分才计算个人所得税，令A&#x3D;S-3500元；</p><p>　　2） A中不超过1500元的部分，税率3%；</p><p>　　3） A中超过1500元未超过4500元的部分，税率10%；</p><p>　　4） A中超过4500元未超过9000元的部分，税率20%；</p><p>　　5） A中超过9000元未超过35000元的部分，税率25%；</p><p>　　6） A中超过35000元的部分，税率30%；</p><p>　　例如，如果小明的税前工资为10000元，则A&#x3D;10000-3500&#x3D;6500元，其中不超过1500元部分应缴税1500×3%&#x3D;45元，超过1500元不超过4500元部分应缴税(4500-1500)×10%&#x3D;300元，超过4500元部分应缴税(6500-4500)×20%&#x3D;400元。总共缴税745元，税后所得为9255元。</p><p>　　已知小明这个月税前所得为S元，请问他的税后工资T是多少元。</p><p><strong>输入格式</strong></p><p>　　输入为一个整数S，表示小明的税前工资。</p><p><strong>输出格式</strong></p><p>　　输出一个整数T，表示小明的税后工资。</p><p><strong>样例输入</strong></p><p>10000</p><p><strong>样例输出</strong></p><p>9255</p><p><strong>评测用例规模与约定</strong></p><p>对于所有评测用例，1 ≤ T ≤ 100000。</p><p>所有评测数据保证小明的税前工资为一个整百的数。</p><h3 id="本题小解析-7"><a href="#本题小解析-7" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>一个经典的判断题，就是有点老了，个税改革啦！</p><p>注意<strong>个人起征点</strong>和<strong>分段计算原则</strong>。</p><p>注意输出为<strong>税后工资</strong>而不是<strong>个人所得税</strong>。</p><h3 id="弱鸡代码-7"><a href="#弱鸡代码-7" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> s,a,t;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;s);</span><br><span class="line">a=s<span class="number">-3500</span>;</span><br><span class="line"><span class="keyword">if</span>(a&lt;=<span class="number">0</span>)t=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(a&gt;<span class="number">0</span>&amp;&amp;a&lt;=<span class="number">1500</span>)t=<span class="number">0.03</span>*a;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(a&gt;<span class="number">1500</span>&amp;&amp;a&lt;=<span class="number">4500</span>)t=<span class="number">0.1</span>*(a<span class="number">-1500</span>)+<span class="number">45</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(a&gt;<span class="number">4500</span>&amp;&amp;a&lt;=<span class="number">9000</span>)t=<span class="number">0.2</span>*(a<span class="number">-4500</span>)+<span class="number">345</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(a&gt;<span class="number">9000</span>&amp;&amp;a&lt;=<span class="number">35000</span>)t=<span class="number">0.25</span>*(a<span class="number">-9000</span>)+<span class="number">1245</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(a&gt;=<span class="number">35000</span>)t=<span class="number">0.3</span>*(a<span class="number">-35000</span>)+<span class="number">7745</span>;</span><br><span class="line">s-=t;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>2022年Minecraft综合能力合格性测试</title>
+    <url>/2022%E5%B9%B4Minecraft%E7%BB%BC%E5%90%88%E8%83%BD%E5%8A%9B%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>这是一份我和<a href="https://www.zhihu.com/people/qi-qi-37-74-70-86">琦琦</a>一起写的一份我的世界综合能力评估测试。本卷致力于筛选出玩我的世界和不玩我的世界的人，理论上试卷难度不大，但是题目的难度与区分度仍难以把控，如有问题请多多包涵。</p>
+<p>试卷已经在<a href="https://www.zhihu.com/question/541683824">知乎</a>发布，亦可移步<a href="https://ks.wjx.top/vm/YDuuA6g.aspx">问卷星在线答题页面</a>。</p>
+<span id="more"></span>
+
+<blockquote>
+<p> 本卷编写年月：2022.7<br> 考生在答题前请认真阅读本注意事项及各题答题要求<br> 本试卷共10页，包含选择题(第1题～第20题，共28题)、非选择题(第29题～第30题，共5题)两分．本卷满分为100分，考试时间为60分钟．考试结束后，请将答题卡或答题纸交回；<br> 答题前，请您务必将自己的姓名、考试号用0．5毫米黑色墨水的签字笔填写在答题卡或答题纸的规定位置；<br> 作答选择题时，必须用2B铅笔将答题卡上对应选项的方框涂满、涂黑；如需改动，请用橡皮擦干净后，再选涂其他答案．作答非选择题时，必须用0．5毫米黑色墨水签字笔在答题卡或答题纸上的指定区域内作答，在其他区域作答一律无效；<br> 如需作图，须用2B铅笔绘、写清楚，线条、符号等需加黑、加粗；<br> 本卷如无特殊说明，则所有题目版本背景都是无作弊生存模式下Java版1.17我的世界．</p>
+</blockquote>
+<h2 id="选择部分"><a href="#选择部分" class="headerlink" title="选择部分"></a>选择部分</h2><p><strong>一、选择题：本部分共有28小题，每小题3分，共84分．每小题有且只有一个选项是正确答案．答案请填涂在相应的答题区域．</strong><br>1．在Minecraft中，绝大部分的物品都需要使用工作台合成．以下物品<u>不需要</u>使用工作台合成的是<br>A．石镐	B．火把	C．熔炉	D．钻石块<br>2．食物是Minecraft的一大特色，以下哪种食物可以被玩家直接食用?<br>A．鸡蛋	B．南瓜块	C．腐肉	D．小麦<br><em>夜晚是新手玩MC所遇到的第一个挑战，据此回答3～4题．</em><br>3．床是Minecraft玩家的必备物品，以下说法<u>不正确</u>的是<br>A．床需要3个木板和3个羊毛合成	B．床可以设置出生点<br>C．床可以使Steve度过夜晚	D．床在任何地方都可以稳定使用<br>4．Steve决定在夜晚出去探索，结果被炸死了，他最有可能遇到了<br>A．末影人	B．骷髅	C．苦力怕	D．僵尸<br><em>Steve不可避免会受到摔落伤害，为了减少摔落伤害带来的影响，Steve想了许多办法来减少自己的摔落伤害，据此回答5～6题．</em><br>5．关于摔落伤害，下列说法<u>不正确</u>的是<br>A．若Steve从的摔落高度为30，且受到伤害，则其受到的伤害足以让满血的Steve死亡<br>B．若Steve在方块上潜行，可以有效避免从方块边缘摔落<br>C．若Steve骑乘的生物受到摔落伤害，Steve也会受到摔落伤害<br>D．若Steve没有任何防护和增益，则其受到的摔落伤害x与摔落高度y的关系为x＝y－3<br>6．Steve掉落在以下方块上，<u>不能</u>完全免疫摔落伤害的是<br>A．干草块	B．水	C．粘液块	D．梯子<br>7．自己动手，丰衣足食，Steve想通过种田来解决自己的食物来源问题．下列说法中，<u>不正确</u>的是<br>A．Steve在耕地上跳跃会使耕地变成泥土<br>B．使用锄来开垦泥土或草方块使其变为耕地<br>C．在耕地附近范围无水的条件下，作物无法成熟并收割<br>D．对作物使用骨粉或在作物附近养殖蜜蜂均可加速作物生长速度<br>8．对于一些物品的合成，其原材料的排放位置无关紧要，这些配方称为无序配方．下列物品的合成配方<u>不属于</u>无序配方的是<br>A．蘑菇煲	B．染色羊毛	C．书	D．胡萝卜钓竿<br>9．一组煤炭作为燃料，用熔炉可以烧制（          ）组物品<br>A．8	B．10	C．16	D．64<br>10．耐久最低的镐子是<br>A．木镐	B．石镐	C．金镐	D．下界合金镐<br>11．随着版本的更新，Minecraft的建筑高度范围从原本的0～256变成了－64～320，在版本更新后，下列说法正确的是<br>A．基岩层为y＝0<br>B． y＜－64的区域是虚空，Steve在生存模式下掉入虚空最终都会死亡<br>C．若Steve处于飞行状态，Steve的位置y＝500是不可能的<br>D．Steve有一定概率在y＝319的地方挖到矿石<br>12．以下矿石挖掘后掉落的方块需要通过熔炼才能获得相应矿石的是<br>A．红石矿石	B．铁矿石	C．钻石矿石	D．青金石矿石<br><em>Steve积攒了大量的经验，他想通过一定的方式来使用经验．据此回答13～15题．</em><br>13．在Minecraft中获得经验的方式很多，但<u>不包括</u>以下哪个方式?<br>A．与村民交易	B．挖矿	C．烧炼物品	D．驯服生物<br>14．附魔是使用经验的有效方式，下列说法不正确的是<br>A．附魔在需要经验的同时需要青金石<br>B．可以通过铁砧来进行附魔<br>C．Steve可以持续刷新附魔，以获得自己需要的附魔<br>D．Steve可以在附魔台附近以一定的方式摆放一定数量的的书架，以提高附魔等级，获得更好的附魔<br>15．无法通过附魔台得到的附魔称为宝藏性附魔．以下哪类附魔为宝藏性附魔?<br>A．绑定诅咒	B．时运	 C．截肢杀手	D．火焰附加<br><em>Steve决定探索下界，据此回答16～17题．</em><br>16．下列说法正确的是<br>A．下界传送门的框架大小固定为4×5<br>B．下界传送门可能会被爆炸所破坏<br>C．主世界的坐标和下界坐标的比例为8：1<br>D．在下界使用指南针可以定位到下界传送门<br>17．下界中有许多的生物，下列说法<u>不正确</u>的是<br>A．Steve可以和成年猪灵用金锭以物易物	B．Steve可以击杀岩浆怪获得岩浆膏<br>C．Steve可以在下界击杀骷髅	D．Steve可以骑乘赤足兽和恶魂<br>18．Steve决定在河边钓鱼，他<u>不可能</u>钓上来<br>A．小麦种子	B．木棍	C．钓鱼竿	D．水瓶<br>19．Steve决定使用指令，以下指令正确的是<br>A．清除所有实体：&#x2F;clear<br>B．设置时间约为中午：&#x2F;time 18000<br>C．切换生存模式：&#x2F;gamemode 1<br>D．在当前位置生成闪电：&#x2F;summon lightning_bolt ～ ～ ～<br>20．如果在一个大箱子中54格储存空间内全部放满鸡蛋，则该箱子中鸡蛋的存储数量为<br>A．864	B．3456	C．1728	D．432<br>21．村民是村庄的重要组成成分．下列说法中<u>不正确</u>的是<br>A．村民可在村庄中有床的房屋里生成<br>B．村民可以主动攀爬梯子并打开活板门<br>C．村庄内可能会有多只铁傀儡<br>D．治愈僵尸村民可以让Steve在和村民的交易中获得打折<br><em>红石电路是Minecraft的重要组成部分，据此回答22～23题．</em><br>22．红石元器件是指既可以被充能，又可以给其他方块充能的红石元件．下列属于红石元器件的是<br>A．活塞	B．红石块	C．红石比较器	D．压力板<br>23．红石电路有时需要判断输入信号，经过一定的算法产生一个输出，这类电路即为人们耳熟能详的逻辑门．根据以下输入，可以判断该门<u>不属于</u><br>输入：1 0 输出：1<br>A．或门	B．异或门	C．与门	D．与非门<br>24．下面关于进度的说法不正确的是<br>A．结束了?：杀死末影龙	B．隔墙有眼：进入要塞<br>C．冰桶挑战：创造并获得一块黑曜石	D．来硬的：获得一块铁锭<br>25．在水中，Steve的会受到各种影响，下列说法正确的是<br>A．Steve在不携带任何装备时，在潜水过程中有约30秒的活动时间，超后就会受到伤害<br>B．所有生物都可在水中移动<br>C．Steve在海底向下挖掘时，挖掘速度约为陆地上挖掘同种方块的1&#x2F;5<br>D．水的传播距离为9格<br><em>为增强游戏体验，Steve在某地图存档中加入了3种合成不同方向的蛋糕的合成表．因此，在该地图中，Steve可以合成上、下、左、右四种不同方向的蛋糕，其合成所需的材料与正常蛋糕相同，只是其摆放方式不同，摆放方向与蛋糕所朝方向一致．且当Steve手持过方向向下的蛋糕后，由于手很“黏”，会使自己在一段时间内挖掘任意方块的速度减慢，但移动速度不受影响．据此回答26～27题．</em><br>26．下图所示的材料在工作台上的摆放方式可以合成下面哪种蛋糕?</p>
+<table>
+<thead>
+<tr>
+<th>小麦</th>
+<th>小麦</th>
+<th>小麦</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>糖</strong></td>
+<td><strong>鸡蛋</strong></td>
+<td><strong>糖</strong></td>
+</tr>
+<tr>
+<td><strong>牛奶桶</strong></td>
+<td><strong>牛奶桶</strong></td>
+<td><strong>牛奶桶</strong></td>
+</tr>
+</tbody></table>
+<p>A．图片朝上的蛋糕	B．图片朝下的蛋糕	C．图片朝左的蛋糕 	D．图片朝右的蛋糕<br>27．题中划线处的效果与下列哪个效果相似?<br>A．失明	B．缓慢	C．力量	D．挖掘疲劳<br>28．以下是Steve在玩Minecraft时的一些行为，则下列行为中<u>不正确</u>的是<br>A．在国际服务器中，面对与自己观点不合的人，Steve直接在聊天区中开骂对方<br>B．作为某服务器的管理员，Steve总会满足玩家合理的需求，不会无理由地破坏玩家的游戏体验<br>C．在与其他游戏玩家的聊天中，Steve不会出现违规、涉敏词汇<br>D．在观看与Minecraft无关或关联性不大的视频中，Steve不会在视频评论区刷大量有关Minecraft的内容</p>
+<h2 id="非选择部分"><a href="#非选择部分" class="headerlink" title="非选择部分"></a>非选择部分</h2><p><strong>二、填空题：共16分．如无特殊说明，每空2分．答案请填写在相应的答题区域．在涉及游戏内译名相关的问题中，答案一律以简体中文(中国)的标准译名为准，否则不得分．</strong><br>29．(6分)除了工作台，在Minecraft种也有许多有用的方块，如炼药锅和酿造台．<br>(1)在使用炼药锅时，需要准备好相关的材料，如水瓶、烈焰粉和酿造材料．<br>①水瓶可以通过手持玻璃瓶对着水源点击使用键获得．玻璃瓶可以在工作台上用（          ）合成获得．<br>②烈焰粉可以通过击杀（          ）获得烈焰棒，并将其分解成烈焰粉．<br>(2)炼药锅在游戏中有许多的功能，如：（          ）(举一例即可)．<br>30．(10分)铁是Minecraft中一种常见但重要的一种矿物．<br>(1)铁在Minecraft中有许多的获得方法．除了通过挖掘铁矿石并烧炼获得铁锭外，还有击杀（          ）、　（          ）或开箱子战利品等方法．<br>(2)铁在Minecraft中有许多的用途．<br>①铁可以用于合成盔甲．若Steve想用铁来合成“铁4件套”(1个铁头盔＋1个铁胸甲＋1个铁护腿＋1个铁靴子)，则Steve需要（          ）个铁锭才能合成一个“铁4件套”<br>②铁可以用来合成铁砧．<br>(i)合成一个铁砧需要的铁锭数量为（          ）(其中1个铁块记为9个铁锭)．<br>(ii)铁砧除了可以用来修复装备、给装备附魔外，还可以用来（          ）(举一例即可)．</p>
+]]></content>
       <categories>
-          
-          <category> C </category>
-          
+        <category>我的世界</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 题解 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>电专编译小手册</title>
-      <link href="/%E7%94%B5%E4%B8%93%E7%BC%96%E8%AF%91%E5%B0%8F%E6%89%8B%E5%86%8C/"/>
-      <url>/%E7%94%B5%E4%B8%93%E7%BC%96%E8%AF%91%E5%B0%8F%E6%89%8B%E5%86%8C/</url>
-      
-        <content type="html"><![CDATA[<p>本文档将大概讲述关于c语言查错，电专c语言oj的使用教程。</p><span id="more"></span><h1 id="第一个程序"><a href="#第一个程序" class="headerlink" title="第一个程序"></a>第一个程序</h1><p>当你写第一个程序的时候，你可能会碰到各种问题，比如编译器的安装问题，编译报错，或者其他让你想骂人的问题。</p><p>由于大家都不是<a href="https://changakira.github.io/">元元</a>那样的大佬，<del>直接大跃进半学期课程</del>，所以说，基本的查错规则还是有必要的。</p><h2 id="如何安装一个编译器"><a href="#如何安装一个编译器" class="headerlink" title="如何安装一个编译器"></a>如何安装一个编译器</h2><p>搜索引擎是个好东西，学会使用它来找到编译器资源。</p><p><strong>devc++<strong>在安装的时候会遇到选择语言环节，</strong>请先选择英文</strong>，再后续进行修改。</p><p><strong>不建议vs编译器</strong>，非标准内容太多了，后面会说。</p><h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><p>如果你的程序报错，请注意以下错误：</p><p><strong>是否正确书写头文件和关键词</strong></p><p><strong>是否正确书写逗号，分号，括号等符号，并保证没有多余的符号</strong></p><p><strong>是否正确定义变量</strong></p><p><strong>是否为英文输入法字符</strong></p><p>如果你不能确定你的报错，请善用搜索引擎和提问，参考<a href="https://blog.csdn.net/qq_34804120/article/details/89117072">提问的智慧</a>。</p><h2 id="非预期的输出效果"><a href="#非预期的输出效果" class="headerlink" title="非预期的输出效果"></a>非预期的输出效果</h2><p>可能你的程序没有报错，但还是会输出错误，请注意没有以下问题：</p><p><strong>数据溢出或数据精度不够</strong></p><p><strong>死循环&#x2F;循环次数不对</strong></p><p><strong>输出&#x2F;输入格式控制符错误</strong></p><p><strong>运算式&#x2F;算法错误</strong></p><p><strong>越界的内存访问</strong></p><p><strong>警告问题</strong></p><p>如果你不能确定你的程序问题，请善用搜索引擎和提问，参考<a href="https://blog.csdn.net/qq_34804120/article/details/89117072">提问的智慧</a>。</p><p>如果你觉得你的程序效率太低，导致TLE或MLE，请：</p><p><strong>选择更好的算法</strong></p><p><strong>使用效率较高的语句（标准输入输出，位运算等）</strong></p><p><strong>吸氧！（指开启O2，比赛用不了）</strong></p><h2 id="环境问题"><a href="#环境问题" class="headerlink" title="环境问题"></a>环境问题</h2><p>如果你不能确定你的报错&#x2F;问题是否为环境问题引起，可以尝试：</p><p><strong>在其他编译器（如在线）上编译运行</strong></p><p><strong>在其他系统上编译运行</strong></p><h1 id="电专oj"><a href="#电专oj" class="headerlink" title="电专oj"></a>电专oj</h1><p>你说得对，但是「电专oj」是由西宀子科技大学推出的在线评测机，你将扮演一位名为「电专er」的大学牲，在自由的冲浪中邂逅形态各异，描述奇特的题目，用“精通”的c语言技术把题目水完，用从而逐步发现「电专oj」的真相。</p><p><a href="https://cvnis.xidian.edu.cn/">网址链接</a></p><h2 id="如何水题"><a href="#如何水题" class="headerlink" title="如何水题"></a>如何水题</h2><p>在使用电专身份认证系统进入后，点击<strong>你的老师的课</strong>，进入<strong>在线测试</strong>，点击<strong>测试列表</strong>，并进入<strong>老师要求你做的题单</strong>，就可以预览和下载题目了。</p><h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>点击提交程序，就可以进行提交！<del>废话</del></p><p><strong>如果你提交的时候一直编译错误，但在本地编译正确：</strong></p><p>请确保你<strong>提交的题目</strong>和<strong>选择的文件</strong>匹配。</p><p>请确保你选择的<strong>编译选项正确</strong>。</p><p>请确保你使用的标准是ANSIC或者C99，<strong>没有任何奇奇怪怪的东西</strong>（如vs的scanf_s函数等）。</p><p><strong>如果你的分数不是满分：</strong></p><p>查看你的<strong>输入输出格式是否正确</strong>，一般<strong>没有其他提示性文字</strong>，<strong>以题目为准</strong>。</p><p>查看<strong>你的算法是否正确</strong>，多用几组数据进行调试，<strong>阅读前文的《非预期的输出效果》</strong>。</p><h2 id="排行榜"><a href="#排行榜" class="headerlink" title="排行榜"></a>排行榜</h2><p>你可以查看你的朋友的成绩，并以此作为依据来发放<strong>《卷狗证明》</strong>。</p>]]></content>
-      
-      
+      <tags>
+        <tag>整活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo+Next建站配置详细版</title>
+    <url>/Hexo+Next%E5%BB%BA%E7%AB%99%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E7%89%88/</url>
+    <content><![CDATA[<p><strong>本文章将持续更新</strong></p>
+<p>这篇文章将详细讲述所有的Hexo和Next的config详细配置内容。</p>
+<span id="more"></span>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="为什么要写这篇文章"><a href="#为什么要写这篇文章" class="headerlink" title="为什么要写这篇文章"></a>为什么要写这篇文章</h2><p>主要是为了对文档的一个简单普及和更新，很多博客的内容都是20年前的内容，Next5.x版本的，在搜集的过程中造成了很大的困扰。同时网上存在部分Next7.x的文档不易被人搜索得到。</p>
+<p>由于本人的水平所限，本文章可能会对部门内容的讲解有所偏差，如看到请指正谢谢。</p>
+<p>关于最新版本的建站，可以参考好友<a href="https://changakira.github.io/">Akira</a>的<a href="https://changakira.github.io/2022/09/02/Hexo%E5%BB%BA%E7%AB%99%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/#more">建站教程</a>。本人将在以后逐步更新。</p>
+<p>本文章的配置环境：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hexo:6.2.0</span><br><span class="line">Next:7.7.2</span><br><span class="line">Node.16.17.0</span><br></pre></td></tr></table></figure>
+
+<h2 id="本文参考的内容链接"><a href="#本文参考的内容链接" class="headerlink" title="本文参考的内容链接"></a>本文参考的内容链接</h2><p><a href="https://hexo.io/zh-cn/docs/index.html">Hexo开发文档</a></p>
+<p><a href="https://theme-next.js.org/">Next开发文档</a></p>
+<p><a href="https://hexo-next.readthedocs.io/zh_CN/latest/">Hexo-Next开发文档</a></p>
+<p>其他相关内容将在相关板块讲述。</p>
+<h2 id="常见指令"><a href="#常见指令" class="headerlink" title="常见指令"></a>常见指令</h2><p>以下指令请在<strong>博客根目录</strong>运行<strong>Git Bash</strong>来进行操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>生成静态文件。</p>
+<p>可在后面加入-d或–deploy来进行立即部署。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo server</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>启动服务器。默认情况下，访问网址<code>http://localhost:4000/</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>部署网站。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<p>清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</p>
+<p>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<p>title指文件名，会默认在.&#x2F;source&#x2F;_post目录下生成md文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<p>title指文件夹名，会默认在.&#x2F;source目录下生成名文件夹，同时会在文件夹内生成md文件，<strong>通常用于Next的页面配置</strong>。</p>
+<h1 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h1><p>Hexo的配置大部分在_config.yml（位于博客根目录）中进行修改，本文中统称为<strong>网站配置文件</strong>。</p>
+<p>使用notepad++或其他文本编辑器进行编辑。</p>
+<p><strong>注意！所有配置内容在冒号和个人信息后面都需要加空格，同时非配置内容前面需要加#以进行注释！</strong></p>
+<p>下面是个栗子</p>
+<p>title: 风流倜傥英俊潇洒玉树临风的晨曦的个人站   #别打我啊啊啊！</p>
+<h2 id="网站配置区"><a href="#网站配置区" class="headerlink" title="网站配置区"></a>网站配置区</h2><p>本配置主要讲述常见的配置，更多内容请查看<a href="https://hexo.io/zh-cn/docs/index.html">官方的开发文档</a>。</p>
+<p>个人博客在建成后，首先需要进行的修改的就是个人信息的相关内容。这需要对网站配置文件进行修改。</p>
+<h3 id="网站信息设置"><a href="#网站信息设置" class="headerlink" title="网站信息设置"></a>网站信息设置</h3><p>打开网站配置文件后，搜索Site区域<del>其实就在开头</del>，并进行修改。</p>
+<p>title: 网站标题，常见于网站标题的显示和博客标题的显示。</p>
+<p>subtitle: 网站副标题，在Next主题中，常见于网站标题下面。</p>
+<p>description: 网站描述，在Next主题中，会显示在侧边栏。</p>
+<p>keywords: 网站的关键词，通常用于SEO搜索引擎优化，<strong>通常不用设置</strong>。</p>
+<p>language: 语言，使用不同的主题可能需要设置成不同的值，请参考你的主题的文档自行设置，常见的有 <code>zh-Hans</code>和 <code>zh-CN</code>，<strong>本文档的设定为zh-CN</strong>。</p>
+<p>timezone: 时区，网站时区。Hexo 默认使用您电脑的时区。请参考 <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">时区列表</a> 进行设置，如 <code>America/New_York</code>, <code>Japan</code>, 和 <code>UTC</code> 。一般的，对于中国大陆地区可以使用 <code>Asia/Shanghai</code>，<strong>通常不用设置</strong>。</p>
+<p>以下为一个栗子</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 风流倜傥英俊潇洒玉树临风的晨曦的个人站</span><br><span class="line">subtitle: 嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎</span><br><span class="line">description: 嘎嘎嘎嘎嘎嘎嘎嘎嘎</span><br><span class="line">keywords: </span><br><span class="line">author: 晨曦</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: </span><br></pre></td></tr></table></figure>
+
+<h3 id="网址信息设置"><a href="#网址信息设置" class="headerlink" title="网址信息设置"></a>网址信息设置</h3><p>搜索URL并找到网址信息配置区域。</p>
+<p>url: 博客的网址，<strong>必须以 <code>http://</code> 或 <code>https://</code> 开头</strong> 。</p>
+<p>permalink: 文章的 <a href="https://hexo.io/zh-cn/docs/permalinks">永久链接</a> 格式，一般显示为:year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;，比如A&#x2F;2022&#x2F;09&#x2F;02&#x2F;A.md，当然也可以设置为:title&#x2F;。</p>
+<p>其他内容可以根据自己需求设置。</p>
+<p>以下为一个栗子</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: http://dreamskycx.github.io</span><br><span class="line">permalink: :title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：网站存放在子目录的情况</strong></p>
+<p>如果您的网站存放在子目录中，例如 <code>http://example.com/blog</code>，则请将您的 <code>url</code> 设为 <code>http://example.com/blog</code> 并把 <code>root</code> 设为 <code>/blog/</code>。</p>
+<p>以下为一个栗子</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 比如，一个页面的永久链接是 http://example.com/foo/bar/index.html</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: false</span><br><span class="line"># 此时页面的永久链接会变为 http://example.com/foo/bar/</span><br></pre></td></tr></table></figure>
+
+<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>搜索Extensions，找到主题配置区。</p>
+<p><strong>把theme: 后面的内容改为next。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p><strong>在任何修改后，都建议运行以下指令，并在本地服务器上查看，以保证博客的正常运行。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p><strong>在保证功能正确后运行以下指令进行更新。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>好了经过上面的步骤，你应该是可以初步的看到一个简单的Next界面的。但是，原始的Next界面可能并不符合个人习惯，同时也显得同质化。</p>
+<p>这就需要用到下文的Next配置。</p>
+<h1 id="Next配置"><a href="#Next配置" class="headerlink" title="Next配置"></a>Next配置</h1><p>Next经过几代的革新，和以往版本最大的特点就是：<strong>Next的新版本集成了大量的功能，使得个人博客拥有者不需要对其他文件修改，只需要修改.&#x2F;theme&#x2F;next&#x2F;_config.yml文件，就可以实现大部分的个性化功能。</strong></p>
+<p>由于新老教程的冲突，部分老教程的修改可能会导致原本Next配置出错，甚至在generate的时候报错，导致博客无法正常运行。所以新教程的Next配置主要是基于对Next目录下_config.yml的文件修改来实现的，在本文中我们之为<strong>主题配置文件</strong>。</p>
+<h2 id="基本内容配置区"><a href="#基本内容配置区" class="headerlink" title="基本内容配置区"></a>基本内容配置区</h2><p><strong>未完待续？</strong></p>
+]]></content>
       <categories>
-          
-          <category> C </category>
-          
+        <category>Hexo建站</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 教程 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>C语言小整活</title>
-      <link href="/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%95%B4%E6%B4%BB/"/>
-      <url>/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%95%B4%E6%B4%BB/</url>
-      
-        <content type="html"><![CDATA[<p><strong>本文章将讲述将算法进行硬编码的一种常规思路。</strong></p><p><strong>不推荐对任何的算法进行硬编码，一是浪费时间，二是效率低下，本文章仅从其可能实现的方式进行讲解。</strong></p><span id="more"></span><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="为什么会有这个想法呢？"><a href="#为什么会有这个想法呢？" class="headerlink" title="为什么会有这个想法呢？"></a>为什么会有这个想法呢？</h2><p>是因为知乎上看到了一个88w代码的一个图，完美的击碎了所谓“高中生10w代码”的问题，作为一名c语言的新手，我也能写几十万行的代码！</p><p>然而，这几十万行的代码，实质上是将循环转变为大量的逻辑判断，从而使代码变的臃肿，同时降低可读性，甚至难以编译。</p><p>因此，除非整活，不要这么做。</p><h2 id="警告"><a href="#警告" class="headerlink" title="警告"></a>警告</h2><p><strong>请确保不要使用复制黏贴修改的方式进行编写！这会大大浪费你的时间！</strong></p><p><strong>请确保你具有以下基本c语言知识：</strong></p><p>对c语言数据格式，运算符，标准输入输出流，逻辑判断和循环的了解</p><p><strong>对文件输入输出流的了解</strong></p><h1 id="整活"><a href="#整活" class="headerlink" title="整活"></a>整活</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>首先，类似这种硬编码，大概的思路都是把循环转换为判断，举个栗子：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">1000000</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">114514</span>) <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>我们可以把他写成这样</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(i==<span class="number">1</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">2</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">3</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">4</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="comment">//省略</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">114513</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">114514</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">114515</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="comment">//省略</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">999999</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">1000000</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br></pre></td></tr></table></figure><p>如果你看懂了！恭喜你，你已经成为了能写百万行代码的<del>大佬</del>萌新了！</p><h2 id="实现所需要的基础"><a href="#实现所需要的基础" class="headerlink" title="实现所需要的基础"></a>实现所需要的基础</h2><h3 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h3><p>部分字符是无法直接打出的，第一种方式是使用字符拼接，让所有无法直接的字符用char表示，第二种方式就是转义。</p><p>下面是一些常用的转义表示。</p><p>\n 换行</p><p>\t 横向跳格</p><p>\b 退格</p><p>\\ 反斜杠</p><p>\” 双引号</p><p>\’ 单引号</p><p><strong>需要注意的是如果在printf()函数中的双引号中直接再加一个双引号，此时编译是通不过的。</strong></p><h3 id="文件输入输出"><a href="#文件输入输出" class="headerlink" title="文件输入输出"></a>文件输入输出</h3><p><a href="https://blog.csdn.net/dlpmmk/article/details/123689664">c语言文件输入输出教程</a></p><p><a href="https://blog.csdn.net/qq_63102689/article/details/124403146">c++文件输入输出教程</a></p><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="# 实现代码"></a># 实现代码</h2><p>对应西电oj题组82的第21题。</p><p><strong>题目：</strong>数位输出</p><p><strong>问题描述：</strong>输入一个5位整数，求出其各数位数值，并按照从高位到低位的顺序输出，如：输入12345，输出为1 2 3 4 5。</p><p><strong>输入说明：</strong>输入一个五位正整数。</p><p><strong>输出说明：</strong>按数位从高到低依次输出，各数位之间以一个空格相分隔。</p><p><strong>输入样例：</strong></p><p>96237</p><p><strong>输出样例：</strong></p><p>9 6 2 3 7</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="type">int</span> i,a,b,c,d,e;</span><br><span class="line">ofstream fout;</span><br><span class="line">fout.<span class="built_in">open</span>(<span class="string">&quot;code.cpp&quot;</span>);</span><br><span class="line">fout&lt;&lt;<span class="string">&quot;#include &lt;stdio.h&gt;&quot;</span>&lt;&lt;endl;</span><br><span class="line">fout&lt;&lt;<span class="string">&quot;int main()&#123;&quot;</span>&lt;&lt;endl;</span><br><span class="line">fout&lt;&lt;<span class="string">&quot;int num;&quot;</span>&lt;&lt;endl;</span><br><span class="line">fout&lt;&lt;<span class="string">&quot;scanf(\&quot;%d\&quot;,&amp;num);&quot;</span>&lt;&lt;endl;</span><br><span class="line">fout&lt;&lt;<span class="string">&quot;switch(num)&#123;&quot;</span>&lt;&lt;endl;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">10000</span>;i&lt;=<span class="number">99999</span>;i++)&#123;</span><br><span class="line">a=i%<span class="number">10</span>;</span><br><span class="line">b=i%<span class="number">100</span>/<span class="number">10</span>;</span><br><span class="line">c=i%<span class="number">1000</span>/<span class="number">100</span>;</span><br><span class="line">d=i%<span class="number">10000</span>/<span class="number">1000</span>;</span><br><span class="line">e=i/<span class="number">10000</span>;</span><br><span class="line">fout&lt;&lt;<span class="string">&quot;case &quot;</span>&lt;&lt;i&lt;&lt;<span class="string">&#x27;:&#x27;</span>&lt;&lt;<span class="string">&quot; printf(\&quot;%d %d %d %d %d\&quot;,&quot;</span>&lt;&lt;e&lt;&lt;<span class="string">&#x27;,&#x27;</span>&lt;&lt;d&lt;&lt;<span class="string">&#x27;,&#x27;</span>&lt;&lt;c&lt;&lt;<span class="string">&#x27;,&#x27;</span>&lt;&lt;b&lt;&lt;<span class="string">&#x27;,&#x27;</span>&lt;&lt;a&lt;&lt;<span class="string">&quot;);break;&quot;</span>&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line">fout&lt;&lt;<span class="string">&quot;&#125;&quot;</span>&lt;&lt;endl;</span><br><span class="line">fout&lt;&lt;<span class="string">&quot;return 0;&quot;</span>&lt;&lt;endl;</span><br><span class="line">fout&lt;&lt;<span class="string">&quot;&#125;&quot;</span>&lt;&lt;endl;</span><br><span class="line">fout.<span class="built_in">close</span>();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>将本代码进行编译后，会生成一个code.cpp程序，将生成的代码直接提交即可。</p><p><strong>已经确认提交通过，</strong>差不多九万行吧。</p><p><del>我现在也是写过十万行代码的大佬了！</del></p>]]></content>
-      
-      
+      <tags>
+        <tag>指南</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo评论小测试</title>
+    <url>/Hexo%E8%AF%84%E8%AE%BA%E5%B0%8F%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>似乎gitalk不挂梯子不能用，太难了….</p>
+<p><del>扔了算了，要他何用</del></p>
+<p><strong>来必力不香吗！</strong></p>
+<span id="more"></span>
+
+<h3 id="关于如何用来必力评论这件事"><a href="#关于如何用来必力评论这件事" class="headerlink" title="关于如何用来必力评论这件事"></a>关于如何用来必力评论这件事</h3><p>本次教程基于以下版本（我当时是最新的）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hexo:6.2.0</span><br><span class="line">Next:7.7.2</span><br></pre></td></tr></table></figure>
+
+
+<p>虽然来必力这玩意加载慢，但是能用哈！也支持国内的各大主流社交媒体账号。</p>
+<h4 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h4><p>先注册一个来必力账号。</p>
+<p><a href="https://livere.com/">注册页面</a></p>
+<p>网站会有点卡，有的时候会出现页面无法加载的现象，实测挂加速器无用，<del>估计是服务器太菜了吧</del>。界面部分为韩文（韩国网站），翻译即可。</p>
+<p>登陆的时候第一行填注册邮箱，第二行填密码即可。</p>
+<p>挂加速器可能会导致安装失败。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-ae6d613501f17e83cac2abbe6d00b04b_720w.jpg" alt="一张丢失了的图片"></p>
+<p>在注册成功后，点击安装，选择City版本进行安装。会要求你输入自己的网址（带https:&#x2F;&#x2F;），网站名（随便填），和网站用途（选择个人网站）即可。</p>
+<p><img src="https://pica.zhimg.com/80/v2-6fb025dab0883580834fb31c9f1d5bdb_1440w.jpg?source=3af55fa1" alt="一张丢失了的图片"></p>
+<h4 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h4><p>申请成功后你会进入进入到代码管理界面。找到以下内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;xxxxxxx&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://pic2.zhimg.com/80/v2-532788e1038f4ead9f019583e5e30a9c_1440w.jpg?source=3af55fa1" alt="一张丢失了的图片"></p>
+<p><strong>记住data-uid里面的那一串字段，配置要用。</strong></p>
+<h4 id="Step3"><a href="#Step3" class="headerlink" title="Step3"></a>Step3</h4><p>打开你的<strong>主题配置文件</strong>（Next的配置文件themes&#x2F;next&#x2F;_config.yml），搜索livere，找到如下内容，把之前data-uid里面的字段复制到livere-uid:后面（注意字段和冒号中间要有空格）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># LiveRe comments system</span><br><span class="line"># You can get your uid from https://livere.com/insight/myCode (General web site)</span><br><span class="line">livere_uid:  #&lt;your_uid&gt;</span><br></pre></td></tr></table></figure>
+<p>同时搜索comments，找到如下内容，在active:后面打上livere。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">comments:</span><br><span class="line">  # Available values: tabs | buttons</span><br><span class="line">  style: tabs</span><br><span class="line">  # Choose a comment system to be displayed by default.</span><br><span class="line">  # Available values: changyan | disqus | disqusjs | gitalk | livere | valine</span><br><span class="line">  active: livere</span><br><span class="line">  # Setting `true` means remembering the comment system selected by the visitor.</span><br><span class="line">  storage: true</span><br><span class="line">  # Lazyload all comment systems.</span><br><span class="line">  lazyload: false</span><br></pre></td></tr></table></figure>
+
+<p>大功告成！（看了下网上的博客有讲到要编辑其他文件的，是老版本）</p>
+<h4 id="Step4"><a href="#Step4" class="headerlink" title="Step4"></a>Step4</h4><p>运行以下代码查看效果！</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$hexo clean</span><br><span class="line">$hexo g </span><br><span class="line">$hexo s</span><br></pre></td></tr></table></figure>
+<p>如果你试图想改变一下他的样式的话，可能会很难（不嫌弃丑，找到一个能用的评论系统是真心不容易）。</p>
+<p><img src="https://picx.zhimg.com/80/v2-83a5dcc38aa8d596793e265cc20e4de7_1440w.jpg?source=3af55fa1" alt="一张丢失了的图片"></p>
+<p>进行部署:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$hexo clean</span><br><span class="line">$hexo g </span><br><span class="line">$hexo d</span><br></pre></td></tr></table></figure>
+<h4 id="Step5"><a href="#Step5" class="headerlink" title="Step5"></a>Step5</h4><p>如果需要查看数据，可以到来必力的后台进行查看。</p>
+<p><a href="https://livere.com/insight">数据查看网址</a> </p>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>可能是我脸黑还是啥原因，我的电脑浏览器一直加载不出来，但手机可以查看评论，别人的浏览器也可以查看评论。</p>
+<p><del>属于未解决谜题之一了害。</del>所以为什么挂梯子不能用来必力啊啊啊啊啊啊啊啊啊啊！！！简直就和Gitalk对着干，太离谱了。</p>
+<p>关于设置true的问题，好友<a href="https://changakira.github.io/">Akira</a>设置的<a href="https://changakira.github.io/2022/09/01/gitalk/#more">教程</a>有误，<del>本来就是一篇沙雕文哈哈哈</del>。</p>
+<h6 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h6><p><a href="https://zhuanlan.zhihu.com/p/460830283">hexo博客新增来必力评论功能</a></p>
+]]></content>
       <categories>
-          
-          <category> C </category>
-          
+        <category>Hexo建站</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 整活 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>电专c语言oj探秘1</title>
-      <link href="/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%981/"/>
-      <url>/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%981/</url>
-      
-        <content type="html"><![CDATA[<h1 id="题组86"><a href="#题组86" class="headerlink" title="题组86"></a>题组86</h1><p>本题组来源于<a href="https://cvnis.xidian.edu.cn/">西电oj</a>的86题组（hqy老师课程课后习题），题目很简单，适合萌新。</p><p>本题涉及的所有文件都会在<a href="https://wwp.lanzouw.com/ioI3U0dgvmyh">蓝奏云</a>上发布。</p><p><strong>本人新手，第一次写题解，如有不当之处，多多包涵，如有错误，请指正谢谢！</strong></p><span id="more"></span><h2 id="电专必看"><a href="#电专必看" class="headerlink" title="电专必看"></a>电专必看</h2><p><strong>如果你提交的时候一直编译错误：</strong></p><p>请确保你<strong>提交的题目</strong>和<strong>选择的文件</strong>匹配。</p><p>请确保你选择的<strong>编译选项正确</strong>，一般有两个选项visual c++和GNU C&#x2F;C++（通常其他的编译器如devc++选择这个）。<del>编者因为选错报错了一次</del></p><p>请确保你使用的标准是ANSIC或者C99，<strong>没有任何奇奇怪怪的东西</strong>（如vs的scanf_s函数等）。</p><h2 id="T9"><a href="#T9" class="headerlink" title="T9"></a>T9</h2><p><strong>题目：</strong>计算球体重量</p><p><strong>时间限制：</strong>1s</p><p><strong>内存限制：</strong>10000Kb</p><p><strong>问题描述：</strong>已知铁的比重是7.86(克&#x2F;立方厘米)，金的比重是19.3(克&#x2F;立方厘米)。写一个程序，分别计算出给定直径的铁球与金球的质量，假定PI&#x3D;3.1415926</p><p><strong>输入说明：</strong>输入两个整数，分别表示铁球与金球的直径（单位为毫米）。</p><p><strong>输出说明：</strong>输出两个浮点数，分别表示铁球与金球的质量（单位为克），小数点后保留3位小数，两个浮点数之间用空格分隔。</p><p><strong>输入样例：</strong></p><p>100 100</p><p><strong>输出样例：</strong></p><p>4115.486 10105.456</p><p><strong>提示</strong>：用scanf输入，用printf输出，保留3位小数的格式控制字符为%.3f</p><h3 id="本题小解析"><a href="#本题小解析" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>这道题主要是要注意运用球的体积公式<strong>（注意直径）</strong>，还有就是<strong>注意单位换算</strong>（&#x2F;1000），其他的小注意点如<strong>格式控制字符</strong>，<strong>实数运算</strong>等。</p><h3 id="弱鸡代码"><a href="#弱鸡代码" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> d1,d2;</span><br><span class="line"><span class="type">double</span> m1,m2;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> PI=<span class="number">3.1415926</span>;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;d1,&amp;d2);</span><br><span class="line">m1=PI*d1*d1*d1/<span class="number">6000</span>*<span class="number">7.86</span>;</span><br><span class="line">m2=PI*d2*d2*d2/<span class="number">6000</span>*<span class="number">19.3</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%.3f %.3f&quot;</span>,m1,m2);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure><h2 id="T10"><a href="#T10" class="headerlink" title="T10"></a>T10</h2><p><strong>题目：</strong>温度转换</p><p><strong>时间限制：</strong>1s</p><p><strong>内存限制：</strong>10000Kb</p><p><strong>问题描述：</strong>已知华氏温度到摄氏温度的转换公式为：摄氏温度&#x3D; (华氏温度- 32)×5&#x2F;9，写程序将给定的华氏温度转换为摄氏温度输出。</p><p><strong>输入说明：</strong>只有一个整数，表示输入的华氏温度。</p><p><strong>输出说明：</strong>输出一个表示摄氏温度的实数，小数点后保留2位有效数字，多余部分四舍五入。</p><p><strong>输入样例：</strong></p><p>50</p><p><strong>输出样例：</strong></p><p>10.00</p><p><strong>提示：</strong></p><p>用scanf输入，用printf输出，保留2位小数的格式控制字符为%.2f</p><h3 id="本题小解析-1"><a href="#本题小解析-1" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>注意<strong>精度控制</strong>和<strong>实数运算</strong>即可。</p><h3 id="弱鸡代码-1"><a href="#弱鸡代码-1" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> f;</span><br><span class="line"><span class="type">double</span> c;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;f);</span><br><span class="line">c=(f<span class="number">-32</span>)*<span class="number">5.0</span>/<span class="number">9.0</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%.2f&quot;</span>,c);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure><h2 id="T11"><a href="#T11" class="headerlink" title="T11"></a>T11</h2><p><strong>题目：</strong>整数简单运算</p><p><strong>问题描述：</strong>编写程序，计算用户输入的两个整数的和、差、乘积（*）和商（&#x2F;）。</p><p><strong>输入格式：</strong>输入两个整数，整数之间用空格分隔。</p><p>输出格式：输出四个整数结果，分别表示和、差、积和商，每输出一个结果换行。</p><p><strong>输入样例：</strong></p><p>3 4</p><p><strong>输出样例：</strong></p><p>7</p><p>-1</p><p>12</p><p>0</p><h3 id="本题小解析-2"><a href="#本题小解析-2" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>照样子做就行，可以选择定义结果的变量也可以选择直接输出。</p><p><del>没有&#x2F;0差评。</del></p><h3 id="弱鸡代码-2"><a href="#弱鸡代码-2" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> a,b;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a+b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a-b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a*b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a/b);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure><h2 id="T16"><a href="#T16" class="headerlink" title="T16"></a>T16</h2><p><strong>题目：</strong>字符输入输出</p><p><strong>问题描述：</strong>通过键盘输入5个大写字母，输出其对应的小写字母，并在末尾加上“！”。</p><p><strong>输入说明：</strong>5个大写字母通过键盘输入，字母之间以竖线“|”分隔。</p><p><strong>输出说明：</strong>输出5个大写字母对应的小写字母，之间无分隔，并在末尾加上‘！’。</p><p><strong>输入样例：</strong></p><p>H|E|L|L|O</p><p><strong>输出样例：</strong></p><p>hello!</p><h3 id="本题小解析-3"><a href="#本题小解析-3" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>这道题主要注意的就是字母大小写的转换，<strong>需要查询ASCII码表，并直接对ASCII码进行操作（-32）</strong>。</p><p>另外注意输入样例的时候，<strong>scanf函数对非格式控制符是需要进行原样输入的</strong>。举个栗子，弱鸡代码里面的就需要输入A|B|C|D|E才能正常读取所有变量，<strong>即|字符需要原样输入。</strong></p><p>可以选择输入字符串然后取出五个字符，或者直接输入五个字符。<del>我tm在讲什么狗屁</del></p><h3 id="弱鸡代码-3"><a href="#弱鸡代码-3" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">char</span> a,b,c,d,e;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%c|%c|%c|%c|%c&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d,&amp;e);</span><br><span class="line">a+=<span class="number">32</span>;</span><br><span class="line">b+=<span class="number">32</span>;</span><br><span class="line">c+=<span class="number">32</span>;</span><br><span class="line">d+=<span class="number">32</span>;</span><br><span class="line">e+=<span class="number">32</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%c%c%c%c%c!&quot;</span>,a,b,c,d,e);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="T18"><a href="#T18" class="headerlink" title="T18"></a>T18</h2><p><strong>题目：</strong>数字字符</p><p><strong>问题描述：</strong>通过键盘输入1个整数a（0&lt;&#x3D;a&lt;&#x3D;4）,1个数字字符b（’0’&lt;&#x3D;b&lt;&#x3D;’5’），求a+b。</p><p><strong>输入说明：</strong>整形数据、数字字符通过键盘输入，输入的整形数据介于0和4之间，输入的数字字符介于‘0’和‘5’之间，二个输入数之间用“,”分隔。</p><p><strong>输出说明：</strong>分别以整数形式及字符形式输出a+b，输出的二个数之间用“,”分隔。</p><p><strong>输入样例：</strong></p><p>3,5</p><p><strong>输出样例：</strong></p><p>56,8</p><h3 id="本题小解析-4"><a href="#本题小解析-4" class="headerlink" title="本题小解析"></a>本题小解析</h3><p><strong>直接照着要求做，该怎么输入怎么输出就怎么搞，别想太多</strong>。</p><h3 id="弱鸡代码-4"><a href="#弱鸡代码-4" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> a;</span><br><span class="line"><span class="type">char</span> b;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d,%c&quot;</span>,&amp;a,&amp;b);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d,%c&quot;</span>,a+b,a+b);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="T19"><a href="#T19" class="headerlink" title="T19"></a>T19</h2><p><strong>题目：</strong>实数运算</p><p><strong>问题描述：</strong>通过键盘输入长方体的长、宽、高，求长方体的体积V（单精度）。</p><p><strong>输入说明：</strong>十进制形式输入长、宽、高，输入数据间用空格分隔。</p><p><strong>输出说明：</strong>单精度形式输出长方体体积V，保留小数点后3位，左对齐。</p><p><strong>输入样例：</strong></p><p>15 8.12 6.66</p><p><strong>输出样例：</strong></p><p>811.188</p><h3 id="本题小解析-5"><a href="#本题小解析-5" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>主要是注意<strong>精度</strong>问题，<strong>输出格式</strong>问题和<strong>左对齐</strong>问题。</p><p><strong>用printf函数修饰符-来控制左对齐，在没有设置域宽（如本题）的时候，一般不用修饰符-，即默认左对齐。</strong></p><h3 id="弱鸡代码-5"><a href="#弱鸡代码-5" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">float</span> a,b,c;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%f %f %f&quot;</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%.3f&quot;</span>,a*b*c);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="T20"><a href="#T20" class="headerlink" title="T20"></a>T20</h2><p><strong>题目：</strong>四则运算</p><p><strong>问题描述：</strong>输入两个整数和一个四则运算符，根据运算符计算并输出其运算结果（和、差、积、商、余之一）。注意做整除及求余运算时，除数不能为零。</p><p><strong>输入说明：</strong>使用scanf()函数输入两个整数和一个运算符，格式见输入样例。</p><p><strong>输出说明：</strong>输出使用printf()函数，格式见输出样例。</p><p><strong>输入样例：</strong> </p><p>5%2</p><p><strong>输出样例：</strong></p><p>5%2&#x3D;1</p><h3 id="本题小解析-6"><a href="#本题小解析-6" class="headerlink" title="本题小解析"></a>本题小解析</h3><p><strong>首先，本题不需要你考虑数据为0的情况。</strong></p><p>其次，本题需要用到条件判断，即if…elseif…else…或者switch….case….语句来进行编写，<strong>已经超出了本课教学的范围</strong>。<del>虽然教学啥都bushi</del></p><blockquote><p>如果你要写if语句的话，就需要条件表达式，比如说if(op&#x3D;&#x3D;’+’)（这里的op是运算符的意思，不是你想的那个），这时候就会涉及到逻辑运算符&#x3D;&#x3D;的问题，而&#x3D;&#x3D;代表相等的意思。</p><p>如果你要写switch语句的话，注意case语句后面都需要加上break;防止执行混乱。</p></blockquote><p><strong>最后，用%%来代表输出一个百分号%，亦可用输出op运算符替代。</strong></p><h3 id="弱鸡代码-6"><a href="#弱鸡代码-6" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">int</span> a,b;</span><br><span class="line"><span class="type">char</span> op;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d%c%d&quot;</span>,&amp;a,&amp;op,&amp;b);</span><br><span class="line"><span class="keyword">switch</span>(op)&#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a+b);<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a-b);<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a*b);<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a/b);<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&#x27;%&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a%b);<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure><h2 id="T21"><a href="#T21" class="headerlink" title="T21"></a>T21</h2><p><strong>题目：</strong>数位输出</p><p><strong>问题描述：</strong>输入一个5位整数，求出其各数位数值，并按照从高位到低位的顺序输出，如：输入12345，输出为1 2 3 4 5。</p><p><strong>输入说明：</strong>输入一个五位正整数。</p><p><strong>输出说明：</strong>按数位从高到低依次输出，各数位之间以一个空格相分隔。</p><p><strong>输入样例：</strong></p><p>96237</p><p><strong>输出样例：</strong></p><p>9 6 2 3 7</p><h3 id="本题小解析-7"><a href="#本题小解析-7" class="headerlink" title="本题小解析"></a>本题小解析</h3><p><strong>看成是你输入五个字符，然后往这五个字符里面加入空格即可。</strong></p><h3 id="弱鸡代码-7"><a href="#弱鸡代码-7" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="type">char</span> a,b,c,d,e;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%c%c%c%c%c&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d,&amp;e);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%c %c %c %c %c&quot;</span>,a,b,c,d,e);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>指南</tag>
+        <tag>心声</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>van游戏</title>
+    <url>/van%E6%B8%B8%E6%88%8F/</url>
+    <content><![CDATA[<p>都来给我van游戏！</p>
+<p><a href="https://dreamskycx.github.io/RapeSenpai/index.html">秦van小游戏（钢琴块）</a></p>
+<span id="more"></span>
+
+<h2 id="小宣传"><a href="#小宣传" class="headerlink" title="小宣传"></a>小宣传</h2><p>你爱我，我爱你，小秦哼啊甜蜜蜜 -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p>
+<p>在吗？你知道我为什么不和你聊天吗，因为我在van一款全新的秦van小游戏，在线玩无需安装，里面的东东让我激情四射，爱不释手 -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p>
+<p>我的名字叫秦van，是个艺术家，一个行为艺术家，我喜欢van游戏，我在van一款全新的秦van小游戏，在线玩无需安装，Do you like van游戏 -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p>
+<p>在吗？我正在玩秦van！哼哼、啊啊，哼哼哼啊啊啊，根本停不下来！速来，等你！ -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p>
+]]></content>
       <categories>
-          
-          <category> C </category>
-          
+        <category>游戏</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 题解 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>梦开始的地方</title>
-      <link href="/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/"/>
-      <url>/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</url>
-      
-        <content type="html"><![CDATA[<p>壬寅之秋，八月廿三，与舍友op，同落兄畅聊，饮阔乐，<del>大醉</del>，作此篇。</p><span id="more"></span><p>有的时候回想起以前做的东西，有激情，有热血，但都败给了生活的残酷。最终自己和别人一样，泯然众生，最终平凡。</p><p>但是人总该是做点什么的，个人价值的实现才会有社会价值，如果这时候就摆烂了，那以后干什么呢？<del>当然是继续摆烂了！</del></p><p>所以，不忘初心，方得始终！</p><p>愿逐梦之人，所得皆所愿！</p><p>PS：欢迎来加小游戏群！！！！</p>]]></content>
-      
-      
+      <tags>
+        <tag>整活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>向世界问个好</title>
+    <url>/%E5%90%91%E4%B8%96%E7%95%8C%E9%97%AE%E4%B8%AA%E5%A5%BD/</url>
+    <content><![CDATA[<p>建站整日，一路风雨兼程，许多不容易。<br>任何看似很容易的事情，实际上都是艰难的，看了无数大佬的作品以及好友Akira（同一个学校的捏）的个人站，真的感觉自己有很多东西要学。总之一句话——自己太菜了。<br>本来建好个人站是一件喜悦的事情，怎奈已是深夜，望月伤怀，借阔乐浇愁愁更愁，只好抒发一下个人情感了。</p>
+<span id="more"></span>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本人是一名大一新生，计算机系，萌新一只。<br>为什么叫萌新呢，当时看到了西电的moectf（西电萌新夺旗赛），学到了很多，也发现了自己和别人的差距。在做Web题的时候，我只会拿着F12对着代码硬刚，完全不知道怎么抓包（笑死这就是小白吗），被Rx大佬调侃基础领域知识缺失，看着代码不知道如何下手，你会发现——其实还有很多知识要学。<br>来西电计算机是个偶然，当初说怎么也不去西电，太远了，逼乎上风评又是这个样子。可既来之则安之，我因为菜来到了西电，如果说我真的有一个使命的话，或许是“离开西电”——西电可以给我平台让我飞往更远的地方；或许不是——谁知道自己的未来会是怎样。毕竟，人生最精彩的就是这阴差阳错，命运让大家相聚在一起，就要好好珍惜。</p>
+<h2 id="改变"><a href="#改变" class="headerlink" title="改变"></a>改变</h2><p>人会改变，或许是因为自己内心想改变而改变，或许是因为社会的压力而不得不改变。而这个过程是痛苦的，从自己的舒适圈里面跳出来，去面对位置，面对自己灵魂里恐惧的东西，可能会难受到让你哭出来。<br>看到过很多朋友和大佬都有自己的成果，突然就想起了很多年的那些立下的目标和天坑，还有自己的破黑窗口游戏，自己和同伴一起讨论的日日夜夜。可惜早已是物是人非。<br>或许未来的四年也是一种改变吧。</p>
+<h2 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h2><p>不敢说有啥期望吧，不辜负自己的努力就行。如果十年后的自己看到自己第一篇内容，或许会一笑而过（写的都是些啥玩意啊）。</p>
+<h2 id="为啥要建站呢"><a href="#为啥要建站呢" class="headerlink" title="为啥要建站呢"></a>为啥要建站呢</h2><p>终于说道正头上了，就希望能和大家探讨交流下吧（评论这**玩意到现在还用不了），顺便分享一下自己学习道路上的一些心得体会，踩过的坑，以及所有让人觉得值得探讨的问题。奇奇怪怪的东西也可以扔上来（</p>
+]]></content>
       <categories>
-          
-          <category> 闲聊 </category>
-          
+        <category>闲聊</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 心声 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hexo+Next建站配置详细版</title>
-      <link href="/Hexo+Next%E5%BB%BA%E7%AB%99%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E7%89%88/"/>
-      <url>/Hexo+Next%E5%BB%BA%E7%AB%99%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E7%89%88/</url>
-      
-        <content type="html"><![CDATA[<p><strong>本文章将持续更新</strong></p><p>这篇文章将详细讲述所有的Hexo和Next的config详细配置内容。</p><span id="more"></span><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="为什么要写这篇文章"><a href="#为什么要写这篇文章" class="headerlink" title="为什么要写这篇文章"></a>为什么要写这篇文章</h2><p>主要是为了对文档的一个简单普及和更新，很多博客的内容都是20年前的内容，Next5.x版本的，在搜集的过程中造成了很大的困扰。同时网上存在部分Next7.x的文档不易被人搜索得到。</p><p>由于本人的水平所限，本文章可能会对部门内容的讲解有所偏差，如看到请指正谢谢。</p><p>关于最新版本的建站，可以参考好友<a href="https://changakira.github.io/">Akira</a>的<a href="https://changakira.github.io/2022/09/02/Hexo%E5%BB%BA%E7%AB%99%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/#more">建站教程</a>。本人将在以后逐步更新。</p><p>本文章的配置环境：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hexo:6.2.0</span><br><span class="line">Next:7.7.2</span><br><span class="line">Node.16.17.0</span><br></pre></td></tr></table></figure><h2 id="本文参考的内容链接"><a href="#本文参考的内容链接" class="headerlink" title="本文参考的内容链接"></a>本文参考的内容链接</h2><p><a href="https://hexo.io/zh-cn/docs/index.html">Hexo开发文档</a></p><p><a href="https://theme-next.js.org/">Next开发文档</a></p><p><a href="https://hexo-next.readthedocs.io/zh_CN/latest/">Hexo-Next开发文档</a></p><p>其他相关内容将在相关板块讲述。</p><h2 id="常见指令"><a href="#常见指令" class="headerlink" title="常见指令"></a>常见指令</h2><p>以下指令请在<strong>博客根目录</strong>运行<strong>Git Bash</strong>来进行操作。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure><p>生成静态文件。</p><p>可在后面加入-d或–deploy来进行立即部署。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure><p>启动服务器。默认情况下，访问网址<code>http://localhost:4000/</code>。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>部署网站。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure><p>清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</p><p>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;title&gt;</span><br></pre></td></tr></table></figure><p>title指文件名，会默认在.&#x2F;source&#x2F;_post目录下生成md文件。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &lt;title&gt;</span><br></pre></td></tr></table></figure><p>title指文件夹名，会默认在.&#x2F;source目录下生成名文件夹，同时会在文件夹内生成md文件，<strong>通常用于Next的页面配置</strong>。</p><h1 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h1><p>Hexo的配置大部分在_config.yml（位于博客根目录）中进行修改，本文中统称为<strong>网站配置文件</strong>。</p><p>使用notepad++或其他文本编辑器进行编辑。</p><p><strong>注意！所有配置内容在冒号和个人信息后面都需要加空格，同时非配置内容前面需要加#以进行注释！</strong></p><p>下面是个栗子</p><p>title: 风流倜傥英俊潇洒玉树临风的晨曦的个人站   #别打我啊啊啊！</p><h2 id="网站配置区"><a href="#网站配置区" class="headerlink" title="网站配置区"></a>网站配置区</h2><p>本配置主要讲述常见的配置，更多内容请查看<a href="https://hexo.io/zh-cn/docs/index.html">官方的开发文档</a>。</p><p>个人博客在建成后，首先需要进行的修改的就是个人信息的相关内容。这需要对网站配置文件进行修改。</p><h3 id="网站信息设置"><a href="#网站信息设置" class="headerlink" title="网站信息设置"></a>网站信息设置</h3><p>打开网站配置文件后，搜索Site区域<del>其实就在开头</del>，并进行修改。</p><p>title: 网站标题，常见于网站标题的显示和博客标题的显示。</p><p>subtitle: 网站副标题，在Next主题中，常见于网站标题下面。</p><p>description: 网站描述，在Next主题中，会显示在侧边栏。</p><p>keywords: 网站的关键词，通常用于SEO搜索引擎优化，<strong>通常不用设置</strong>。</p><p>language: 语言，使用不同的主题可能需要设置成不同的值，请参考你的主题的文档自行设置，常见的有 <code>zh-Hans</code>和 <code>zh-CN</code>，<strong>本文档的设定为zh-CN</strong>。</p><p>timezone: 时区，网站时区。Hexo 默认使用您电脑的时区。请参考 <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">时区列表</a> 进行设置，如 <code>America/New_York</code>, <code>Japan</code>, 和 <code>UTC</code> 。一般的，对于中国大陆地区可以使用 <code>Asia/Shanghai</code>，<strong>通常不用设置</strong>。</p><p>以下为一个栗子</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 风流倜傥英俊潇洒玉树临风的晨曦的个人站</span><br><span class="line">subtitle: 嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎嘎</span><br><span class="line">description: 嘎嘎嘎嘎嘎嘎嘎嘎嘎</span><br><span class="line">keywords: </span><br><span class="line">author: 晨曦</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: </span><br></pre></td></tr></table></figure><h3 id="网址信息设置"><a href="#网址信息设置" class="headerlink" title="网址信息设置"></a>网址信息设置</h3><p>搜索URL并找到网址信息配置区域。</p><p>url: 博客的网址，<strong>必须以 <code>http://</code> 或 <code>https://</code> 开头</strong> 。</p><p>permalink: 文章的 <a href="https://hexo.io/zh-cn/docs/permalinks">永久链接</a> 格式，一般显示为:year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;，比如A&#x2F;2022&#x2F;09&#x2F;02&#x2F;A.md，当然也可以设置为:title&#x2F;。</p><p>其他内容可以根据自己需求设置。</p><p>以下为一个栗子</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: http://dreamskycx.github.io</span><br><span class="line">permalink: :title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure><p><strong>注意：网站存放在子目录的情况</strong></p><p>如果您的网站存放在子目录中，例如 <code>http://example.com/blog</code>，则请将您的 <code>url</code> 设为 <code>http://example.com/blog</code> 并把 <code>root</code> 设为 <code>/blog/</code>。</p><p>以下为一个栗子</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 比如，一个页面的永久链接是 http://example.com/foo/bar/index.html</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: false</span><br><span class="line"># 此时页面的永久链接会变为 http://example.com/foo/bar/</span><br></pre></td></tr></table></figure><h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>搜索Extensions，找到主题配置区。</p><p><strong>把theme: 后面的内容改为next。</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p><strong>在任何修改后，都建议运行以下指令，并在本地服务器上查看，以保证博客的正常运行。</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure><p><strong>在保证功能正确后运行以下指令进行更新。</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>好了经过上面的步骤，你应该是可以初步的看到一个简单的Next界面的。但是，原始的Next界面可能并不符合个人习惯，同时也显得同质化。</p><p>这就需要用到下文的Next配置。</p><h1 id="Next配置"><a href="#Next配置" class="headerlink" title="Next配置"></a>Next配置</h1><p>Next经过几代的革新，和以往版本最大的特点就是：<strong>Next的新版本集成了大量的功能，使得个人博客拥有者不需要对其他文件修改，只需要修改.&#x2F;theme&#x2F;next&#x2F;_config.yml文件，就可以实现大部分的个性化功能。</strong></p><p>由于新老教程的冲突，部分老教程的修改可能会导致原本Next配置出错，甚至在generate的时候报错，导致博客无法正常运行。所以新教程的Next配置主要是基于对Next目录下_config.yml的文件修改来实现的，在本文中我们之为<strong>主题配置文件</strong>。</p><h2 id="基本内容配置区"><a href="#基本内容配置区" class="headerlink" title="基本内容配置区"></a>基本内容配置区</h2><p><strong>未完待续？</strong></p>]]></content>
-      
-      
+      <tags>
+        <tag>心声</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>梦开始的地方</title>
+    <url>/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</url>
+    <content><![CDATA[<p>壬寅之秋，八月廿三，与舍友op，同落兄畅聊，饮阔乐，<del>大醉</del>，作此篇。</p>
+<span id="more"></span>
+
+<p>有的时候回想起以前做的东西，有激情，有热血，但都败给了生活的残酷。最终自己和别人一样，泯然众生，最终平凡。</p>
+<p>但是人总该是做点什么的，个人价值的实现才会有社会价值，如果这时候就摆烂了，那以后干什么呢？<del>当然是继续摆烂了！</del></p>
+<p>所以，不忘初心，方得始终！</p>
+<p>愿逐梦之人，所得皆所愿！</p>
+<p>PS：欢迎来加小游戏群！！！！</p>
+]]></content>
       <categories>
-          
-          <category> Hexo建站 </category>
-          
+        <category>闲聊</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 指南 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>van游戏</title>
-      <link href="/van%E6%B8%B8%E6%88%8F/"/>
-      <url>/van%E6%B8%B8%E6%88%8F/</url>
-      
-        <content type="html"><![CDATA[<p>都来给我van游戏！</p><p><a href="https://dreamskycx.github.io/RapeSenpai/index.html">秦van小游戏（钢琴块）</a></p><span id="more"></span><h2 id="小宣传"><a href="#小宣传" class="headerlink" title="小宣传"></a>小宣传</h2><p>你爱我，我爱你，小秦哼啊甜蜜蜜 -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p><p>在吗？你知道我为什么不和你聊天吗，因为我在van一款全新的秦van小游戏，在线玩无需安装，里面的东东让我激情四射，爱不释手 -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p><p>我的名字叫秦van，是个艺术家，一个行为艺术家，我喜欢van游戏，我在van一款全新的秦van小游戏，在线玩无需安装，Do you like van游戏 -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p><p>在吗？我正在玩秦van！哼哼、啊啊，哼哼哼啊啊啊，根本停不下来！速来，等你！ -&gt;<a href="https://dreamskycx.github.io/RapeSenpai/index.html">游玩</a></p>]]></content>
-      
-      
+      <tags>
+        <tag>心声</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电专c语言oj探秘1</title>
+    <url>/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%981/</url>
+    <content><![CDATA[<h1 id="题组86"><a href="#题组86" class="headerlink" title="题组86"></a>题组86</h1><p>本题组来源于<a href="https://cvnis.xidian.edu.cn/">西电oj</a>的86题组（hqy老师课程课后习题），题目很简单，适合萌新。</p>
+<p>本题涉及的所有文件都会在<a href="https://wwp.lanzouw.com/ioI3U0dgvmyh">蓝奏云</a>上发布。</p>
+<p><strong>本人新手，第一次写题解，如有不当之处，多多包涵，如有错误，请指正谢谢！</strong></p>
+<span id="more"></span>
+
+<h2 id="电专必看"><a href="#电专必看" class="headerlink" title="电专必看"></a>电专必看</h2><p><strong>如果你提交的时候一直编译错误：</strong></p>
+<p>请确保你<strong>提交的题目</strong>和<strong>选择的文件</strong>匹配。</p>
+<p>请确保你选择的<strong>编译选项正确</strong>，一般有两个选项visual c++和GNU C&#x2F;C++（通常其他的编译器如devc++选择这个）。<del>编者因为选错报错了一次</del></p>
+<p>请确保你使用的标准是ANSIC或者C99，<strong>没有任何奇奇怪怪的东西</strong>（如vs的scanf_s函数等）。</p>
+<h2 id="T9"><a href="#T9" class="headerlink" title="T9"></a>T9</h2><p><strong>题目：</strong>计算球体重量</p>
+<p><strong>时间限制：</strong>1s</p>
+<p><strong>内存限制：</strong>10000Kb</p>
+<p><strong>问题描述：</strong>已知铁的比重是7.86(克&#x2F;立方厘米)，金的比重是19.3(克&#x2F;立方厘米)。写一个程序，分别计算出给定直径的铁球与金球的质量，假定PI&#x3D;3.1415926</p>
+<p><strong>输入说明：</strong>输入两个整数，分别表示铁球与金球的直径（单位为毫米）。</p>
+<p><strong>输出说明：</strong>输出两个浮点数，分别表示铁球与金球的质量（单位为克），小数点后保留3位小数，两个浮点数之间用空格分隔。</p>
+<p><strong>输入样例：</strong></p>
+<p>100 100</p>
+<p><strong>输出样例：</strong></p>
+<p>4115.486 10105.456</p>
+<p><strong>提示</strong>：用scanf输入，用printf输出，保留3位小数的格式控制字符为%.3f</p>
+<h3 id="本题小解析"><a href="#本题小解析" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>这道题主要是要注意运用球的体积公式<strong>（注意直径）</strong>，还有就是<strong>注意单位换算</strong>（&#x2F;1000），其他的小注意点如<strong>格式控制字符</strong>，<strong>实数运算</strong>等。</p>
+<h3 id="弱鸡代码"><a href="#弱鸡代码" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> d1,d2;</span><br><span class="line">	<span class="type">double</span> m1,m2;</span><br><span class="line">	<span class="type">const</span> <span class="type">double</span> PI=<span class="number">3.1415926</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;d1,&amp;d2);</span><br><span class="line">	m1=PI*d1*d1*d1/<span class="number">6000</span>*<span class="number">7.86</span>;</span><br><span class="line">	m2=PI*d2*d2*d2/<span class="number">6000</span>*<span class="number">19.3</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.3f %.3f&quot;</span>,m1,m2);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+
+<h2 id="T10"><a href="#T10" class="headerlink" title="T10"></a>T10</h2><p><strong>题目：</strong>温度转换</p>
+<p><strong>时间限制：</strong>1s</p>
+<p><strong>内存限制：</strong>10000Kb</p>
+<p><strong>问题描述：</strong>已知华氏温度到摄氏温度的转换公式为：摄氏温度&#x3D; (华氏温度- 32)×5&#x2F;9，写程序将给定的华氏温度转换为摄氏温度输出。</p>
+<p><strong>输入说明：</strong>只有一个整数，表示输入的华氏温度。</p>
+<p><strong>输出说明：</strong>输出一个表示摄氏温度的实数，小数点后保留2位有效数字，多余部分四舍五入。</p>
+<p><strong>输入样例：</strong></p>
+<p>50</p>
+<p><strong>输出样例：</strong></p>
+<p>10.00</p>
+<p><strong>提示：</strong></p>
+<p>用scanf输入，用printf输出，保留2位小数的格式控制字符为%.2f</p>
+<h3 id="本题小解析-1"><a href="#本题小解析-1" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>注意<strong>精度控制</strong>和<strong>实数运算</strong>即可。</p>
+<h3 id="弱鸡代码-1"><a href="#弱鸡代码-1" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> f;</span><br><span class="line">	<span class="type">double</span> c;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;f);</span><br><span class="line">	c=(f<span class="number">-32</span>)*<span class="number">5.0</span>/<span class="number">9.0</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.2f&quot;</span>,c);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="T11"><a href="#T11" class="headerlink" title="T11"></a>T11</h2><p><strong>题目：</strong>整数简单运算</p>
+<p><strong>问题描述：</strong>编写程序，计算用户输入的两个整数的和、差、乘积（*）和商（&#x2F;）。</p>
+<p><strong>输入格式：</strong>输入两个整数，整数之间用空格分隔。</p>
+<p>输出格式：输出四个整数结果，分别表示和、差、积和商，每输出一个结果换行。</p>
+<p><strong>输入样例：</strong></p>
+<p>3 4</p>
+<p><strong>输出样例：</strong></p>
+<p>7</p>
+<p>-1</p>
+<p>12</p>
+<p>0</p>
+<h3 id="本题小解析-2"><a href="#本题小解析-2" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>照样子做就行，可以选择定义结果的变量也可以选择直接输出。</p>
+<p><del>没有&#x2F;0差评。</del></p>
+<h3 id="弱鸡代码-2"><a href="#弱鸡代码-2" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> a,b;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a+b);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a-b);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a*b);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,a/b);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="T16"><a href="#T16" class="headerlink" title="T16"></a>T16</h2><p><strong>题目：</strong>字符输入输出</p>
+<p><strong>问题描述：</strong>通过键盘输入5个大写字母，输出其对应的小写字母，并在末尾加上“！”。</p>
+<p><strong>输入说明：</strong>5个大写字母通过键盘输入，字母之间以竖线“|”分隔。</p>
+<p><strong>输出说明：</strong>输出5个大写字母对应的小写字母，之间无分隔，并在末尾加上‘！’。</p>
+<p><strong>输入样例：</strong></p>
+<p>H|E|L|L|O</p>
+<p><strong>输出样例：</strong></p>
+<p>hello!</p>
+<h3 id="本题小解析-3"><a href="#本题小解析-3" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>这道题主要注意的就是字母大小写的转换，<strong>需要查询ASCII码表，并直接对ASCII码进行操作（-32）</strong>。</p>
+<p>另外注意输入样例的时候，<strong>scanf函数对非格式控制符是需要进行原样输入的</strong>。举个栗子，弱鸡代码里面的就需要输入A|B|C|D|E才能正常读取所有变量，<strong>即|字符需要原样输入。</strong></p>
+<p>可以选择输入字符串然后取出五个字符，或者直接输入五个字符。<del>我tm在讲什么狗屁</del></p>
+<h3 id="弱鸡代码-3"><a href="#弱鸡代码-3" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">char</span> a,b,c,d,e;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%c|%c|%c|%c|%c&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d,&amp;e);</span><br><span class="line">	a+=<span class="number">32</span>;</span><br><span class="line">	b+=<span class="number">32</span>;</span><br><span class="line">	c+=<span class="number">32</span>;</span><br><span class="line">	d+=<span class="number">32</span>;</span><br><span class="line">	e+=<span class="number">32</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%c%c%c%c%c!&quot;</span>,a,b,c,d,e);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="T18"><a href="#T18" class="headerlink" title="T18"></a>T18</h2><p><strong>题目：</strong>数字字符</p>
+<p><strong>问题描述：</strong>通过键盘输入1个整数a（0&lt;&#x3D;a&lt;&#x3D;4）,1个数字字符b（’0’&lt;&#x3D;b&lt;&#x3D;’5’），求a+b。</p>
+<p><strong>输入说明：</strong>整形数据、数字字符通过键盘输入，输入的整形数据介于0和4之间，输入的数字字符介于‘0’和‘5’之间，二个输入数之间用“,”分隔。</p>
+<p><strong>输出说明：</strong>分别以整数形式及字符形式输出a+b，输出的二个数之间用“,”分隔。</p>
+<p><strong>输入样例：</strong></p>
+<p>3,5</p>
+<p><strong>输出样例：</strong></p>
+<p>56,8</p>
+<h3 id="本题小解析-4"><a href="#本题小解析-4" class="headerlink" title="本题小解析"></a>本题小解析</h3><p><strong>直接照着要求做，该怎么输入怎么输出就怎么搞，别想太多</strong>。</p>
+<h3 id="弱鸡代码-4"><a href="#弱鸡代码-4" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> a;</span><br><span class="line">	<span class="type">char</span> b;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d,%c&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d,%c&quot;</span>,a+b,a+b);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="T19"><a href="#T19" class="headerlink" title="T19"></a>T19</h2><p><strong>题目：</strong>实数运算</p>
+<p><strong>问题描述：</strong>通过键盘输入长方体的长、宽、高，求长方体的体积V（单精度）。</p>
+<p><strong>输入说明：</strong>十进制形式输入长、宽、高，输入数据间用空格分隔。</p>
+<p><strong>输出说明：</strong>单精度形式输出长方体体积V，保留小数点后3位，左对齐。</p>
+<p><strong>输入样例：</strong></p>
+<p>15 8.12 6.66</p>
+<p><strong>输出样例：</strong></p>
+<p>811.188</p>
+<h3 id="本题小解析-5"><a href="#本题小解析-5" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>主要是注意<strong>精度</strong>问题，<strong>输出格式</strong>问题和<strong>左对齐</strong>问题。</p>
+<p><strong>用printf函数修饰符-来控制左对齐，在没有设置域宽（如本题）的时候，一般不用修饰符-，即默认左对齐。</strong></p>
+<h3 id="弱鸡代码-5"><a href="#弱鸡代码-5" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">float</span> a,b,c;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%f %f %f&quot;</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.3f&quot;</span>,a*b*c);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="T20"><a href="#T20" class="headerlink" title="T20"></a>T20</h2><p><strong>题目：</strong>四则运算</p>
+<p><strong>问题描述：</strong>输入两个整数和一个四则运算符，根据运算符计算并输出其运算结果（和、差、积、商、余之一）。注意做整除及求余运算时，除数不能为零。</p>
+<p><strong>输入说明：</strong>使用scanf()函数输入两个整数和一个运算符，格式见输入样例。</p>
+<p><strong>输出说明：</strong>输出使用printf()函数，格式见输出样例。</p>
+<p><strong>输入样例：</strong> </p>
+<p>5%2</p>
+<p><strong>输出样例：</strong></p>
+<p>5%2&#x3D;1</p>
+<h3 id="本题小解析-6"><a href="#本题小解析-6" class="headerlink" title="本题小解析"></a>本题小解析</h3><p><strong>首先，本题不需要你考虑数据为0的情况。</strong></p>
+<p>其次，本题需要用到条件判断，即if…elseif…else…或者switch….case….语句来进行编写，<strong>已经超出了本课教学的范围</strong>。<del>虽然教学啥都bushi</del></p>
+<blockquote>
+<p>如果你要写if语句的话，就需要条件表达式，比如说if(op&#x3D;&#x3D;’+’)（这里的op是运算符的意思，不是你想的那个），这时候就会涉及到逻辑运算符&#x3D;&#x3D;的问题，而&#x3D;&#x3D;代表相等的意思。</p>
+<p>如果你要写switch语句的话，注意case语句后面都需要加上break;防止执行混乱。</p>
+</blockquote>
+<p><strong>最后，用%%来代表输出一个百分号%，亦可用输出op运算符替代。</strong></p>
+<h3 id="弱鸡代码-6"><a href="#弱鸡代码-6" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> a,b;</span><br><span class="line">	<span class="type">char</span> op;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%c%d&quot;</span>,&amp;a,&amp;op,&amp;b);</span><br><span class="line">	<span class="keyword">switch</span>(op)&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a+b);<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a-b);<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a*b);<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a/b);<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;%&#x27;</span>:<span class="built_in">printf</span>(<span class="string">&quot;%d%c%d=%d&quot;</span>,a,op,b,a%b);<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="T21"><a href="#T21" class="headerlink" title="T21"></a>T21</h2><p><strong>题目：</strong>数位输出</p>
+<p><strong>问题描述：</strong>输入一个5位整数，求出其各数位数值，并按照从高位到低位的顺序输出，如：输入12345，输出为1 2 3 4 5。</p>
+<p><strong>输入说明：</strong>输入一个五位正整数。</p>
+<p><strong>输出说明：</strong>按数位从高到低依次输出，各数位之间以一个空格相分隔。</p>
+<p><strong>输入样例：</strong></p>
+<p>96237</p>
+<p><strong>输出样例：</strong></p>
+<p>9 6 2 3 7</p>
+<h3 id="本题小解析-7"><a href="#本题小解析-7" class="headerlink" title="本题小解析"></a>本题小解析</h3><p><strong>看成是你输入五个字符，然后往这五个字符里面加入空格即可。</strong></p>
+<h3 id="弱鸡代码-7"><a href="#弱鸡代码-7" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3> <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">char</span> a,b,c,d,e;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%c%c%c%c%c&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d,&amp;e);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%c %c %c %c %c&quot;</span>,a,b,c,d,e);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
-          
-          <category> 游戏 </category>
-          
+        <category>C</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 整活 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hexo评论小测试</title>
-      <link href="/Hexo%E8%AF%84%E8%AE%BA%E5%B0%8F%E6%B5%8B%E8%AF%95/"/>
-      <url>/Hexo%E8%AF%84%E8%AE%BA%E5%B0%8F%E6%B5%8B%E8%AF%95/</url>
-      
-        <content type="html"><![CDATA[<p>似乎gitalk不挂梯子不能用，太难了….</p><p><del>扔了算了，要他何用</del></p><p><strong>来必力不香吗！</strong></p><span id="more"></span><h3 id="关于如何用来必力评论这件事"><a href="#关于如何用来必力评论这件事" class="headerlink" title="关于如何用来必力评论这件事"></a>关于如何用来必力评论这件事</h3><p>本次教程基于以下版本（我当时是最新的）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hexo:6.2.0</span><br><span class="line">Next:7.7.2</span><br></pre></td></tr></table></figure><p>虽然来必力这玩意加载慢，但是能用哈！也支持国内的各大主流社交媒体账号。</p><h4 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h4><p>先注册一个来必力账号。</p><p><a href="https://livere.com/">注册页面</a></p><p>网站会有点卡，有的时候会出现页面无法加载的现象，实测挂加速器无用，<del>估计是服务器太菜了吧</del>。界面部分为韩文（韩国网站），翻译即可。</p><p>登陆的时候第一行填注册邮箱，第二行填密码即可。</p><p>挂加速器可能会导致安装失败。</p><p><img src="https://pic4.zhimg.com/80/v2-ae6d613501f17e83cac2abbe6d00b04b_720w.jpg" alt="一张丢失了的图片"></p><p>在注册成功后，点击安装，选择City版本进行安装。会要求你输入自己的网址（带https:&#x2F;&#x2F;），网站名（随便填），和网站用途（选择个人网站）即可。</p><p><img src="https://pica.zhimg.com/80/v2-6fb025dab0883580834fb31c9f1d5bdb_1440w.jpg?source=3af55fa1" alt="一张丢失了的图片"></p><h4 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h4><p>申请成功后你会进入进入到代码管理界面。找到以下内容。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;xxxxxxx&quot;&gt;</span><br></pre></td></tr></table></figure><p><img src="https://pic2.zhimg.com/80/v2-532788e1038f4ead9f019583e5e30a9c_1440w.jpg?source=3af55fa1" alt="一张丢失了的图片"></p><p><strong>记住data-uid里面的那一串字段，配置要用。</strong></p><h4 id="Step3"><a href="#Step3" class="headerlink" title="Step3"></a>Step3</h4><p>打开你的<strong>主题配置文件</strong>（Next的配置文件themes&#x2F;next&#x2F;_config.yml），搜索livere，找到如下内容，把之前data-uid里面的字段复制到livere-uid:后面（注意字段和冒号中间要有空格）。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># LiveRe comments system</span><br><span class="line"># You can get your uid from https://livere.com/insight/myCode (General web site)</span><br><span class="line">livere_uid:  #&lt;your_uid&gt;</span><br></pre></td></tr></table></figure><p>同时搜索comments，找到如下内容，在active:后面打上livere。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">comments:</span><br><span class="line">  # Available values: tabs | buttons</span><br><span class="line">  style: tabs</span><br><span class="line">  # Choose a comment system to be displayed by default.</span><br><span class="line">  # Available values: changyan | disqus | disqusjs | gitalk | livere | valine</span><br><span class="line">  active: livere</span><br><span class="line">  # Setting `true` means remembering the comment system selected by the visitor.</span><br><span class="line">  storage: true</span><br><span class="line">  # Lazyload all comment systems.</span><br><span class="line">  lazyload: false</span><br></pre></td></tr></table></figure><p>大功告成！（看了下网上的博客有讲到要编辑其他文件的，是老版本）</p><h4 id="Step4"><a href="#Step4" class="headerlink" title="Step4"></a>Step4</h4><p>运行以下代码查看效果！</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$hexo clean</span><br><span class="line">$hexo g </span><br><span class="line">$hexo s</span><br></pre></td></tr></table></figure><p>如果你试图想改变一下他的样式的话，可能会很难（不嫌弃丑，找到一个能用的评论系统是真心不容易）。</p><p><img src="https://picx.zhimg.com/80/v2-83a5dcc38aa8d596793e265cc20e4de7_1440w.jpg?source=3af55fa1" alt="一张丢失了的图片"></p><p>进行部署:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$hexo clean</span><br><span class="line">$hexo g </span><br><span class="line">$hexo d</span><br></pre></td></tr></table></figure><h4 id="Step5"><a href="#Step5" class="headerlink" title="Step5"></a>Step5</h4><p>如果需要查看数据，可以到来必力的后台进行查看。</p><p><a href="https://livere.com/insight">数据查看网址</a> </p><h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>可能是我脸黑还是啥原因，我的电脑浏览器一直加载不出来，但手机可以查看评论，别人的浏览器也可以查看评论。</p><p><del>属于未解决谜题之一了害。</del>所以为什么挂梯子不能用来必力啊啊啊啊啊啊啊啊啊啊！！！简直就和Gitalk对着干，太离谱了。</p><p>关于设置true的问题，好友<a href="https://changakira.github.io/">Akira</a>设置的<a href="https://changakira.github.io/2022/09/01/gitalk/#more">教程</a>有误，<del>本来就是一篇沙雕文哈哈哈</del>。</p><h6 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h6><p><a href="https://zhuanlan.zhihu.com/p/460830283">hexo博客新增来必力评论功能</a></p>]]></content>
-      
-      
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>食材打人啦！</title>
+    <url>/%E9%A3%9F%E6%9D%90%E6%89%93%E4%BA%BA%E5%95%A6%EF%BC%81/</url>
+    <content><![CDATA[<p><del>一道算法入门题</del></p>
+<span id="more"></span>
+
+<h1 id="食材打人啦！"><a href="#食材打人啦！" class="headerlink" title="食材打人啦！"></a>食材打人啦！</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在原神中，有一个n*n格地图，每一格子上都有一种元素。若某一格子上下左右的四格格子上的元素可以和中心格子上的元素反应，那么伤害就可以扩散到其可以反应的格子。</p>
+<p>你的任务是：对于给定的元素格子，询问从某一格开始伤害能扩散到多少个格子（包含自身）。</p>
+<p>规定水元素为1，火元素为2，雷元素为3，冰元素为4，风元素为5，岩元素为6。不考虑草元素的反应。</p>
+<p><strong>其中可以生成的反应有：</strong></p>
+<p><strong>蒸发反应</strong>：是水元素和火元素的反应。</p>
+<p><strong>超载反应</strong>：是雷元素和火元素的反应。</p>
+<p><strong>融化反应</strong>：是火元素和冰元素的反应。</p>
+<p><strong>超导反应</strong>：是雷元素和冰元素的反应。</p>
+<p><strong>感电反应</strong>：是雷元素和水元素的反应。</p>
+<p><strong>冻结反应</strong>：是水元素和冰元素的反应。</p>
+<p><strong>扩散反应</strong>：风元素和非岩元素发生的反应。</p>
+<p><strong>结晶反应</strong>：岩元素和非风元素发生的反应。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第1行为两个正整数n,m。</p>
+<p>下面n行，每行n个字符，字符只可能是元素标识数字，字符之间没有空格。</p>
+<p>接下来m行，每行2个用空格分隔的正整数i,j，对应了迷宫中第i行第j列的一个格子，询问从开始能伤害能扩散到多少格。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>m行，对于每个询问输出相应答案。</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3 2</span><br><span class="line">21</span><br><span class="line">12</span><br><span class="line">1 1</span><br><span class="line">2 2</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>对于20%的数据，n≤10；</p>
+<p>对于40%的数据，n≤50；</p>
+<p>对于50%的数据，m≤5；</p>
+<p>对于60%的数据，n≤100,m≤100；</p>
+<p>对于100%的数据，n≤1000,m≤100000。</p>
+]]></content>
       <categories>
-          
-          <category> Hexo建站 </category>
-          
+        <category>ACM</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 指南 </tag>
-            
-            <tag> 心声 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>2022年Minecraft综合能力合格性测试</title>
-      <link href="/2022%E5%B9%B4Minecraft%E7%BB%BC%E5%90%88%E8%83%BD%E5%8A%9B%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95/"/>
-      <url>/2022%E5%B9%B4Minecraft%E7%BB%BC%E5%90%88%E8%83%BD%E5%8A%9B%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95/</url>
-      
-        <content type="html"><![CDATA[<p>这是一份我和<a href="https://www.zhihu.com/people/qi-qi-37-74-70-86">琦琦</a>一起写的一份我的世界综合能力评估测试。本卷致力于筛选出玩我的世界和不玩我的世界的人，理论上试卷难度不大，但是题目的难度与区分度仍难以把控，如有问题请多多包涵。</p><p>试卷已经在<a href="https://www.zhihu.com/question/541683824">知乎</a>发布，亦可移步<a href="https://ks.wjx.top/vm/YDuuA6g.aspx">问卷星在线答题页面</a>。</p><span id="more"></span><blockquote><p> 本卷编写年月：2022.7<br> 考生在答题前请认真阅读本注意事项及各题答题要求<br> 本试卷共10页，包含选择题(第1题～第20题，共28题)、非选择题(第29题～第30题，共5题)两分．本卷满分为100分，考试时间为60分钟．考试结束后，请将答题卡或答题纸交回；<br> 答题前，请您务必将自己的姓名、考试号用0．5毫米黑色墨水的签字笔填写在答题卡或答题纸的规定位置；<br> 作答选择题时，必须用2B铅笔将答题卡上对应选项的方框涂满、涂黑；如需改动，请用橡皮擦干净后，再选涂其他答案．作答非选择题时，必须用0．5毫米黑色墨水签字笔在答题卡或答题纸上的指定区域内作答，在其他区域作答一律无效；<br> 如需作图，须用2B铅笔绘、写清楚，线条、符号等需加黑、加粗；<br> 本卷如无特殊说明，则所有题目版本背景都是无作弊生存模式下Java版1.17我的世界．</p></blockquote><h2 id="选择部分"><a href="#选择部分" class="headerlink" title="选择部分"></a>选择部分</h2><p><strong>一、选择题：本部分共有28小题，每小题3分，共84分．每小题有且只有一个选项是正确答案．答案请填涂在相应的答题区域．</strong><br>1．在Minecraft中，绝大部分的物品都需要使用工作台合成．以下物品<u>不需要</u>使用工作台合成的是<br>A．石镐B．火把C．熔炉D．钻石块<br>2．食物是Minecraft的一大特色，以下哪种食物可以被玩家直接食用?<br>A．鸡蛋B．南瓜块C．腐肉D．小麦<br><em>夜晚是新手玩MC所遇到的第一个挑战，据此回答3～4题．</em><br>3．床是Minecraft玩家的必备物品，以下说法<u>不正确</u>的是<br>A．床需要3个木板和3个羊毛合成B．床可以设置出生点<br>C．床可以使Steve度过夜晚D．床在任何地方都可以稳定使用<br>4．Steve决定在夜晚出去探索，结果被炸死了，他最有可能遇到了<br>A．末影人B．骷髅C．苦力怕D．僵尸<br><em>Steve不可避免会受到摔落伤害，为了减少摔落伤害带来的影响，Steve想了许多办法来减少自己的摔落伤害，据此回答5～6题．</em><br>5．关于摔落伤害，下列说法<u>不正确</u>的是<br>A．若Steve从的摔落高度为30，且受到伤害，则其受到的伤害足以让满血的Steve死亡<br>B．若Steve在方块上潜行，可以有效避免从方块边缘摔落<br>C．若Steve骑乘的生物受到摔落伤害，Steve也会受到摔落伤害<br>D．若Steve没有任何防护和增益，则其受到的摔落伤害x与摔落高度y的关系为x＝y－3<br>6．Steve掉落在以下方块上，<u>不能</u>完全免疫摔落伤害的是<br>A．干草块B．水C．粘液块D．梯子<br>7．自己动手，丰衣足食，Steve想通过种田来解决自己的食物来源问题．下列说法中，<u>不正确</u>的是<br>A．Steve在耕地上跳跃会使耕地变成泥土<br>B．使用锄来开垦泥土或草方块使其变为耕地<br>C．在耕地附近范围无水的条件下，作物无法成熟并收割<br>D．对作物使用骨粉或在作物附近养殖蜜蜂均可加速作物生长速度<br>8．对于一些物品的合成，其原材料的排放位置无关紧要，这些配方称为无序配方．下列物品的合成配方<u>不属于</u>无序配方的是<br>A．蘑菇煲B．染色羊毛C．书D．胡萝卜钓竿<br>9．一组煤炭作为燃料，用熔炉可以烧制（          ）组物品<br>A．8B．10C．16D．64<br>10．耐久最低的镐子是<br>A．木镐B．石镐C．金镐D．下界合金镐<br>11．随着版本的更新，Minecraft的建筑高度范围从原本的0～256变成了－64～320，在版本更新后，下列说法正确的是<br>A．基岩层为y＝0<br>B． y＜－64的区域是虚空，Steve在生存模式下掉入虚空最终都会死亡<br>C．若Steve处于飞行状态，Steve的位置y＝500是不可能的<br>D．Steve有一定概率在y＝319的地方挖到矿石<br>12．以下矿石挖掘后掉落的方块需要通过熔炼才能获得相应矿石的是<br>A．红石矿石B．铁矿石C．钻石矿石D．青金石矿石<br><em>Steve积攒了大量的经验，他想通过一定的方式来使用经验．据此回答13～15题．</em><br>13．在Minecraft中获得经验的方式很多，但<u>不包括</u>以下哪个方式?<br>A．与村民交易B．挖矿C．烧炼物品D．驯服生物<br>14．附魔是使用经验的有效方式，下列说法不正确的是<br>A．附魔在需要经验的同时需要青金石<br>B．可以通过铁砧来进行附魔<br>C．Steve可以持续刷新附魔，以获得自己需要的附魔<br>D．Steve可以在附魔台附近以一定的方式摆放一定数量的的书架，以提高附魔等级，获得更好的附魔<br>15．无法通过附魔台得到的附魔称为宝藏性附魔．以下哪类附魔为宝藏性附魔?<br>A．绑定诅咒B．时运 C．截肢杀手D．火焰附加<br><em>Steve决定探索下界，据此回答16～17题．</em><br>16．下列说法正确的是<br>A．下界传送门的框架大小固定为4×5<br>B．下界传送门可能会被爆炸所破坏<br>C．主世界的坐标和下界坐标的比例为8：1<br>D．在下界使用指南针可以定位到下界传送门<br>17．下界中有许多的生物，下列说法<u>不正确</u>的是<br>A．Steve可以和成年猪灵用金锭以物易物B．Steve可以击杀岩浆怪获得岩浆膏<br>C．Steve可以在下界击杀骷髅D．Steve可以骑乘赤足兽和恶魂<br>18．Steve决定在河边钓鱼，他<u>不可能</u>钓上来<br>A．小麦种子B．木棍C．钓鱼竿D．水瓶<br>19．Steve决定使用指令，以下指令正确的是<br>A．清除所有实体：&#x2F;clear<br>B．设置时间约为中午：&#x2F;time 18000<br>C．切换生存模式：&#x2F;gamemode 1<br>D．在当前位置生成闪电：&#x2F;summon lightning_bolt ～ ～ ～<br>20．如果在一个大箱子中54格储存空间内全部放满鸡蛋，则该箱子中鸡蛋的存储数量为<br>A．864B．3456C．1728D．432<br>21．村民是村庄的重要组成成分．下列说法中<u>不正确</u>的是<br>A．村民可在村庄中有床的房屋里生成<br>B．村民可以主动攀爬梯子并打开活板门<br>C．村庄内可能会有多只铁傀儡<br>D．治愈僵尸村民可以让Steve在和村民的交易中获得打折<br><em>红石电路是Minecraft的重要组成部分，据此回答22～23题．</em><br>22．红石元器件是指既可以被充能，又可以给其他方块充能的红石元件．下列属于红石元器件的是<br>A．活塞B．红石块C．红石比较器D．压力板<br>23．红石电路有时需要判断输入信号，经过一定的算法产生一个输出，这类电路即为人们耳熟能详的逻辑门．根据以下输入，可以判断该门<u>不属于</u><br>输入：1 0 输出：1<br>A．或门B．异或门C．与门D．与非门<br>24．下面关于进度的说法不正确的是<br>A．结束了?：杀死末影龙B．隔墙有眼：进入要塞<br>C．冰桶挑战：创造并获得一块黑曜石D．来硬的：获得一块铁锭<br>25．在水中，Steve的会受到各种影响，下列说法正确的是<br>A．Steve在不携带任何装备时，在潜水过程中有约30秒的活动时间，超后就会受到伤害<br>B．所有生物都可在水中移动<br>C．Steve在海底向下挖掘时，挖掘速度约为陆地上挖掘同种方块的1&#x2F;5<br>D．水的传播距离为9格<br><em>为增强游戏体验，Steve在某地图存档中加入了3种合成不同方向的蛋糕的合成表．因此，在该地图中，Steve可以合成上、下、左、右四种不同方向的蛋糕，其合成所需的材料与正常蛋糕相同，只是其摆放方式不同，摆放方向与蛋糕所朝方向一致．且当Steve手持过方向向下的蛋糕后，由于手很“黏”，会使自己在一段时间内挖掘任意方块的速度减慢，但移动速度不受影响．据此回答26～27题．</em><br>26．下图所示的材料在工作台上的摆放方式可以合成下面哪种蛋糕?</p><table><thead><tr><th>小麦</th><th>小麦</th><th>小麦</th></tr></thead><tbody><tr><td><strong>糖</strong></td><td><strong>鸡蛋</strong></td><td><strong>糖</strong></td></tr><tr><td><strong>牛奶桶</strong></td><td><strong>牛奶桶</strong></td><td><strong>牛奶桶</strong></td></tr></tbody></table><p>A．图片朝上的蛋糕B．图片朝下的蛋糕C．图片朝左的蛋糕 D．图片朝右的蛋糕<br>27．题中划线处的效果与下列哪个效果相似?<br>A．失明B．缓慢C．力量D．挖掘疲劳<br>28．以下是Steve在玩Minecraft时的一些行为，则下列行为中<u>不正确</u>的是<br>A．在国际服务器中，面对与自己观点不合的人，Steve直接在聊天区中开骂对方<br>B．作为某服务器的管理员，Steve总会满足玩家合理的需求，不会无理由地破坏玩家的游戏体验<br>C．在与其他游戏玩家的聊天中，Steve不会出现违规、涉敏词汇<br>D．在观看与Minecraft无关或关联性不大的视频中，Steve不会在视频评论区刷大量有关Minecraft的内容</p><h2 id="非选择部分"><a href="#非选择部分" class="headerlink" title="非选择部分"></a>非选择部分</h2><p><strong>二、填空题：共16分．如无特殊说明，每空2分．答案请填写在相应的答题区域．在涉及游戏内译名相关的问题中，答案一律以简体中文(中国)的标准译名为准，否则不得分．</strong><br>29．(6分)除了工作台，在Minecraft种也有许多有用的方块，如炼药锅和酿造台．<br>(1)在使用炼药锅时，需要准备好相关的材料，如水瓶、烈焰粉和酿造材料．<br>①水瓶可以通过手持玻璃瓶对着水源点击使用键获得．玻璃瓶可以在工作台上用（          ）合成获得．<br>②烈焰粉可以通过击杀（          ）获得烈焰棒，并将其分解成烈焰粉．<br>(2)炼药锅在游戏中有许多的功能，如：（          ）(举一例即可)．<br>30．(10分)铁是Minecraft中一种常见但重要的一种矿物．<br>(1)铁在Minecraft中有许多的获得方法．除了通过挖掘铁矿石并烧炼获得铁锭外，还有击杀（          ）、　（          ）或开箱子战利品等方法．<br>(2)铁在Minecraft中有许多的用途．<br>①铁可以用于合成盔甲．若Steve想用铁来合成“铁4件套”(1个铁头盔＋1个铁胸甲＋1个铁护腿＋1个铁靴子)，则Steve需要（          ）个铁锭才能合成一个“铁4件套”<br>②铁可以用来合成铁砧．<br>(i)合成一个铁砧需要的铁锭数量为（          ）(其中1个铁块记为9个铁锭)．<br>(ii)铁砧除了可以用来修复装备、给装备附魔外，还可以用来（          ）(举一例即可)．</p>]]></content>
-      
-      
+      <tags>
+        <tag>题目</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言小整活</title>
+    <url>/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%95%B4%E6%B4%BB/</url>
+    <content><![CDATA[<p><strong>本文章将讲述将算法进行硬编码的一种常规思路。</strong></p>
+<p><strong>不推荐对任何的算法进行硬编码，一是浪费时间，二是效率低下，本文章仅从其可能实现的方式进行讲解。</strong></p>
+<span id="more"></span>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="为什么会有这个想法呢？"><a href="#为什么会有这个想法呢？" class="headerlink" title="为什么会有这个想法呢？"></a>为什么会有这个想法呢？</h2><p>是因为知乎上看到了一个88w代码的一个图，完美的击碎了所谓“高中生10w代码”的问题，作为一名c语言的新手，我也能写几十万行的代码！</p>
+<p>然而，这几十万行的代码，实质上是将循环转变为大量的逻辑判断，从而使代码变的臃肿，同时降低可读性，甚至难以编译。</p>
+<p>因此，除非整活，不要这么做。</p>
+<h2 id="警告"><a href="#警告" class="headerlink" title="警告"></a>警告</h2><p><strong>请确保不要使用复制黏贴修改的方式进行编写！这会大大浪费你的时间！</strong></p>
+<p><strong>请确保你具有以下基本c语言知识：</strong></p>
+<p>对c语言数据格式，运算符，标准输入输出流，逻辑判断和循环的了解</p>
+<p><strong>对文件输入输出流的了解</strong></p>
+<h1 id="整活"><a href="#整活" class="headerlink" title="整活"></a>整活</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>首先，类似这种硬编码，大概的思路都是把循环转换为判断，举个栗子：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">1000000</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">114514</span>) <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以把他写成这样</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(i==<span class="number">1</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">2</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">3</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">4</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="comment">//省略</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">114513</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">114514</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">114515</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="comment">//省略</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">999999</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(i==<span class="number">1000000</span>)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p>如果你看懂了！恭喜你，你已经成为了能写百万行代码的<del>大佬</del>萌新了！</p>
+<h2 id="实现所需要的基础"><a href="#实现所需要的基础" class="headerlink" title="实现所需要的基础"></a>实现所需要的基础</h2><h3 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h3><p>部分字符是无法直接打出的，第一种方式是使用字符拼接，让所有无法直接的字符用char表示，第二种方式就是转义。</p>
+<p>下面是一些常用的转义表示。</p>
+<p>\n 换行</p>
+<p>\t 横向跳格</p>
+<p>\b 退格</p>
+<p>\\ 反斜杠</p>
+<p>\” 双引号</p>
+<p>\’ 单引号</p>
+<p><strong>需要注意的是如果在printf()函数中的双引号中直接再加一个双引号，此时编译是通不过的。</strong></p>
+<h3 id="文件输入输出"><a href="#文件输入输出" class="headerlink" title="文件输入输出"></a>文件输入输出</h3><p><a href="https://blog.csdn.net/dlpmmk/article/details/123689664">c语言文件输入输出教程</a></p>
+<p><a href="https://blog.csdn.net/qq_63102689/article/details/124403146">c++文件输入输出教程</a></p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="# 实现代码"></a># 实现代码</h2><p>对应西电oj题组82的第21题。</p>
+<p><strong>题目：</strong>数位输出</p>
+<p><strong>问题描述：</strong>输入一个5位整数，求出其各数位数值，并按照从高位到低位的顺序输出，如：输入12345，输出为1 2 3 4 5。</p>
+<p><strong>输入说明：</strong>输入一个五位正整数。</p>
+<p><strong>输出说明：</strong>按数位从高到低依次输出，各数位之间以一个空格相分隔。</p>
+<p><strong>输入样例：</strong></p>
+<p>96237</p>
+<p><strong>输出样例：</strong></p>
+<p>9 6 2 3 7</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> i,a,b,c,d,e;</span><br><span class="line">	ofstream fout;</span><br><span class="line">	fout.<span class="built_in">open</span>(<span class="string">&quot;code.cpp&quot;</span>);</span><br><span class="line">	fout&lt;&lt;<span class="string">&quot;#include &lt;stdio.h&gt;&quot;</span>&lt;&lt;endl;</span><br><span class="line">	fout&lt;&lt;<span class="string">&quot;int main()&#123;&quot;</span>&lt;&lt;endl;</span><br><span class="line">	fout&lt;&lt;<span class="string">&quot;		int num;&quot;</span>&lt;&lt;endl;</span><br><span class="line">	fout&lt;&lt;<span class="string">&quot;		scanf(\&quot;%d\&quot;,&amp;num);&quot;</span>&lt;&lt;endl;</span><br><span class="line">	fout&lt;&lt;<span class="string">&quot;		switch(num)&#123;&quot;</span>&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">10000</span>;i&lt;=<span class="number">99999</span>;i++)&#123;</span><br><span class="line">		a=i%<span class="number">10</span>;</span><br><span class="line">		b=i%<span class="number">100</span>/<span class="number">10</span>;</span><br><span class="line">		c=i%<span class="number">1000</span>/<span class="number">100</span>;</span><br><span class="line">		d=i%<span class="number">10000</span>/<span class="number">1000</span>;</span><br><span class="line">		e=i/<span class="number">10000</span>;</span><br><span class="line">		fout&lt;&lt;<span class="string">&quot;			case &quot;</span>&lt;&lt;i&lt;&lt;<span class="string">&#x27;:&#x27;</span>&lt;&lt;<span class="string">&quot; printf(\&quot;%d %d %d %d %d\&quot;,&quot;</span>&lt;&lt;e&lt;&lt;<span class="string">&#x27;,&#x27;</span>&lt;&lt;d&lt;&lt;<span class="string">&#x27;,&#x27;</span>&lt;&lt;c&lt;&lt;<span class="string">&#x27;,&#x27;</span>&lt;&lt;b&lt;&lt;<span class="string">&#x27;,&#x27;</span>&lt;&lt;a&lt;&lt;<span class="string">&quot;);break;&quot;</span>&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	fout&lt;&lt;<span class="string">&quot;		&#125;&quot;</span>&lt;&lt;endl;</span><br><span class="line">	fout&lt;&lt;<span class="string">&quot;		return 0;&quot;</span>&lt;&lt;endl;</span><br><span class="line">	fout&lt;&lt;<span class="string">&quot;&#125;&quot;</span>&lt;&lt;endl;</span><br><span class="line">	fout.<span class="built_in">close</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将本代码进行编译后，会生成一个code.cpp程序，将生成的代码直接提交即可。</p>
+<p><strong>已经确认提交通过，</strong>差不多九万行吧。</p>
+<p><del>我现在也是写过十万行代码的大佬了！</del></p>
+]]></content>
       <categories>
-          
-          <category> 我的世界 </category>
-          
+        <category>C</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 整活 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>向世界问个好</title>
-      <link href="/%E5%90%91%E4%B8%96%E7%95%8C%E9%97%AE%E4%B8%AA%E5%A5%BD/"/>
-      <url>/%E5%90%91%E4%B8%96%E7%95%8C%E9%97%AE%E4%B8%AA%E5%A5%BD/</url>
-      
-        <content type="html"><![CDATA[<p>建站整日，一路风雨兼程，许多不容易。<br>任何看似很容易的事情，实际上都是艰难的，看了无数大佬的作品以及好友Akira（同一个学校的捏）的个人站，真的感觉自己有很多东西要学。总之一句话——自己太菜了。<br>本来建好个人站是一件喜悦的事情，怎奈已是深夜，望月伤怀，借阔乐浇愁愁更愁，只好抒发一下个人情感了。</p><span id="more"></span><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本人是一名大一新生，计算机系，萌新一只。<br>为什么叫萌新呢，当时看到了西电的moectf（西电萌新夺旗赛），学到了很多，也发现了自己和别人的差距。在做Web题的时候，我只会拿着F12对着代码硬刚，完全不知道怎么抓包（笑死这就是小白吗），被Rx大佬调侃基础领域知识缺失，看着代码不知道如何下手，你会发现——其实还有很多知识要学。<br>来西电计算机是个偶然，当初说怎么也不去西电，太远了，逼乎上风评又是这个样子。可既来之则安之，我因为菜来到了西电，如果说我真的有一个使命的话，或许是“离开西电”——西电可以给我平台让我飞往更远的地方；或许不是——谁知道自己的未来会是怎样。毕竟，人生最精彩的就是这阴差阳错，命运让大家相聚在一起，就要好好珍惜。</p><h2 id="改变"><a href="#改变" class="headerlink" title="改变"></a>改变</h2><p>人会改变，或许是因为自己内心想改变而改变，或许是因为社会的压力而不得不改变。而这个过程是痛苦的，从自己的舒适圈里面跳出来，去面对位置，面对自己灵魂里恐惧的东西，可能会难受到让你哭出来。<br>看到过很多朋友和大佬都有自己的成果，突然就想起了很多年的那些立下的目标和天坑，还有自己的破黑窗口游戏，自己和同伴一起讨论的日日夜夜。可惜早已是物是人非。<br>或许未来的四年也是一种改变吧。</p><h2 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h2><p>不敢说有啥期望吧，不辜负自己的努力就行。如果十年后的自己看到自己第一篇内容，或许会一笑而过（写的都是些啥玩意啊）。</p><h2 id="为啥要建站呢"><a href="#为啥要建站呢" class="headerlink" title="为啥要建站呢"></a>为啥要建站呢</h2><p>终于说道正头上了，就希望能和大家探讨交流下吧（评论这**玩意到现在还用不了），顺便分享一下自己学习道路上的一些心得体会，踩过的坑，以及所有让人觉得值得探讨的问题。奇奇怪怪的东西也可以扔上来（</p>]]></content>
-      
-      
+      <tags>
+        <tag>整活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电专c语言oj探秘2</title>
+    <url>/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%982/</url>
+    <content><![CDATA[<h1 id="题组22"><a href="#题组22" class="headerlink" title="题组22"></a>题组22</h1><p>本题组来源于<a href="http://39.98.193.72/xdoj-ssm/login.jsp">西电oj</a>的22题组（hqy老师课程课后习题），题目还是很简单，依旧适合萌新。</p>
+<blockquote>
+<p>关于西电oj链接替换（已知hqy老师课程适用）的问题：</p>
+<p>从第二份题组开始，所有的题目都会在新的链接发布，原本的链接将会被弃用。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="电专必看"><a href="#电专必看" class="headerlink" title="电专必看"></a>电专必看</h2><p><strong>如果你提交的时候一直编译错误：</strong></p>
+<p>请确保你<strong>提交的题目</strong>和<strong>选择的文件</strong>匹配。</p>
+<p>请确保你选择的<strong>编译选项正确</strong>，一般有两个选项visual c++和GNU C&#x2F;C++（通常其他的编译器如devc++选择这个）。<del>编者因为选错报错了一次</del></p>
+<p>请确保你使用的标准是ANSIC或者C99，<strong>没有任何奇奇怪怪的东西</strong>（如vs的scanf_s函数等）。</p>
+<p><strong>如果你在本地一直编译错误或输出错误：</strong></p>
+<p>阅读<a href="https://dreamskycx.github.io/%E7%94%B5%E4%B8%93%E7%BC%96%E8%AF%91%E5%B0%8F%E6%89%8B%E5%86%8C">电专编译小手册</a>（我写的别打我）。</p>
+<p><strong>本题解仅供学习参考使用，懂的都懂。</strong></p>
+<p>所以文件不给了（老子太懒啦~~~）</p>
+<h2 id="T1-车牌限行"><a href="#T1-车牌限行" class="headerlink" title="T1 车牌限行"></a>T1 车牌限行</h2><p><strong>时间限制：</strong>1 秒<br><strong>内存限制：</strong>256KB</p>
+<p><strong>问题描述：</strong><br>受雾霾天气影响，某市决定当雾霾指数超过设定值时对车辆进行限行，假设车牌号全为数字，且长度不超过6位，限行规则如下：<br>（1）限行时间段只包括周一至周五，周六周日不限行；<br>（2）如果雾霾指数低于200，不限行；<br>（3）如果雾霾指数大于等于200且低于400，每天限行两个尾号的汽车，周一限行1和6，周二限行2和7，周三限行3和8，周四限行4和9，周五限行5和0；<br>（4）如果雾霾指数大于等于400，每天限行五个尾号的汽车，周一、周三和周五限行1,3,5,7,9，周二和周四限行0,2,4,6,8。 </p>
+<p>现在给出星期几、雾霾指数和车牌号，判断该车牌号是否限行。 </p>
+<p><strong>输入说明</strong><br>输入分为三个整数，第一个整数表示星期几（1<del>7，1表示周一，2表示周二，依次类推，7表示周日），第二个整数表示雾霾指数（0</del>600），第三个整数表示车牌号，整数之间用空格分隔。</p>
+<p><strong>输出说明</strong><br>输出为两个部分，第一部分为车牌最后一位数字，第二部分为限行情况，限行输出yes，不限行输出no。</p>
+<p><strong>输入样例</strong><br>输入样例1<br>4 230 80801<br>输入样例2<br>3 300 67008</p>
+<p><strong>输出样例</strong><br>输出样例1<br>1 no<br>输出样例2<br>8 yes </p>
+<h3 id="本题小解析"><a href="#本题小解析" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>这道题的判断主要由这么几个，按照优先度排序是这样的：</p>
+<p>1.今天星期几（仅周一到周五限行，周末不限行，<del>如果是疯狂星期四，v我50</del>）</p>
+<p>2.雾霾指数（200,400分别为临界点）</p>
+<p>3.车牌尾号（如何实现计算车牌尾号？%10就行）</p>
+<p>注意点比如说<strong>输出格式问题</strong>，<strong>取余问题</strong>等。通常这题容易出现七八十分的情况，需要自己检查自己的条件语句写的有无出错和重复遗漏。</p>
+<h3 id="弱鸡代码"><a href="#弱鸡代码" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> a,b,c,num;</span><br><span class="line">	<span class="type">bool</span> xianxing=<span class="literal">false</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">	num=c%<span class="number">10</span>; </span><br><span class="line">	<span class="keyword">if</span>(a==<span class="number">6</span>||a==<span class="number">7</span>)xianxing=<span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&lt;<span class="number">200</span>)xianxing=<span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(b&gt;=<span class="number">200</span>&amp;&amp;b&lt;<span class="number">400</span>)&#123;</span><br><span class="line">			<span class="keyword">switch</span> (a)&#123;</span><br><span class="line">				<span class="keyword">case</span> <span class="number">1</span>:<span class="keyword">if</span>(num==<span class="number">1</span>||num==<span class="number">6</span>)xianxing=<span class="literal">true</span>;<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="number">2</span>:<span class="keyword">if</span>(num==<span class="number">2</span>||num==<span class="number">7</span>)xianxing=<span class="literal">true</span>;<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="number">3</span>:<span class="keyword">if</span>(num==<span class="number">3</span>||num==<span class="number">8</span>)xianxing=<span class="literal">true</span>;<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="number">4</span>:<span class="keyword">if</span>(num==<span class="number">4</span>||num==<span class="number">9</span>)xianxing=<span class="literal">true</span>;<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="number">5</span>:<span class="keyword">if</span>(num==<span class="number">5</span>||num==<span class="number">0</span>)xianxing=<span class="literal">true</span>;<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">switch</span> (a)&#123;</span><br><span class="line">				<span class="keyword">case</span> <span class="number">1</span>:<span class="keyword">case</span> <span class="number">3</span>:<span class="keyword">case</span> <span class="number">5</span>:<span class="keyword">if</span>(num%<span class="number">2</span>!=<span class="number">0</span>)xianxing=<span class="literal">true</span>;<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="number">2</span>:<span class="keyword">case</span> <span class="number">4</span>:<span class="keyword">if</span>(num%<span class="number">2</span>==<span class="number">0</span>)xianxing=<span class="literal">true</span>;<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,num);</span><br><span class="line">	<span class="keyword">if</span>(xianxing==<span class="literal">true</span>)<span class="built_in">printf</span>(<span class="string">&quot;yes&quot;</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;no&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>弱鸡代码里面用到了bool变量，方便最后的输出。</p>
+<p>用if…else…或者swtich…case…语句都可。</p>
+<h2 id="T2-阶梯电价计费"><a href="#T2-阶梯电价计费" class="headerlink" title="T2 阶梯电价计费"></a>T2 阶梯电价计费</h2><p><strong>类别：</strong>流程控制	</p>
+<p><strong>时间限制：</strong>2S</p>
+<p><strong>内存限制：</strong>10000Kb</p>
+<p><strong>问题描述：</strong>	</p>
+<p>电价分三个档次，[0,110]度电，每度电0.5元；(110,210]度电，超出110部分每度电0.55元，超过210度电，超出210部分每度电0.70元，给出一个家庭一月用电量，请计算出应缴的电费（四舍五入，保留小数点后两位小数）。</p>
+<p><strong>输入说明：</strong></p>
+<p>输入数据为一个正实数，表示一月用电量</p>
+<p><strong>输出说明：</strong></p>
+<p>输出应缴电费，四舍五入保留2位小数。</p>
+<p><strong>输入样例：</strong></p>
+<p>输入样例1</p>
+<p>100</p>
+<p>输入样例2</p>
+<p>200</p>
+<p>输入样例3</p>
+<p>329.75</p>
+<p><strong>输出样例：</strong></p>
+<p>输出样例1</p>
+<p>50.00</p>
+<p>输出样例2</p>
+<p>104.50</p>
+<p>输出样例3</p>
+<p>193.82</p>
+<h3 id="本题小解析-1"><a href="#本题小解析-1" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>一个简单的计价判断问题。根据不同的阶梯计算出价格就行。</p>
+<p>注意<strong>数据格式问题</strong>和<strong>精度问题</strong>。</p>
+<h3 id="弱鸡代码-1"><a href="#弱鸡代码-1" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">double</span> a,num;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%lf&quot;</span>,&amp;a);</span><br><span class="line">	<span class="keyword">if</span>(a&gt;<span class="number">0</span>&amp;&amp;a&lt;=<span class="number">110</span>)num=a*<span class="number">0.5</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a&gt;<span class="number">110</span>&amp;&amp;a&lt;=<span class="number">210</span>)num=<span class="number">55</span>+(a<span class="number">-110</span>)*<span class="number">0.55</span>;</span><br><span class="line">	<span class="keyword">else</span> num=<span class="number">110</span>+(a<span class="number">-210</span>)*<span class="number">0.7</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.2f&quot;</span>,num);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="T3-计算某月天数"><a href="#T3-计算某月天数" class="headerlink" title="T3 计算某月天数"></a>T3 计算某月天数</h2><p><strong>类别：</strong>流程控制	</p>
+<p><strong>时间限制：</strong>2S</p>
+<p><strong>内存限制：</strong>10000Kb</p>
+<p><strong>问题描述：</strong></p>
+<p>每年的1，3，5，7，8，10，12月有31天，4，6，9，11月有30天，闰年2月29天，其他年份2月28天，给定年份和月份求该月的天数</p>
+<p><strong>输入说明：</strong></p>
+<p>输入由两个正整数a和b构成，a表示年份，b表示月份，a和b之间用空格分隔</p>
+<p><strong>输出说明：</strong></p>
+<p>根据年份和月份计算该月天数并输出</p>
+<p><strong>输入样例</strong>	</p>
+<p>输入样例1</p>
+<p>2000 3</p>
+<p>输入样例2</p>
+<p>2001 2</p>
+<p><strong>输出样例</strong>	</p>
+<p>输出样例1</p>
+<p>31</p>
+<p>输出样例2</p>
+<p>28</p>
+<h3 id="本题小解析-2"><a href="#本题小解析-2" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>本题其实是一个月份判断和年份判断的综合题。</p>
+<p>注意<strong>闰年的定义：年份为4的倍数，不是100的倍数但为400倍数的，是闰年。</strong></p>
+<h3 id="弱鸡代码-2"><a href="#弱鸡代码-2" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> a,b;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">	<span class="keyword">switch</span>(b)&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">1</span>:<span class="keyword">case</span> <span class="number">3</span>:<span class="keyword">case</span> <span class="number">5</span>:<span class="keyword">case</span> <span class="number">7</span>:<span class="keyword">case</span> <span class="number">8</span>:<span class="keyword">case</span> <span class="number">10</span>:<span class="keyword">case</span> <span class="number">12</span>:<span class="built_in">printf</span>(<span class="string">&quot;31&quot;</span>);<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">4</span>:<span class="keyword">case</span> <span class="number">6</span>:<span class="keyword">case</span> <span class="number">9</span>:<span class="keyword">case</span> <span class="number">11</span>:<span class="built_in">printf</span>(<span class="string">&quot;30&quot;</span>);<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">2</span>:	</span><br><span class="line">		<span class="keyword">if</span>(a%<span class="number">4</span>==<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a%<span class="number">100</span>==<span class="number">0</span>)&#123;</span><br><span class="line">				<span class="keyword">if</span>(a%<span class="number">400</span>==<span class="number">0</span>)<span class="built_in">printf</span>(<span class="string">&quot;29&quot;</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;28&quot;</span>);</span><br><span class="line">			&#125;<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;29&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;28&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用if…else也可。</p>
+<h2 id="T4-寻找最大整数"><a href="#T4-寻找最大整数" class="headerlink" title="T4 寻找最大整数"></a>T4 寻找最大整数</h2><p><strong>类别：</strong>流程控制</p>
+<p><strong>时间限制：</strong>1S</p>
+<p><strong>内存限制：</strong>1000Kb</p>
+<p><strong>问题描述</strong>	<br>从键盘输入四个整数，找出其中的最大值并将其输出。</p>
+<p><strong>输入说明</strong>	<br>输入4个整数，用空格分隔</p>
+<p><strong>输出说明</strong>	<br>输出值最大的一个整数</p>
+<p><strong>输入样例</strong>	<br>25 99 -46 0</p>
+<p><strong>输出样例</strong>	<br>99</p>
+<h3 id="本题小解析-3"><a href="#本题小解析-3" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>如何判断一个数最大呢？或许直接用if来比较a,b,c,d这四个数的大小并不合适。</p>
+<p>但是，我们可以先选出一个数，让他和其他的数pk，如果这个数比其他的数小，换一个数当最大数，而如果这个数最大，就可以保留下来。</p>
+<p>这样的话只需要n-1次比较就可以选出n个数里面的最大数。</p>
+<h3 id="弱鸡代码-3"><a href="#弱鸡代码-3" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> a,b,c,d,max;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d %d&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d);</span><br><span class="line">	max=a;</span><br><span class="line">	<span class="keyword">if</span>(max&lt;b)max=b;</span><br><span class="line">	<span class="keyword">if</span>(max&lt;c)max=c;</span><br><span class="line">	<span class="keyword">if</span>(max&lt;d)max=d;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,max);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>也可以设数组用循环，这里四个数就不搞这些了。</p>
+<h2 id="T5-字符处理"><a href="#T5-字符处理" class="headerlink" title="T5 字符处理"></a>T5 字符处理</h2><p><strong>类别：</strong>流程控制<br><strong>时间限制：</strong>1S</p>
+<p><strong>内存限制：</strong>1000Kb</p>
+<p><strong>问题描述</strong>	<br>从键盘输入一个字符，若为小写字母，则输出其对应的大写字母；若为大写字母，则输出对应的小写字母；其他字符原样输出。</p>
+<p><strong>输入说明</strong>	<br>输入一个字符</p>
+<p><strong>输出说明</strong>	<br>输出一个字符</p>
+<p><strong>输入样例</strong>	<br>样例1输入<br>a<br>样例2输入<br>B<br>样例3输入<br>2</p>
+<p><strong>输出样例</strong>	<br>样例1输出<br>A<br>样例2输出<br>b<br>样例3输出<br>2	</p>
+<h3 id="本题小解析-4"><a href="#本题小解析-4" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>其实这题就两个点：</p>
+<p>1.判断这个字母是大写字母还是小写字母还是其他字符，用ASCII码控制。</p>
+<p>2.对大小写字符进行操作（+或-32）。</p>
+<h3 id="弱鸡代码-4"><a href="#弱鸡代码-4" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">char</span> a;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>,&amp;a);</span><br><span class="line">	<span class="keyword">if</span>(a&gt;=<span class="string">&#x27;a&#x27;</span>&amp;&amp;a&lt;=<span class="string">&#x27;z&#x27;</span>)a-=<span class="number">32</span>; </span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a&gt;=<span class="string">&#x27;A&#x27;</span>&amp;&amp;a&lt;=<span class="string">&#x27;Z&#x27;</span>)a+=<span class="number">32</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,a);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>鉴于本人懒得查表看各位字符的ASCII码了，直接用字符代替。</p>
+<h2 id="T6-成绩分级"><a href="#T6-成绩分级" class="headerlink" title="T6 成绩分级"></a>T6 成绩分级</h2><p><strong>类别：</strong>流程控制<br><strong>时间限制：</strong>1S</p>
+<p><strong>内存限制：</strong>1000Kb</p>
+<p><strong>问题描述</strong>	<br>给出一个百分制的成绩，要求输出成绩等级’A’,’B’,’C’,’D’,’E’。90分以上为’A’，80<del>89分为’B’,70</del>79分为’C’,60~69分为’D’，60分以下为’E’。</p>
+<p><strong>输入说明</strong>	<br>输入一个正整数m（0&lt;&#x3D;m&lt;&#x3D;100）</p>
+<p><strong>输出说明</strong>	<br>输出一个字符</p>
+<p><strong>输入样例</strong>	<br>59</p>
+<p><strong>输出样例</strong>	<br>E</p>
+<h3 id="本题小解析-5"><a href="#本题小解析-5" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>一个可以用if…else…或者switch…case…的案例。</p>
+<p>由于成绩是10分一等位，故可以&#x2F;10来进行转化并用swtich…case…语句。</p>
+<h3 id="弱鸡代码-5"><a href="#弱鸡代码-5" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> m;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;m);</span><br><span class="line">	m/=<span class="number">10</span>;</span><br><span class="line">	<span class="keyword">switch</span>(m)&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">10</span>:<span class="keyword">case</span> <span class="number">9</span>:<span class="built_in">printf</span>(<span class="string">&quot;A&quot;</span>);<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">8</span>:<span class="built_in">printf</span>(<span class="string">&quot;B&quot;</span>);<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">7</span>:<span class="built_in">printf</span>(<span class="string">&quot;C&quot;</span>);<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">6</span>:<span class="built_in">printf</span>(<span class="string">&quot;D&quot;</span>);<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:<span class="built_in">printf</span>(<span class="string">&quot;E&quot;</span>);<span class="keyword">break</span>;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>由于题目数据范围为0-100，在除去ABCD等第后，剩下的都为E等第，故用default代替。</p>
+<h2 id="T7-直角三角形"><a href="#T7-直角三角形" class="headerlink" title="T7 直角三角形"></a>T7 直角三角形</h2><p><strong>类别：</strong>流程控制</p>
+<p><strong>时间限制：</strong>1S</p>
+<p><strong>内存限制：</strong>1000Kb</p>
+<p><strong>问题描述</strong>	<br>设直角三角形两条直角边长度为a和b，斜边长度为c，则a，b，c满足a^2+b^2&#x3D;c^2，<br>输入三个整数a，b，c，判断对应的三角形是不是直角三角形，不是则输出“no”，是则输出其面积的2倍。</p>
+<p><strong>输入说明</strong>	<br>数据由同一行的三个整数a，b，c构成，整数之间以空格分隔</p>
+<p><strong>输出说明</strong>	<br>如果输入的三个整数可以构成一个直角三角形，则输出一个整数表示该三角形面积的2倍；否则输出“no”</p>
+<p><strong>输入样例</strong><br>样例1输入<br>1 1 2<br>样例2输入<br>3 4 5</p>
+<p><strong>输出样例</strong>	<br>样例1输出<br>no<br>样例2输出<br>12</p>
+<h3 id="本题小解析-6"><a href="#本题小解析-6" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>本题主要是注意<strong>直角三角形的判断</strong>和<strong>三角形公式的运算</strong>。</p>
+<p>在给定三角形三条边a,b,c的时候，有S&#x3D;sqrt(p(p-a)(p-b)(p-c))，p&#x3D;(a+b+c)&#x2F;2，称为<strong>海伦公式</strong>。</p>
+<p>若a,b,c满足a^2+b^2&#x3D;c^2，必存在以a,b,c为三边的三角形。<strong>同时要注意a,b,c都为最长边的情况。</strong></p>
+<p>如果使用sqrt函数,要<strong>包含&lt;math.h&gt;头文件</strong>。</p>
+<p>注意输出要求，<strong>两倍的面积</strong>或no。</p>
+<h3 id="弱鸡代码-6"><a href="#弱鸡代码-6" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span> </span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> a,b,c,area;</span><br><span class="line">	<span class="type">float</span> p;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">	p=(a+b+c)/<span class="number">2</span>; </span><br><span class="line">	area=<span class="built_in">sqrt</span>(p*(p-a)*(p-b)*(p-c));</span><br><span class="line">	<span class="keyword">if</span>(a*a+b*b==c*c||b*b+c*c==a*a||c*c+a*a==b*b)<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,area*<span class="number">2</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;no&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="T8-工资计算"><a href="#T8-工资计算" class="headerlink" title="T8 工资计算"></a>T8 工资计算</h2><p><strong>问题描述</strong></p>
+<p>小明的公司每个月给小明发工资，而小明拿到的工资为交完个人所得税之后的工资。假设他一个月的税前工资为S元，则他应交的个人所得税按如下公式计算：</p>
+<p>　　1） 个人所得税起征点为3500元，若S不超过3500，则不交税，3500元以上的部分才计算个人所得税，令A&#x3D;S-3500元；</p>
+<p>　　2） A中不超过1500元的部分，税率3%；</p>
+<p>　　3） A中超过1500元未超过4500元的部分，税率10%；</p>
+<p>　　4） A中超过4500元未超过9000元的部分，税率20%；</p>
+<p>　　5） A中超过9000元未超过35000元的部分，税率25%；</p>
+<p>　　6） A中超过35000元的部分，税率30%；</p>
+<p>　　例如，如果小明的税前工资为10000元，则A&#x3D;10000-3500&#x3D;6500元，其中不超过1500元部分应缴税1500×3%&#x3D;45元，超过1500元不超过4500元部分应缴税(4500-1500)×10%&#x3D;300元，超过4500元部分应缴税(6500-4500)×20%&#x3D;400元。总共缴税745元，税后所得为9255元。</p>
+<p>　　已知小明这个月税前所得为S元，请问他的税后工资T是多少元。</p>
+<p><strong>输入格式</strong></p>
+<p>　　输入为一个整数S，表示小明的税前工资。</p>
+<p><strong>输出格式</strong></p>
+<p>　　输出一个整数T，表示小明的税后工资。</p>
+<p><strong>样例输入</strong></p>
+<p>10000</p>
+<p><strong>样例输出</strong></p>
+<p>9255</p>
+<p><strong>评测用例规模与约定</strong></p>
+<p>对于所有评测用例，1 ≤ T ≤ 100000。</p>
+<p>所有评测数据保证小明的税前工资为一个整百的数。</p>
+<h3 id="本题小解析-7"><a href="#本题小解析-7" class="headerlink" title="本题小解析"></a>本题小解析</h3><p>一个经典的判断题，就是有点老了，个税改革啦！</p>
+<p>注意<strong>个人起征点</strong>和<strong>分段计算原则</strong>。</p>
+<p>注意输出为<strong>税后工资</strong>而不是<strong>个人所得税</strong>。</p>
+<h3 id="弱鸡代码-7"><a href="#弱鸡代码-7" class="headerlink" title="弱鸡代码"></a>弱鸡代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> s,a,t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;s);</span><br><span class="line">	a=s<span class="number">-3500</span>;</span><br><span class="line">	<span class="keyword">if</span>(a&lt;=<span class="number">0</span>)t=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a&gt;<span class="number">0</span>&amp;&amp;a&lt;=<span class="number">1500</span>)t=<span class="number">0.03</span>*a;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a&gt;<span class="number">1500</span>&amp;&amp;a&lt;=<span class="number">4500</span>)t=<span class="number">0.1</span>*(a<span class="number">-1500</span>)+<span class="number">45</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a&gt;<span class="number">4500</span>&amp;&amp;a&lt;=<span class="number">9000</span>)t=<span class="number">0.2</span>*(a<span class="number">-4500</span>)+<span class="number">345</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a&gt;<span class="number">9000</span>&amp;&amp;a&lt;=<span class="number">35000</span>)t=<span class="number">0.25</span>*(a<span class="number">-9000</span>)+<span class="number">1245</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a&gt;=<span class="number">35000</span>)t=<span class="number">0.3</span>*(a<span class="number">-35000</span>)+<span class="number">7745</span>;</span><br><span class="line">	s-=t;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
-          
-          <category> 闲聊 </category>
-          
+        <category>C</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 心声 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电专编译小手册</title>
+    <url>/%E7%94%B5%E4%B8%93%E7%BC%96%E8%AF%91%E5%B0%8F%E6%89%8B%E5%86%8C/</url>
+    <content><![CDATA[<p>本文档将大概讲述关于c语言查错，电专c语言oj的使用教程。</p>
+<span id="more"></span>
+
+<h1 id="第一个程序"><a href="#第一个程序" class="headerlink" title="第一个程序"></a>第一个程序</h1><p>当你写第一个程序的时候，你可能会碰到各种问题，比如编译器的安装问题，编译报错，或者其他让你想骂人的问题。</p>
+<p>由于大家都不是<a href="https://changakira.github.io/">元元</a>那样的大佬，<del>直接大跃进半学期课程</del>，所以说，基本的查错规则还是有必要的。</p>
+<h2 id="如何安装一个编译器"><a href="#如何安装一个编译器" class="headerlink" title="如何安装一个编译器"></a>如何安装一个编译器</h2><p>搜索引擎是个好东西，学会使用它来找到编译器资源。</p>
+<p><strong>devc++<strong>在安装的时候会遇到选择语言环节，</strong>请先选择英文</strong>，再后续进行修改。</p>
+<p><strong>不建议vs编译器</strong>，非标准内容太多了，后面会说。</p>
+<h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><p>如果你的程序报错，请注意以下错误：</p>
+<p><strong>是否正确书写头文件和关键词</strong></p>
+<p><strong>是否正确书写逗号，分号，括号等符号，并保证没有多余的符号</strong></p>
+<p><strong>是否正确定义变量</strong></p>
+<p><strong>是否为英文输入法字符</strong></p>
+<p>如果你不能确定你的报错，请善用搜索引擎和提问，参考<a href="https://blog.csdn.net/qq_34804120/article/details/89117072">提问的智慧</a>。</p>
+<h2 id="非预期的输出效果"><a href="#非预期的输出效果" class="headerlink" title="非预期的输出效果"></a>非预期的输出效果</h2><p>可能你的程序没有报错，但还是会输出错误，请注意没有以下问题：</p>
+<p><strong>数据溢出或数据精度不够</strong></p>
+<p><strong>死循环&#x2F;循环次数不对</strong></p>
+<p><strong>输出&#x2F;输入格式控制符错误</strong></p>
+<p><strong>运算式&#x2F;算法错误</strong></p>
+<p><strong>越界的内存访问</strong></p>
+<p><strong>警告问题</strong></p>
+<p>如果你不能确定你的程序问题，请善用搜索引擎和提问，参考<a href="https://blog.csdn.net/qq_34804120/article/details/89117072">提问的智慧</a>。</p>
+<p>如果你觉得你的程序效率太低，导致TLE或MLE，请：</p>
+<p><strong>选择更好的算法</strong></p>
+<p><strong>使用效率较高的语句（标准输入输出，位运算等）</strong></p>
+<p><strong>吸氧！（指开启O2，比赛用不了）</strong></p>
+<h2 id="环境问题"><a href="#环境问题" class="headerlink" title="环境问题"></a>环境问题</h2><p>如果你不能确定你的报错&#x2F;问题是否为环境问题引起，可以尝试：</p>
+<p><strong>在其他编译器（如在线）上编译运行</strong></p>
+<p><strong>在其他系统上编译运行</strong></p>
+<h1 id="电专oj"><a href="#电专oj" class="headerlink" title="电专oj"></a>电专oj</h1><p>你说得对，但是「电专oj」是由西宀子科技大学推出的在线评测机，你将扮演一位名为「电专er」的大学牲，在自由的冲浪中邂逅形态各异，描述奇特的题目，用“精通”的c语言技术把题目水完，用从而逐步发现「电专oj」的真相。</p>
+<p><a href="https://cvnis.xidian.edu.cn/">网址链接</a></p>
+<h2 id="如何水题"><a href="#如何水题" class="headerlink" title="如何水题"></a>如何水题</h2><p>在使用电专身份认证系统进入后，点击<strong>你的老师的课</strong>，进入<strong>在线测试</strong>，点击<strong>测试列表</strong>，并进入<strong>老师要求你做的题单</strong>，就可以预览和下载题目了。</p>
+<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>点击提交程序，就可以进行提交！<del>废话</del></p>
+<p><strong>如果你提交的时候一直编译错误，但在本地编译正确：</strong></p>
+<p>请确保你<strong>提交的题目</strong>和<strong>选择的文件</strong>匹配。</p>
+<p>请确保你选择的<strong>编译选项正确</strong>。</p>
+<p>请确保你使用的标准是ANSIC或者C99，<strong>没有任何奇奇怪怪的东西</strong>（如vs的scanf_s函数等）。</p>
+<p><strong>如果你的分数不是满分：</strong></p>
+<p>查看你的<strong>输入输出格式是否正确</strong>，一般<strong>没有其他提示性文字</strong>，<strong>以题目为准</strong>。</p>
+<p>查看<strong>你的算法是否正确</strong>，多用几组数据进行调试，<strong>阅读前文的《非预期的输出效果》</strong>。</p>
+<h2 id="排行榜"><a href="#排行榜" class="headerlink" title="排行榜"></a>排行榜</h2><p>你可以查看你的朋友的成绩，并以此作为依据来发放<strong>《卷狗证明》</strong>。</p>
+]]></content>
+      <categories>
+        <category>C</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
 </search>
