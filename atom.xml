@@ -6,7 +6,7 @@
   <link href="http://dreamskycx.github.io/atom.xml" rel="self"/>
   
   <link href="http://dreamskycx.github.io/"/>
-  <updated>2022-10-14T08:26:28.114Z</updated>
+  <updated>2022-10-14T07:25:13.454Z</updated>
   <id>http://dreamskycx.github.io/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>食材打人啦！</title>
-    <link href="http://dreamskycx.github.io/%E9%A3%9F%E6%9D%90%E6%89%93%E4%BA%BA%E5%95%A6%EF%BC%81/"/>
-    <id>http://dreamskycx.github.io/%E9%A3%9F%E6%9D%90%E6%89%93%E4%BA%BA%E5%95%A6%EF%BC%81/</id>
-    <published>2022-10-14T07:38:04.000Z</published>
-    <updated>2022-10-14T08:26:28.114Z</updated>
-    
-    <content type="html"><![CDATA[<p><del>一道算法入门题</del></p><span id="more"></span><h1 id="食材打人啦！"><a href="#食材打人啦！" class="headerlink" title="食材打人啦！"></a>食材打人啦！</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在原神中，有一个n*n格地图，每一格子上都有一种元素。若某一格子上下左右的四格格子上的元素可以和中心格子上的元素反应，那么伤害就可以扩散到其可以反应的格子。</p><p>你的任务是：对于给定的元素格子，询问从某一格开始伤害能扩散到多少个格子（包含自身）。</p><p>规定水元素为1，火元素为2，雷元素为3，冰元素为4，风元素为5，岩元素为6。不考虑草元素的反应。</p><p><strong>其中可以生成的反应有：</strong></p><p><strong>蒸发反应</strong>：是水元素和火元素的反应。</p><p><strong>超载反应</strong>：是雷元素和火元素的反应。</p><p><strong>融化反应</strong>：是火元素和冰元素的反应。</p><p><strong>超导反应</strong>：是雷元素和冰元素的反应。</p><p><strong>感电反应</strong>：是雷元素和水元素的反应。</p><p><strong>冻结反应</strong>：是水元素和冰元素的反应。</p><p><strong>扩散反应</strong>：风元素和非岩元素发生的反应。</p><p><strong>结晶反应</strong>：岩元素和非风元素发生的反应。</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第1行为两个正整数n,m。</p><p>下面n行，每行n个字符，字符只可能是元素标识数字，字符之间没有空格。</p><p>接下来m行，每行2个用空格分隔的正整数i,j，对应了迷宫中第i行第j列的一个格子，询问从开始能伤害能扩散到多少格。</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>m行，对于每个询问输出相应答案。</p><h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3 2</span><br><span class="line">21</span><br><span class="line">12</span><br><span class="line">1 1</span><br><span class="line">2 2</span><br></pre></td></tr></table></figure><h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">4</span><br></pre></td></tr></table></figure><h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>对于20%的数据，n≤10；</p><p>对于40%的数据，n≤50；</p><p>对于50%的数据，m≤5；</p><p>对于60%的数据，n≤100,m≤100；</p><p>对于100%的数据，n≤1000,m≤100000。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;del&gt;一道算法入门题&lt;/del&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="ACM" scheme="http://dreamskycx.github.io/categories/ACM/"/>
-    
-    
-    <category term="题目" scheme="http://dreamskycx.github.io/tags/%E9%A2%98%E7%9B%AE/"/>
-    
-  </entry>
   
   <entry>
     <title>电专c语言oj探秘2</title>
@@ -59,6 +38,27 @@
     
     
     <category term="题解" scheme="http://dreamskycx.github.io/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>食材打人啦！</title>
+    <link href="http://dreamskycx.github.io/%E9%A3%9F%E6%9D%90%E6%89%93%E4%BA%BA%E5%95%A6%EF%BC%81/"/>
+    <id>http://dreamskycx.github.io/%E9%A3%9F%E6%9D%90%E6%89%93%E4%BA%BA%E5%95%A6%EF%BC%81/</id>
+    <published>2022-10-14T07:38:04.000Z</published>
+    <updated>2022-10-14T08:42:10.713Z</updated>
+    
+    <content type="html"><![CDATA[<p><del>一道算法入门题</del></p><span id="more"></span><h1 id="食材打人啦！"><a href="#食材打人啦！" class="headerlink" title="食材打人啦！"></a>食材打人啦！</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在原神中，有一个n*n格地图，每一格子上都有一种元素。若某一格子上下左右的四格格子上的元素可以和中心格子上的元素反应，那么伤害就可以扩散到其可以反应的格子。</p><p>你的任务是：对于给定的元素格子，询问从某一格开始伤害能扩散到多少个格子（包含自身）。</p><p>规定水元素为1，火元素为2，雷元素为3，冰元素为4，风元素为5，岩元素为6。不考虑草元素的反应。</p><p><strong>其中可以生成的反应有：</strong></p><p><strong>蒸发反应</strong>：是水元素和火元素的反应。</p><p><strong>超载反应</strong>：是雷元素和火元素的反应。</p><p><strong>融化反应</strong>：是火元素和冰元素的反应。</p><p><strong>超导反应</strong>：是雷元素和冰元素的反应。</p><p><strong>感电反应</strong>：是雷元素和水元素的反应。</p><p><strong>冻结反应</strong>：是水元素和冰元素的反应。</p><p><strong>扩散反应</strong>：风元素和非岩元素发生的反应。</p><p><strong>结晶反应</strong>：岩元素和非风元素发生的反应。</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第1行为两个正整数n,m。</p><p>下面n行，每行n个字符，字符只可能是元素标识数字，字符之间没有空格。</p><p>接下来m行，每行2个用空格分隔的正整数i,j，对应了迷宫中第i行第j列的一个格子，询问从开始能伤害能扩散到多少格。</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>m行，对于每个询问输出相应答案。</p><h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2 2</span><br><span class="line">21</span><br><span class="line">12</span><br><span class="line">1 1</span><br><span class="line">2 2</span><br></pre></td></tr></table></figure><h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">4</span><br></pre></td></tr></table></figure><h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>对于20%的数据，n≤10；</p><p>对于40%的数据，n≤50；</p><p>对于50%的数据，m≤5；</p><p>对于60%的数据，n≤100,m≤100；</p><p>对于100%的数据，n≤1000,m≤100000。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;del&gt;一道算法入门题&lt;/del&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="ACM" scheme="http://dreamskycx.github.io/categories/ACM/"/>
+    
+    
+    <category term="题目" scheme="http://dreamskycx.github.io/tags/%E9%A2%98%E7%9B%AE/"/>
     
   </entry>
   
