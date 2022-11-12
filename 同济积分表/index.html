@@ -20,25 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"dreamskycx.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="既要卷的起，也要躺的平">
-<meta property="og:type" content="website">
-<meta property="og:title" content="晨曦的个人站">
-<meta property="og:url" content="http://dreamskycx.github.io/index.html">
+    <meta name="description" content="积分表这篇文章里面会讲到一些常用的积分公式及其相关证明，供大家使用。 如果你看的是文件版本，请点击链接，将会持续进行更新。 同济积分表以下内容中，不定积分计算结果$C$为常数且积分区域有意义，后续将不再阐述。 内容来自高等数学上册(第七版，同济大学数学系编)附录IV。 一、含有 ax+b 的积分1.$\int\frac{dx}{ax+b}&#x3D;\frac{1}{a}\ln \vert ax+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="积分表及其证明">
+<meta property="og:url" content="http://dreamskycx.github.io/%E5%90%8C%E6%B5%8E%E7%A7%AF%E5%88%86%E8%A1%A8/index.html">
 <meta property="og:site_name" content="晨曦的个人站">
-<meta property="og:description" content="既要卷的起，也要躺的平">
+<meta property="og:description" content="积分表这篇文章里面会讲到一些常用的积分公式及其相关证明，供大家使用。 如果你看的是文件版本，请点击链接，将会持续进行更新。 同济积分表以下内容中，不定积分计算结果$C$为常数且积分区域有意义，后续将不再阐述。 内容来自高等数学上册(第七版，同济大学数学系编)附录IV。 一、含有 ax+b 的积分1.$\int\frac{dx}{ax+b}&#x3D;\frac{1}{a}\ln \vert ax+">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-12T04:59:04.000Z">
+<meta property="article:modified_time" content="2022-11-12T04:55:40.945Z">
 <meta property="article:author" content="dreamskycx">
+<meta property="article:tag" content="资料">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://dreamskycx.github.io/">
+<link rel="canonical" href="http://dreamskycx.github.io/%E5%90%8C%E6%B5%8E%E7%A7%AF%E5%88%86%E8%A1%A8/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://dreamskycx.github.io/%E5%90%8C%E6%B5%8E%E7%A7%AF%E5%88%86%E8%A1%A8/","path":"同济积分表/","title":"积分表及其证明"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>晨曦的个人站</title>
+<title>积分表及其证明 | 晨曦的个人站</title>
   
 
 
@@ -70,7 +73,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">晨曦的个人站</h1>
+      <p class="site-title">晨曦的个人站</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">人生所有的精彩，往往源于不起眼的开始</p>
@@ -130,7 +133,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -143,6 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%AF%E5%88%86%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">积分表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%B5%8E%E7%A7%AF%E5%88%86%E8%A1%A8"><span class="nav-number">1.1.</span> <span class="nav-text">同济积分表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%90%AB%E6%9C%89-ax-b-%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.1.1.</span> <span class="nav-text">一、含有 ax+b 的积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%90%AB%E6%9C%89-sqrt-ax-b-%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.1.2.</span> <span class="nav-text">二、含有 $\sqrt{ax+b}$ 的积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%90%AB%E6%9C%89-x-2-pm-a-%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.1.3.</span> <span class="nav-text">三、含有 $x^2 \pm a$ 的积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%90%AB%E6%9C%89-ax-2-b-%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.1.4.</span> <span class="nav-text">四、含有 $ax^2 +b$ 的积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%90%AB%E6%9C%89-ax-2-bx-C-%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.1.5.</span> <span class="nav-text">五、含有 $ax^2+bx+C$ 的积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%90%AB%E6%9C%89-sqrt-x-2-a-2-quad-a-gt-0-%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.1.6.</span> <span class="nav-text">六、含有 $\sqrt{x^2+a^2} \quad (a&gt;0)$ 的积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%90%AB%E6%9C%89-sqrt-x-2-a-2-quad-a-gt-0-%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.1.7.</span> <span class="nav-text">七、含有 $\sqrt{x^2-a^2} \quad (a&gt;0)$ 的积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E5%90%AB%E6%9C%89-sqrt-a-2-x-2-quad-a-gt-0-%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.1.8.</span> <span class="nav-text">八、含有 $\sqrt{a^2-x^2} \quad (a&gt;0)$ 的积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E5%90%AB%E6%9C%89-sqrt-pm-ax-2-bx-c-quad-a-gt-0-%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.1.9.</span> <span class="nav-text">九、含有 $\sqrt{\pm ax^2+bx+c} \quad (a&gt;0)$ 的积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E5%90%AB%E6%9C%89-sqrt-pm-frac-x-a-x-a-%E6%88%96%E8%80%85-sqrt-x-a-b-x-%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.1.10.</span> <span class="nav-text">十、含有 $\sqrt{\pm \frac{x-a}{x+a}}$ 或者 $\sqrt{(x-a)(b-x)}$ 的积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E5%90%AB%E6%9C%89%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.1.11.</span> <span class="nav-text">十一、含有三角函数函数的积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E5%90%AB%E6%9C%89%E5%8F%8D%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86-%EF%BC%88%E5%85%B6%E4%B8%ADa-gt-0%EF%BC%89"><span class="nav-number">1.1.12.</span> <span class="nav-text">十二、含有反三角函数的积分 （其中a &gt; 0）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E4%B8%89%E3%80%81%E5%90%AB%E6%9C%89%E6%8C%87%E6%95%B0%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86-%E5%85%B6%E4%B8%ADa-gt-0"><span class="nav-number">1.1.13.</span> <span class="nav-text">十三、含有指数函数的积分 (其中a&gt;0)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E5%9B%9B%E3%80%81%E5%90%AB%E6%9C%89%E5%AF%B9%E6%95%B0%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.1.14.</span> <span class="nav-text">十四、含有对数函数的积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E4%BA%94%E3%80%81%E5%90%AB%E6%9C%89%E5%8F%8C%E6%9B%B2%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.1.15.</span> <span class="nav-text">十五、含有双曲函数的积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E5%85%AD%E3%80%81%E5%AE%9A%E7%A7%AF%E5%88%86"><span class="nav-number">1.1.16.</span> <span class="nav-text">十六、定积分</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -234,16 +238,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://dreamskycx.github.io/%E5%90%8C%E6%B5%8E%E7%A7%AF%E5%88%86%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -257,13 +262,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 晨曦的个人站">
+      <meta itemprop="name" content="积分表及其证明 | 晨曦的个人站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E5%90%8C%E6%B5%8E%E7%A7%AF%E5%88%86%E8%A1%A8/" class="post-title-link" itemprop="url">积分表及其证明</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          积分表及其证明
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -287,6 +292,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
@@ -311,7 +323,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="积分表"><a href="#积分表" class="headerlink" title="积分表"></a>积分表</h1><p>这篇文章里面会讲到一些常用的积分公式及其相关证明，供大家使用。</p>
+        <h1 id="积分表"><a href="#积分表" class="headerlink" title="积分表"></a>积分表</h1><p>这篇文章里面会讲到一些常用的积分公式及其相关证明，供大家使用。</p>
 <p>如果你看的是文件版本，请点击<a href="https://dreamskycx.github.io/%E7%A7%AF%E5%88%86%E8%A1%A8%E5%8F%8A%E5%85%B6%E8%AF%81%E6%98%8E/">链接</a>，将会持续进行更新。</p>
 <h2 id="同济积分表"><a href="#同济积分表" class="headerlink" title="同济积分表"></a>同济积分表</h2><p>以下内容中，<strong>不定积分计算结果$C$为常数</strong>且<strong>积分区域有意义</strong>，后续将不再阐述。</p>
 <p>内容来自高等数学上册(第七版，同济大学数学系编)附录IV。</p>
@@ -487,7 +499,6 @@
 </ol>
 <p>$&#x3D;\left { \begin{array}{ll}\frac{n-1}{n}.\frac{n-3}{n-2}.\dots \frac{4}{5} .\frac{2}{3}&amp; (n为大于1的正奇数),I_1&#x3D;1 \ \frac{n-1}{n} . \frac{n-3}{n-2} . \dots \frac{3}{4} .\frac{1}{2}. \frac{\pi}{2} &amp; (n为正偶数),I_0&#x3D; \frac{\pi}{2} \end{array} \right.$6</p>
 
-      
     </div>
 
     
@@ -495,321 +506,38 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>dreamskycx
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://dreamskycx.github.io/%E5%90%8C%E6%B5%8E%E7%A7%AF%E5%88%86%E8%A1%A8/" title="积分表及其证明">http://dreamskycx.github.io/同济积分表/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/%E8%B5%84%E6%96%99/" rel="tag"><i class="fa fa-tag"></i> 资料</a>
+          </div>
 
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://dreamskycx.github.io/%E9%A3%9F%E6%9D%90%E6%89%93%E4%BA%BA%E5%95%A6%EF%BC%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/cat.jpg">
-      <meta itemprop="name" content="dreamskycx">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晨曦的个人站">
-      <meta itemprop="description" content="既要卷的起，也要躺的平">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 晨曦的个人站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E9%A3%9F%E6%9D%90%E6%89%93%E4%BA%BA%E5%95%A6%EF%BC%81/" class="post-title-link" itemprop="url">食材打人啦！</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-14 15:38:04 / 修改时间：16:42:10" itemprop="dateCreated datePublished" datetime="2022-10-14T15:38:04+08:00">2022-10-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>589</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><del>一道算法入门题</del></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E9%A3%9F%E6%9D%90%E6%89%93%E4%BA%BA%E5%95%A6%EF%BC%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://dreamskycx.github.io/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%982/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/cat.jpg">
-      <meta itemprop="name" content="dreamskycx">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晨曦的个人站">
-      <meta itemprop="description" content="既要卷的起，也要躺的平">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 晨曦的个人站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%982/" class="post-title-link" itemprop="url">电专c语言oj探秘2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-10-14 15:38:04" itemprop="dateCreated datePublished" datetime="2022-10-14T15:38:04+08:00">2022-10-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-15 17:28:24" itemprop="dateModified" datetime="2022-10-15T17:28:24+08:00">2022-10-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>6.7k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>19 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="题组22"><a href="#题组22" class="headerlink" title="题组22"></a>题组22</h1><p>本题组来源于<a target="_blank" rel="noopener" href="http://39.98.193.72/xdoj-ssm/login.jsp">西电oj</a>的22题组（hqy老师课程课后习题），题目还是很简单，依旧适合萌新。</p>
-<blockquote>
-<p>关于西电oj链接替换（已知hqy老师课程适用）的问题：</p>
-<p>从第二份题组开始，所有的题目都会在新的链接发布，原本的链接将会被弃用。</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%982/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E9%A3%9F%E6%9D%90%E6%89%93%E4%BA%BA%E5%95%A6%EF%BC%81/" rel="prev" title="食材打人啦！">
+                  <i class="fa fa-chevron-left"></i> 食材打人啦！
+                </a>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://dreamskycx.github.io/%E7%94%B5%E4%B8%93%E7%BC%96%E8%AF%91%E5%B0%8F%E6%89%8B%E5%86%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/cat.jpg">
-      <meta itemprop="name" content="dreamskycx">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晨曦的个人站">
-      <meta itemprop="description" content="既要卷的起，也要躺的平">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 晨曦的个人站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E7%94%B5%E4%B8%93%E7%BC%96%E8%AF%91%E5%B0%8F%E6%89%8B%E5%86%8C/" class="post-title-link" itemprop="url">电专编译小手册</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-13 20:38:04 / 修改时间：09:37:06" itemprop="dateCreated datePublished" datetime="2022-10-13T20:38:04+08:00">2022-10-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本文档将大概讲述关于c语言查错，电专c语言oj的使用教程。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E7%94%B5%E4%B8%93%E7%BC%96%E8%AF%91%E5%B0%8F%E6%89%8B%E5%86%8C/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+            <div class="post-nav-item">
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          </div>
     </footer>
   </article>
 </div>
@@ -817,635 +545,9 @@
 
 
 
-    
 
 
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://dreamskycx.github.io/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%95%B4%E6%B4%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/cat.jpg">
-      <meta itemprop="name" content="dreamskycx">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晨曦的个人站">
-      <meta itemprop="description" content="既要卷的起，也要躺的平">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 晨曦的个人站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%95%B4%E6%B4%BB/" class="post-title-link" itemprop="url">C语言小整活</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-10 00:38:04 / 修改时间：00:16:44" itemprop="dateCreated datePublished" datetime="2022-10-10T00:38:04+08:00">2022-10-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>7 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>本文章将讲述将算法进行硬编码的一种常规思路。</strong></p>
-<p><strong>不推荐对任何的算法进行硬编码，一是浪费时间，二是效率低下，本文章仅从其可能实现的方式进行讲解。</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%95%B4%E6%B4%BB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://dreamskycx.github.io/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%981/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/cat.jpg">
-      <meta itemprop="name" content="dreamskycx">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晨曦的个人站">
-      <meta itemprop="description" content="既要卷的起，也要躺的平">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 晨曦的个人站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%981/" class="post-title-link" itemprop="url">电专c语言oj探秘1</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-09 00:38:04 / 修改时间：23:01:44" itemprop="dateCreated datePublished" datetime="2022-10-09T00:38:04+08:00">2022-10-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>4.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>12 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="题组86"><a href="#题组86" class="headerlink" title="题组86"></a>题组86</h1><p>本题组来源于<a target="_blank" rel="noopener" href="https://cvnis.xidian.edu.cn/">西电oj</a>的86题组（hqy老师课程课后习题），题目很简单，适合萌新。</p>
-<p>本题涉及的所有文件都会在<a target="_blank" rel="noopener" href="https://wwp.lanzouw.com/ioI3U0dgvmyh">蓝奏云</a>上发布。</p>
-<p><strong>本人新手，第一次写题解，如有不当之处，多多包涵，如有错误，请指正谢谢！</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E7%94%B5%E4%B8%93c%E8%AF%AD%E8%A8%80oj%E6%8E%A2%E7%A7%981/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://dreamskycx.github.io/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/cat.jpg">
-      <meta itemprop="name" content="dreamskycx">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晨曦的个人站">
-      <meta itemprop="description" content="既要卷的起，也要躺的平">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 晨曦的个人站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/" class="post-title-link" itemprop="url">梦开始的地方</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-09-18 20:38:04 / 修改时间：22:59:49" itemprop="dateCreated datePublished" datetime="2022-09-18T20:38:04+08:00">2022-09-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%97%B2%E8%81%8A/" itemprop="url" rel="index"><span itemprop="name">闲聊</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>180</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>壬寅之秋，八月廿三，与舍友op，同落兄畅聊，饮阔乐，<del>大醉</del>，作此篇。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://dreamskycx.github.io/Hexo+Next%E5%BB%BA%E7%AB%99%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E7%89%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/cat.jpg">
-      <meta itemprop="name" content="dreamskycx">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晨曦的个人站">
-      <meta itemprop="description" content="既要卷的起，也要躺的平">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 晨曦的个人站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/Hexo+Next%E5%BB%BA%E7%AB%99%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E7%89%88/" class="post-title-link" itemprop="url">Hexo+Next建站配置详细版</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-09-06 20:32:52 / 修改时间：22:51:02" itemprop="dateCreated datePublished" datetime="2022-09-06T20:32:52+08:00">2022-09-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Hexo%E5%BB%BA%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">Hexo建站</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.8k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>8 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>本文章将持续更新</strong></p>
-<p>这篇文章将详细讲述所有的Hexo和Next的config详细配置内容。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Hexo+Next%E5%BB%BA%E7%AB%99%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E7%89%88/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://dreamskycx.github.io/van%E6%B8%B8%E6%88%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/cat.jpg">
-      <meta itemprop="name" content="dreamskycx">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晨曦的个人站">
-      <meta itemprop="description" content="既要卷的起，也要躺的平">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 晨曦的个人站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/van%E6%B8%B8%E6%88%8F/" class="post-title-link" itemprop="url">van游戏</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-09-03 14:31:11" itemprop="dateCreated datePublished" datetime="2022-09-03T14:31:11+08:00">2022-09-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-18 20:38:55" itemprop="dateModified" datetime="2022-09-18T20:38:55+08:00">2022-09-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%B8%B8%E6%88%8F/" itemprop="url" rel="index"><span itemprop="name">游戏</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>240</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>都来给我van游戏！</p>
-<p><a href="https://dreamskycx.github.io/RapeSenpai/index.html">秦van小游戏（钢琴块）</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/van%E6%B8%B8%E6%88%8F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://dreamskycx.github.io/Hexo%E8%AF%84%E8%AE%BA%E5%B0%8F%E6%B5%8B%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/cat.jpg">
-      <meta itemprop="name" content="dreamskycx">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晨曦的个人站">
-      <meta itemprop="description" content="既要卷的起，也要躺的平">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 晨曦的个人站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/Hexo%E8%AF%84%E8%AE%BA%E5%B0%8F%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">Hexo评论小测试</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-09-02 10:23:11" itemprop="dateCreated datePublished" datetime="2022-09-02T10:23:11+08:00">2022-09-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-06 16:54:38" itemprop="dateModified" datetime="2022-09-06T16:54:38+08:00">2022-09-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Hexo%E5%BB%BA%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">Hexo建站</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>似乎gitalk不挂梯子不能用，太难了….</p>
-<p><del>扔了算了，要他何用</del></p>
-<p><strong>来必力不香吗！</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Hexo%E8%AF%84%E8%AE%BA%E5%B0%8F%E6%B5%8B%E8%AF%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC81NzE3OS8zMzY0Mw=="></div>
 </div>
   </main>
 
