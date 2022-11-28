@@ -2766,7 +2766,7 @@ mjx-container[display='true'] + br {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #cd3b95;
+  background: #3be7cf;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
