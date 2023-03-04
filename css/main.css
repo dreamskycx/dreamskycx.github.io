@@ -2591,13 +2591,6 @@ mark.search-keyword {
   color: #ff2a2a;
   font-weight: bold;
 }
-mjx-container[jax='CHTML'][display='true'],
-.has-jax {
-  overflow: auto hidden;
-}
-mjx-container[display='true'] + br {
-  display: none;
-}
 .gitter-open-chat-button {
   left: auto !important;
   right: 10px !important;
@@ -2766,7 +2759,7 @@ mjx-container[display='true'] + br {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #811729;
+  background: #ff5bd5;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
