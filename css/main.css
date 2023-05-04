@@ -2487,6 +2487,10 @@ mjx-container[jax='CHTML'][display='true'],
 mjx-container[display='true'] + br {
   display: none;
 }
+.gitter-open-chat-button {
+  left: auto !important;
+  right: 10px !important;
+}
 .use-motion .animated {
   animation-fill-mode: none;
   visibility: inherit;
@@ -2651,7 +2655,7 @@ mjx-container[display='true'] + br {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #aa5c88;
+  background: #11b486;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
