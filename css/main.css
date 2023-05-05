@@ -2480,6 +2480,13 @@ ul.breadcrumb li:last-child {
   border-bottom-color: #111;
   color: #111;
 }
+mjx-container[jax='CHTML'][display='true'],
+.has-jax {
+  overflow: auto hidden;
+}
+mjx-container[display='true'] + br {
+  display: none;
+}
 .gitter-open-chat-button {
   left: auto !important;
   right: 10px !important;
@@ -2648,7 +2655,7 @@ ul.breadcrumb li:last-child {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #329a1f;
+  background: #ccffa4;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
