@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/cat.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cat.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cat.jpg">
+  <link rel="mask-icon" href="/images/cat.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dreamskycx.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="凌晨抢签到，没抢到，玉玉了，码个题解。鉴定为码力不够导致的 我是个菜菜。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ICPC2023网络赛第二场复盘">
+<meta property="og:url" content="http://dreamskycx.github.io/2023/09/25/ICPC2023Regional2/index.html">
+<meta property="og:site_name" content="晨曦的个人站">
+<meta property="og:description" content="凌晨抢签到，没抢到，玉玉了，码个题解。鉴定为码力不够导致的 我是个菜菜。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-24T18:23:11.000Z">
+<meta property="article:modified_time" content="2023-09-23T17:35:06.865Z">
+<meta property="article:author" content="dreamskycx">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://dreamskycx.github.io/2023/09/25/ICPC2023Regional2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://dreamskycx.github.io/2023/09/25/ICPC2023Regional2/","path":"2023/09/25/ICPC2023Regional2/","title":"ICPC2023网络赛第二场复盘"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ICPC2023网络赛第二场复盘 | 晨曦的个人站</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">晨曦的个人站</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">人生所有的精彩，往往源于不起眼的开始</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-关于"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-资源"><a href="/games/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>资源</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#M-Dirty-Work"><span class="nav-number">1.</span> <span class="nav-text">M Dirty Work</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#D-Project-Manhattan"><span class="nav-number">2.</span> <span class="nav-text">D Project Manhattan</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I-Impatient-Patient"><span class="nav-number">3.</span> <span class="nav-text">I Impatient Patient</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="dreamskycx"
+      src="/images/cat.jpg">
+  <p class="site-author-name" itemprop="name">dreamskycx</p>
+  <div class="site-description" itemprop="description">既要卷的起，也要躺的平</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dreamskycx" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dreamskycx" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dreamskycx@qq.com" title="E-Mail → mailto:dreamskycx@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/chen-xi-59-5-59" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;chen-xi-59-5-59" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      友链
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.hoshiuz.top/" title="https:&#x2F;&#x2F;www.hoshiuz.top&#x2F;" rel="noopener" target="_blank">HoshiuZ</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ynokis.github.io/" title="https:&#x2F;&#x2F;ynokis.github.io&#x2F;" rel="noopener" target="_blank">Ynokis</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://changakira.github.io/" title="https:&#x2F;&#x2F;changakira.github.io&#x2F;" rel="noopener" target="_blank">Akira</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/dreamskycx" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://dreamskycx.github.io/2023/09/25/ICPC2023Regional2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.jpg">
+      <meta itemprop="name" content="dreamskycx">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晨曦的个人站">
+      <meta itemprop="description" content="既要卷的起，也要躺的平">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ICPC2023网络赛第二场复盘 | 晨曦的个人站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ICPC2023网络赛第二场复盘
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-09-25 02:23:11" itemprop="dateCreated datePublished" datetime="2023-09-25T02:23:11+08:00">2023-09-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-09-24 01:35:06" itemprop="dateModified" datetime="2023-09-24T01:35:06+08:00">2023-09-24</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>凌晨抢签到，没抢到，玉玉了，码个题解。<del>鉴定为码力不够导致的</del></p>
+<p>我是个菜菜。</p>
+<span id="more"></span>
+
+<h1 id="M-Dirty-Work"><a href="#M-Dirty-Work" class="headerlink" title="M Dirty Work"></a>M Dirty Work</h1><ul>
+<li>总共有 $n$ 个题目，对于一个题目来说，完成的期望时间是 $a_i+(b_i\times p_i)$ ，如果这个题目第 $k$ 个完成，对罚时的贡献是 $(n+1-k) \times (a_i+(b_i\times p_i))$ 。</li>
+<li>易想到让期望时间短的题目先完成，使得整体的罚时最小，排序即可。</li>
+<li>复杂度 $O(n\log n)$ 。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[<span class="number">5005</span>],b[<span class="number">5005</span>];</span><br><span class="line"><span class="type">double</span> p[<span class="number">5005</span>],ans[<span class="number">5005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(<span class="type">double</span> a,<span class="type">double</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&gt;b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="type">double</span> sum=<span class="number">0</span>;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a[i]&gt;&gt;b[i]&gt;&gt;p[i];</span><br><span class="line">        ans[i]=<span class="number">1.0</span>*a[i]+p[i]*b[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(ans+<span class="number">1</span>,ans+n+<span class="number">1</span>,cmp);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        sum+=ans[i]*i;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;fixed&lt;&lt;<span class="built_in">setprecision</span>(<span class="number">12</span>)&lt;&lt;sum&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)<span class="built_in">solve</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>本题精度使用 double 足够，亦可使用 long double 。</p>
+<p>使用  <code>&lt;&lt;fixed&lt;&lt;setprecision(12)</code> 来进行小数点后的位数控制，其中 12 为小数点后的位数。如果使用 printf ，也可以用 <code>%.12lf</code> 的格式进行输出。注意 long double 的格式字符串为 <code>%.12Lf</code> 。</p>
+<h1 id="D-Project-Manhattan"><a href="#D-Project-Manhattan" class="headerlink" title="D Project Manhattan"></a>D Project Manhattan</h1><ul>
+<li>有 $n\times n$ 的网格，点 $a_{i,j}$ 的价值为 $w_{i,j}$，选中一个点 $a_{i,j}$ 后，可以覆盖第 $i$ 行和第 $j$ 列的点，求在覆盖所有网格点的情况下，让选中点的价值总和 $\sum w_{i,j}$ 最小。</li>
+<li>先考虑全为自然数的情况，要想覆盖所有点，每一行至少会选中一个点，或者每一列至少会选中一个点。求每行的最小值求和，或者每列的最小值求和，经过比较即可得到答案。</li>
+<li>注意本题中存在<strong>负数</strong>，此时如果一行（或一列）中存在一个或多个负数，贡献即为该行（或列）的负数之和。</li>
+<li>复杂度 $O(Tn^2)$ 。</li>
+<li>在数据足够大的情况下， int 可能会溢出，需要开 long long 。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[<span class="number">505</span>][<span class="number">505</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    ll sum1=<span class="number">0</span>,sum2=<span class="number">0</span>;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            cin&gt;&gt;a[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="type">int</span> minn=<span class="number">1000005</span>;</span><br><span class="line">        ll les=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i][j]&lt;minn)minn=a[i][j];</span><br><span class="line">            <span class="keyword">if</span>(a[i][j]&lt;<span class="number">0</span>)les+=a[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//  cout&lt;&lt;minn&lt;&lt;&#x27; &#x27;&lt;&lt;les&lt;&lt;endl;</span></span><br><span class="line">        <span class="keyword">if</span>(les&lt;<span class="number">0</span>)</span><br><span class="line">            sum1+=les;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            sum1+=minn;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="type">int</span> minn=<span class="number">1000005</span>;</span><br><span class="line">        ll les=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j][i]&lt;minn)minn=a[j][i];</span><br><span class="line">            <span class="keyword">if</span>(a[j][i]&lt;<span class="number">0</span>)les+=a[j][i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(les&lt;<span class="number">0</span>)</span><br><span class="line">            sum2+=les;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            sum2+=minn;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="built_in">min</span>(sum1,sum2);</span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)<span class="built_in">solve</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="I-Impatient-Patient"><a href="#I-Impatient-Patient" class="headerlink" title="I Impatient Patient"></a>I Impatient Patient</h1><p>论因为数学差导致的一小时才做出来这个题。</p>
+<ul>
+<li><p>康复需要 $n$ 天，这意味着期望不会大于 $n$ 。</p>
+</li>
+<li><p>不在概率为 0 的情况下考虑立刻恢复尝试。</p>
+</li>
+<li><p>对于第 $t$ 天的立刻恢复尝试，如果尝试失败，回退到第 $q$ 天 $(q&lt;t)$ ，在中途切换第 $r$ 天 $(r\le q&lt;t)$ 进行立刻恢复尝试，期望明显低于直接在第 $r$ 天进行立刻恢复尝试。</p>
+</li>
+<li><p>可以看到在第 $t$ 天进行立刻恢复尝试的期望贡献来自于三个部分。</p>
+<ul>
+<li>经过的时间，期望为 $t$。</li>
+<li>尝试所需要的花费，期望为 $\dfrac{q_i}{10^5}+2\times \dfrac{q_i}{10^5}\times(\dfrac{10^5-q_i}{10^5})+3\times \dfrac{q_i}{10^5}\times(\dfrac{10^5-q_i}{10^5})^2\dots$ ，这是一个无穷级数，在收敛的情况下可以计算得值为 $\dfrac{10^5}{q_i}$ 。</li>
+<li>回退后返回所需要的话费，期望为 $(t-a_t)\times\dfrac{q_i}{10^5}\times(\dfrac{10^5-q_i}{10^5})+2\times(t-a_t)\times \dfrac{q_i}{10^5}\times(\dfrac{10^5-q_i}{10^5})^2\dots$ ，同样是一个无穷级数，在收敛的情况下可以计算得值为 $(t-a_t)\times\dfrac{10^5-q_i}{q_i}$ 。</li>
+</ul>
+</li>
+<li><p>逐个遍历，取最小值即可。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>精度和输出同题 M 。</p>
+<p>满足 $1+x+x^2+x^3+\dots&#x3D;\dfrac{1}{1-x}$。</p>
+<p>满足 $1+2x+3x^2+4x^3+\dots&#x3D;\dfrac{1}{(1-x)^2}$。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>dreamskycx
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://dreamskycx.github.io/2023/09/25/ICPC2023Regional2/" title="ICPC2023网络赛第二场复盘">http://dreamskycx.github.io/2023/09/25/ICPC2023Regional2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/09/07/how_to_choose_courese/" rel="prev" title="选课的一些常见问题">
+                  <i class="fa fa-chevron-left"></i> 选课的一些常见问题
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dreamskycx</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+<div>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("08/31/2022 22:00:00");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "已运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.3" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script class="next-config" data-name="gitter" type="application/json">{"enable":"ture","room":"dreamskycx/dreamskycxroom"}</script>
+<script src="/js/third-party/chat/gitter.js"></script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":"ture","tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+
+
+
+</body>
+</html>
