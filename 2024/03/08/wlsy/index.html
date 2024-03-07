@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/cat.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cat.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cat.jpg">
+  <link rel="mask-icon" href="/images/cat.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dreamskycx.top","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="2023校赛复盘鹅鹅鹅，挂一份物理实验的 markdown 版本在blog上。 为什么署名 V2LS 呢，很明显这个署名是带有一点深意的，咕咕咕没看出来。 错误很多，v1.0 和 v1.1 坑了大概 1145+1919 名同学。 现在的版本应该没啥错了，不过至少在绪论提交窗口期结束前，修改是不会给到对策了。 焯要懂得思考，你们说对不对啊">
+<meta property="og:type" content="article">
+<meta property="og:title" content="物理实验绪论">
+<meta property="og:url" content="http://dreamskycx.top/2024/03/08/wlsy/index.html">
+<meta property="og:site_name" content="晨曦的个人站">
+<meta property="og:description" content="2023校赛复盘鹅鹅鹅，挂一份物理实验的 markdown 版本在blog上。 为什么署名 V2LS 呢，很明显这个署名是带有一点深意的，咕咕咕没看出来。 错误很多，v1.0 和 v1.1 坑了大概 1145+1919 名同学。 现在的版本应该没啥错了，不过至少在绪论提交窗口期结束前，修改是不会给到对策了。 焯要懂得思考，你们说对不对啊">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-07T16:46:04.000Z">
+<meta property="article:modified_time" content="2024-03-07T17:11:59.151Z">
+<meta property="article:author" content="dreamskycx">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://dreamskycx.top/2024/03/08/wlsy/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://dreamskycx.top/2024/03/08/wlsy/","path":"2024/03/08/wlsy/","title":"物理实验绪论"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>物理实验绪论 | 晨曦的个人站</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">晨曦的个人站</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">人生所有的精彩，往往源于不起眼的开始</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-关于"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-资源"><a href="/games/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>资源</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2023%E6%A0%A1%E8%B5%9B%E5%A4%8D%E7%9B%98"><span class="nav-number">1.</span> <span class="nav-text">2023校赛复盘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-%E5%88%A9%E7%94%A8%E6%9C%89%E6%95%88%E6%95%B0%E5%AD%97%E8%AE%A1%E7%AE%97%E8%A7%84%E5%88%99%E5%86%99%E5%87%BA%E7%BB%93%E6%9E%9C"><span class="nav-number">1.2.</span> <span class="nav-text">一.利用有效数字计算规则写出结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C-%E6%B1%82%E4%B8%8B%E5%88%97%E5%85%AC%E5%BC%8F%E7%9A%84%E7%9B%B8%E5%AF%B9%E4%B8%8D%E7%A1%AE%E5%AE%9A%E5%BA%A6"><span class="nav-number">1.3.</span> <span class="nav-text">二.求下列公式的相对不确定度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-%E8%AE%A1%E7%AE%97"><span class="nav-number">1.4.</span> <span class="nav-text">三.计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E5%BE%84%E5%81%9A%E6%B3%95"><span class="nav-number">1.4.1.</span> <span class="nav-text">直径做法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8A%E5%BE%84%E5%81%9A%E6%B3%95"><span class="nav-number">1.4.2.</span> <span class="nav-text">半径做法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B-%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="nav-number">1.5.</span> <span class="nav-text">四.数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95"><span class="nav-number">1.5.1.</span> <span class="nav-text">最小二乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Matlab%E4%BB%A3%E7%A0%81"><span class="nav-number">1.5.2.</span> <span class="nav-text">Matlab代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="nav-number">1.5.3.</span> <span class="nav-text">效果图</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="dreamskycx"
+      src="/images/cat.jpg">
+  <p class="site-author-name" itemprop="name">dreamskycx</p>
+  <div class="site-description" itemprop="description">既要卷的起，也要躺的平</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dreamskycx" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dreamskycx" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dreamskycx@qq.com" title="E-Mail → mailto:dreamskycx@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/chen-xi-59-5-59" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;chen-xi-59-5-59" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      友链
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.hoshiuz.top/" title="https:&#x2F;&#x2F;www.hoshiuz.top&#x2F;" rel="noopener" target="_blank">HoshiuZ</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ynokis.github.io/" title="https:&#x2F;&#x2F;ynokis.github.io&#x2F;" rel="noopener" target="_blank">Ynokis</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://changakira.github.io/" title="https:&#x2F;&#x2F;changakira.github.io&#x2F;" rel="noopener" target="_blank">Akira</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/dreamskycx" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://dreamskycx.top/2024/03/08/wlsy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.jpg">
+      <meta itemprop="name" content="dreamskycx">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晨曦的个人站">
+      <meta itemprop="description" content="既要卷的起，也要躺的平">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="物理实验绪论 | 晨曦的个人站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          物理实验绪论
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-03-08 00:46:04 / 修改时间：01:11:59" itemprop="dateCreated datePublished" datetime="2024-03-08T00:46:04+08:00">2024-03-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C/" itemprop="url" rel="index"><span itemprop="name">物理实验</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="2023校赛复盘"><a href="#2023校赛复盘" class="headerlink" title="2023校赛复盘"></a>2023校赛复盘</h1><p>鹅鹅鹅，挂一份物理实验的 markdown 版本在blog上。</p>
+<p>为什么署名 V2LS 呢，很明显这个署名是带有一点深意的，咕咕咕没看出来。</p>
+<p>错误很多，v1.0 和 v1.1 坑了大概 1145+1919 名同学。</p>
+<p>现在的版本应该没啥错了，不过至少在绪论提交窗口期结束前，修改是不会给到对策了。</p>
+<p><del>焯要懂得思考，你们说对不对啊</del></p>
+<span id="more"></span>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><font color="#7030a0">By Vanilla Vanilla Little Starrysky</font><br><font color="#e36c09">Released: 2024&#x2F;3&#x2F;6</font><br><font color="#006c09">Updated: 2024&#x2F;3&#x2F;7</font><br><font color="#245bdb">Version:1.3</font></p>
+<p>本绪论解答是一个粗略的绪论课后解答，基本上包含了大部分的物理实验知识点。你可以认为这是一份简单的物理实验数据处理指南。当然，考虑效率的话，肯定是直接参考答案为上。</p>
+<p>物理实验报告的三个板块分别是预习报告，数据记录还有数据处理。此处不谈预习报告，在数据记录资源已经日益丰富的今天，仍然缺少一些比较准确的数据处理流程报告——这给学习的高效率造成了阻碍，也促进了本份题解的诞生。</p>
+<p>作为一份公开的参考题解，题解的真实性肯定是要谨慎考虑的，它超出了大部分人的需求——很多人认为这是 Useless 的，没必要了解那么多的数据记录处理，评价体系的颗粒度也不允许，甚至于完全不需要往一门只有一个学分的课程里面投入那么多的精力。答案的正确性依赖于过程的正确性，公开透明的过程也有利于错误的审查和计算流程的改善。如果因此耗费了你的时间或让你感到反感，在此表达歉意。</p>
+<p>最后祝大家物理实验课程学习顺利！</p>
+<h2 id="一-利用有效数字计算规则写出结果"><a href="#一-利用有效数字计算规则写出结果" class="headerlink" title="一.利用有效数字计算规则写出结果"></a>一.利用有效数字计算规则写出结果</h2><p><strong>(1) $\rho&#x3D;7.65\pm0.114kg&#x2F;m^3$ 的正确形式应为：</strong></p>
+<p><strong>解：</strong>$\rho&#x3D;7.6\pm0.2kg&#x2F;m^3$</p>
+<blockquote>
+<p>不确定度 $\Delta Y$ 保留一位有效数字，尾数只进不舍。在本题中取 $0.2$ 。<br>$\overline{Y}$ 的末位和 $\Delta Y$ 的保留位对齐，使用”四舍六入五凑偶”的方法。在本题中取 $7.6$。<br>参阅物理实验 P15 。需要注意的是，这是一个测量结果的表示修正，而不是测量值的加减计算。<br>不要搞混绝对不确定度和相对不确定度的有效数字取位。</p>
+</blockquote>
+<p><strong>(2) $(178.5+0.834)\times 3.00^2\pi&#x3D;$</strong> </p>
+<p><strong>解：</strong> $(178.5+0.834)\times 3.00^2\pi&#x3D;5.07\times 10^3$</p>
+<blockquote>
+<p>在面对有效数字的加减法时，计算结果的有效末位取到分量中欠准位最高的一位（也就是估读位）。在本题中括号内运算的数值取到分量中的十分位（也就是小数点负一位），即四位有效数字，有效值为 $179.3$，精确值 $179.334$ 。<br>在面对有效数字的次方和开方（幂运算）时，结果的有效数字位数和底数相同。在本题中的二次方运算的有效数字为三位，有效值为 $9.00$ 。<br>在面对有效数字的乘除法时，计算结果的有效位数参照计算量中有效位数最少的分量。在两数首位相乘时若产生进位，应多取一位。在本题中有效位的最低为三位。<br>由于 $179.3$ 和 $9.00$ 的首位运算 $1\times 9$ 不会产生进位，有效数字不变。<br>参阅物理实验 P18。<br>最后的运算精确值为 $5070.549392449\dots$，取有效数值为 $5.07\times 10^3$ 。<br>不应该在计算时舍去有效数字，会导致误差，<em>你可以认为这是无关紧要的</em>。<br>需要注意的是，$\pi$ 等常量不具备有效数字这个概念，因此计算的时候不应该考虑常量的取值，例如后续的 $\rho&#x3D;\cfrac{4m}{\pi D^2h}$ 中， $4$ 和 $\pi$ 就是常量。在运算时，应尽量保证常量的运算精确度，至少不低于最低的有效数字，<em>你可以认为这是无关紧要的</em>。</p>
+</blockquote>
+<p><strong>(3) $\cfrac{100.0\times (5.6+4.412)}{(12.00-11.0)\times 10.000}+110.0&#x3D;$</strong> </p>
+<p><strong>解：</strong> $\cfrac{100.0\times (5.6+4.412)}{(12.00-11.0)\times 10.000}+110.0&#x3D;2.1\times 10^2$</p>
+<blockquote>
+<p>在本题中：<br>$(5.6+4.412)$ 的精确位是十分位，有效数字三位，有效数值 $10.0$，精确值为 $10.012$ 。在相乘后值变为有效值 $1.00\times 10^3$ ，精确值 $1001.2$ 。<br>$(12.00-11.0)$ 的精确位是十分位，有效数值两位，有效数值 $1.0$ ，精确值同有效值。在相乘后变为有效值 $10$，精确值同有效值。<br>分式的有效数值为两位，精确位为十位，有效值 $1.0\times 10^2$，精确值 $100.12$。<br>最后的运算精确值为 $210.12$ ，精确位为十位，有效数字两位，取有效值 $2.1\times 10^2$ 。<br>参阅同(2)，物理实验 P18。</p>
+</blockquote>
+<p><strong>(4) $e^{1.359}&#x3D;$</strong> </p>
+<p><strong>解：</strong> $e^{1.359}&#x3D;3.892$</p>
+<blockquote>
+<p>对于指数函数 $a^x$ 的运算，在科学计数法表示答案的情况下，小数点前表示一位，小数点后的位数和 $x$ 的小数点后的位数相同。<br>在本题中，最后的运算精确值为 $3.8922990\dots$ ，取小数点后三位即为 $3.892$ （$3.892\times 10^0$，$10^0$ 省略）。<br>参阅物理实验 P19。</p>
+</blockquote>
+<p><strong>(5) $\lg 25.284&#x3D;$</strong> </p>
+<p><strong>解：</strong> $\lg25.284&#x3D;1.40285$</p>
+<blockquote>
+<p>对于对数运算，运算结果的小数位数和真数的有效位数相同。<br>在本题中，最后的精确运算值为 $1.40284578\dots$，取小数点后五位即为 $1.40285$。<br>参阅物理实验 P19。</p>
+</blockquote>
+<p><strong>(6) $\rm{tg} 28^\circ 24^\prime&#x3D;$</strong> </p>
+<p><strong>解：</strong> $\rm{tg} 28^\circ 24^\prime&#x3D;0.5407$（微分法）<br>或     $\rm{tg} 28^\circ 24^\prime&#x3D;0.541$（比较法）</p>
+<blockquote>
+<p>对于函数类的运算，如三角运算，可以通过微分法和比较法解决。 $\rm{tg}()$ ，即 $\tan()$ ，为正切运算，是三角函数运算的一种。<br>参阅物理实验 P18-19。<br>微分法过程如下：<br>给定函数 $Y$ ，微分法运算求出 $\rm{d}Y&#x3D;Y^\prime \cdot \rm{d}x$ ，并保留一位有效数字，求出不确定度，$Y$ 的精确位和不确定度的位数保持一致。<br>在本题中，$\rm{d}Y&#x3D;sec^2x \rm{d}x$ ，本题中 $\rm{d}x$ 不确定度为 $1^\prime$ ，也就是 $\rm{d}Y&#x3D;\sec^2(28^\circ 24^\prime)\times 1^\prime$，运算得 $dY$ 的近似值 $3.759\times 10^{-4}$，也就是 $Y$ 取到小数点后四位。<br>比较法过程如下：<br>通过运算函数自变量 $x$ 和加减一个单位变化的函数结果，并将三者进行比较，数值变化的第一位即为精确位。本题的运算结果如下：<br>$\rm{tg} 28^\circ 23^\prime&#x3D;0.54\underline{032211}\dots$<br>$\rm{tg} 28^\circ 24^\prime&#x3D;0.54\underline{069798}\dots$<br>$\rm{tg} 28^\circ 25^\prime&#x3D;0.54\underline{107397}\dots$<br>变化位为小数点后三位，下划线代表变化部分。<br>最后的精确值为 $0.54069798\dots$ ，根据计算方法取对应的位数。</p>
+</blockquote>
+<h2 id="二-求下列公式的相对不确定度"><a href="#二-求下列公式的相对不确定度" class="headerlink" title="二.求下列公式的相对不确定度"></a>二.求下列公式的相对不确定度</h2><p>(1) $\rho&#x3D;\cfrac{4m}{\pi D^2h}$<br><strong>解：</strong><br>$$<br>\begin{equation}<br>\begin{split}<br>    \rho&amp;&#x3D;\cfrac{4m}{\pi D^2h} \<br>    \ln\rho&amp;&#x3D;\ln4+\ln m-\ln\pi-2\ln D-\ln h \<br>    \cfrac{\rm{d}\rho}{\rho}&amp;&#x3D;\cfrac{\rm{d}m}{m}-2\cfrac{\rm{d}D}{D} -\cfrac{\rm{d}h}{h} \<br>    \cfrac{\Delta\rho}{\rho} &amp;&#x3D; \sqrt{(\cfrac{\Delta m}{m})^2+4(\cfrac{\Delta D}{D})^2+(\cfrac{\Delta h}{h})^2}<br>\end{split}<br>\end{equation}<br>$$</p>
+<blockquote>
+<p>乘除和指数形式的间接测量运算。<br>参阅物理实验 P14 。</p>
+</blockquote>
+<p>(2) $N&#x3D;\cfrac{x}{4}-\cfrac{y^3}{3}$<br><strong>解：</strong><br>$$<br>\begin{equation}<br>\begin{split}<br>    N&amp;&#x3D;\cfrac{x}{4}-\cfrac{y^3}{3} \<br>    \rm{d}N&amp;&#x3D;\cfrac{\rm{d}x}{4}-y^2\rm{d}y \<br>    \Delta N &amp;&#x3D; \sqrt{\cfrac{1}{16}(\Delta x)^2+y^4(\Delta y)^2}<br>\end{split}<br>\end{equation}<br>$$</p>
+<blockquote>
+<p>加减形式的间接测量运算。<br>参阅物理实验 P14 。</p>
+</blockquote>
+<p>(3) $y&#x3D;\cos^2x$<br><strong>解：</strong><br>$$<br>\begin{equation}<br>\begin{split}<br>    y&amp;&#x3D;cos^2x \<br>    \rm{d}y&amp;&#x3D;-2\sin x \cos x \rm{d}x&#x3D;-\sin 2x \rm{d}x \<br>    \Delta y &amp;&#x3D; |\sin 2x|\Delta x<br>\end{split}<br>\end{equation}<br>$$</p>
+<blockquote>
+<p>函数形式的间接测量运算。<br>对于只有一个变量的式子 $y&#x3D;f(x)$，满足 $\rm{d}Y&#x3D;f’(x) \rm{d}x$ ，也就是 $\Delta Y&#x3D;|f’(x)|\Delta x$ 。<br>参阅物理实验 P16 。</p>
+</blockquote>
+<p>(4) $N&#x3D;\cfrac{x-y}{x+y}$<br><strong>解：</strong><br>$$<br>\begin{equation}<br>\begin{split}<br>    N&amp;&#x3D;\cfrac{x-y}{x+y} \<br>    \ln N&amp;&#x3D;\ln(x-y)-\ln (x+y) \<br>    \cfrac{\rm{d}N}{N}&amp;&#x3D;\cfrac{2y}{x^2-y^2}\rm{d}x-\cfrac{2x}{x^2-y^2}\rm{d}y \<br>    \cfrac{\Delta N}{N}  &amp;&#x3D; 2\sqrt{(\cfrac{y}{x^2-y^2}\Delta x)^2+(\cfrac{x}{x^2-y^2}\Delta y)^2}<br>\end{split}<br>\end{equation}<br>$$</p>
+<blockquote>
+<p>多元函数形式的间接测量运算。<br>对于有多个变量的式子 $y&#x3D;f(x_1,x_2,\dots,x_n)$，满足：<br>$\cfrac{\rm{d}y}{y}&#x3D;\cfrac{\partial\ln f}{\partial x_1}\rm{d}x_1+\cfrac{\partial\ln f}{\partial x_2}\rm{d}x_2+\dots+\cfrac{\partial\ln f}{\partial x_n}\rm{d}x_n$<br>$\cfrac{\Delta y}{y}&#x3D;\sqrt{(\cfrac{\partial\ln f}{\partial x_1}\Delta x_1)^2+\dots+(\cfrac{\partial\ln f}{\partial x_n}\Delta x_n)^2}$<br>参阅物理实验 P14 。<br>如果你不太理解本题的公式，可以去参阅高等数学偏导和全微分的内容。</p>
+</blockquote>
+<h2 id="三-计算"><a href="#三-计算" class="headerlink" title="三.计算"></a>三.计算</h2><p><strong>某空心圆柱体外径 $R&#x3D;(3.800\pm0.004)\rm{cm}$ ，内径 $r&#x3D;(1.482\pm0.002)\rm{cm}$，高 $h&#x3D;(6.726\pm0.004)\rm{cm}$ ，求体积 $V$ 及其不确定度，正确表达测量结果。</strong></p>
+<blockquote>
+<p>请注意 $R$ 的标注为外径，在通常意义下，这个外径指的是直径，而不是半径。内径同外径的理解。<br>在互联网搜索过程中，发现有类似题目，仅有把测量值 $D$ 修改为测量值 $R$ ，以及数值修改的区别。<br>在本处题解中，同时给出 $R$ 作为直径和 $R$ 作为半径的做法。<br>为了不影响阅读，此处不将 $R$ 修改为 $D$。</p>
+</blockquote>
+<h3 id="直径做法"><a href="#直径做法" class="headerlink" title="直径做法"></a>直径做法</h3><p><strong>解：</strong><br>空心圆柱体体积公式：<br>$$<br>V&#x3D;\cfrac{\pi}{4} h(R^2-r^2)<br>$$<br>带入数值得：<br>$$<br>\overline{V}&#x3D;\cfrac{\pi}{4}\times 6.726(3.800^2-1.482^2)<br>$$<br>计算结果有效数字保留四位得：<br>$$<br>\overline{V}&#x3D;60.35<br>$$</p>
+<blockquote>
+<p>本处精确值为 $60.3510241995\dots$ 。</p>
+</blockquote>
+<p>不确定度计算：<br>$$<br>\begin{equation}<br>\begin{split}<br>    V&amp;&#x3D;\cfrac{\pi}{4} h(R^2-r^2) \<br>    \ln V&amp;&#x3D;\ln\pi-\ln 4+\ln h+\ln (R^2-r^2) \<br>    \cfrac{\rm{d}V}{V}&amp;&#x3D;\cfrac{\rm{d}h}{h}+\cfrac{2R}{R^2-r^2}\rm{d}R-\cfrac{2r}{R^2-r^2}\rm{d}r \<br>    \cfrac{\Delta V}{V} &amp;&#x3D; \sqrt{(\cfrac{\Delta h}{h})^2+(\cfrac{2R}{R^2-r^2}\Delta R)^2+(\cfrac{2r}{R^2-r^2}\Delta r)^2}<br>\end{split}<br>\end{equation}<br>$$<br>代入数值计算相对不确定度得：<br>$$<br>\cfrac{\Delta V}{V} &#x3D; 0.0026<br>$$</p>
+<blockquote>
+<p>本处精确值为 $0.0025986457\dots$ 。<br>对于相对不确定度，如果首位非零数字为 $1$ 或 $2$ ，保留两位有效数字，否则保留一位有效数字。<br>参阅物理实验 P15 .</p>
+</blockquote>
+<p>计算不确定度得：<br>$$<br>\Delta V&#x3D;0.2<br>$$</p>
+<blockquote>
+<p>本处精确值为 $0.1568309314\dots$ 。<br>需要注意的是，此处的不确定度取一位小数，进位。</p>
+</blockquote>
+<p>最终结果为：<br>$$<br>Y&#x3D;\overline{Y}+\Delta Y&#x3D;60.4\pm0.2 (\rm{cm^3})<br>$$</p>
+<blockquote>
+<p>最后的计算结果与不确定度保持一致。<br>请注意，由于 $\overline{Y}$ 的精确值为 $60.3510241995\dots$ ，而不是取四位后的 $60.35$ ，此处应该进位而不是运用”四舍六入五凑偶”的规则舍去。</p>
+</blockquote>
+<h3 id="半径做法"><a href="#半径做法" class="headerlink" title="半径做法"></a>半径做法</h3><p><strong>解：</strong><br>空心圆柱体体积公式：<br>$$<br>V&#x3D;\pi h(R^2-r^2)<br>$$<br>带入数值得：<br>$$<br>\overline{V}&#x3D;\pi\times 6.726(3.800^2-1.482^2)<br>$$<br>计算结果有效数字保留四位得：<br>$$<br>\overline{V}&#x3D;241.4<br>$$</p>
+<blockquote>
+<p>本处精确值为 $241.404096798\dots$ 。</p>
+</blockquote>
+<p>不确定度计算：<br>$$<br>\begin{equation}<br>\begin{split}<br>    V&amp;&#x3D;\pi h(R^2-r^2) \<br>    \ln V&amp;&#x3D;\ln\pi+\ln h+\ln (R^2-r^2) \<br>    \cfrac{\rm{d}V}{V}&amp;&#x3D;\cfrac{\rm{d}h}{h}+\cfrac{2R}{R^2-r^2}\rm{d}R-\cfrac{2r}{R^2-r^2}\rm{d}r \<br>    \cfrac{\Delta V}{V} &amp;&#x3D; \sqrt{(\cfrac{\Delta h}{h})^2+(\cfrac{2R}{R^2-r^2}\Delta R)^2+(\cfrac{2r}{R^2-r^2}\Delta r)^2}<br>\end{split}<br>\end{equation}<br>$$<br>代入数值计算相对不确定度得：<br>$$<br>\cfrac{\Delta V}{V} &#x3D; 0.0026<br>$$</p>
+<blockquote>
+<p>本处精确值为 $0.0025986457\dots$ 。</p>
+</blockquote>
+<p>计算不确定度得：<br>$$<br>\Delta V&#x3D;0.6<br>$$</p>
+<blockquote>
+<p>本处精确值为 $0.6273237259\dots$ 。</p>
+</blockquote>
+<p>最终结果为：<br>$$<br>Y&#x3D;\overline{Y}+\Delta Y&#x3D;241.4\pm0.6 (\rm{cm^3})<br>$$</p>
+<h2 id="四-数据分析"><a href="#四-数据分析" class="headerlink" title="四.数据分析"></a>四.数据分析</h2><p><strong>某同学测量弹簧的倔强系数的数据如下：</strong></p>
+<table>
+<thead>
+<tr>
+<th>F(g)</th>
+<th>2.0</th>
+<th>4.0</th>
+<th>6.0</th>
+<th>8.0</th>
+<th>10.0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>y(cm)</td>
+<td>6.85</td>
+<td>10.07</td>
+<td>13.16</td>
+<td>15.99</td>
+<td>19.09</td>
+</tr>
+<tr>
+<td>F(g)</td>
+<td>12.0</td>
+<td>14.0</td>
+<td>16.0</td>
+<td>18.0</td>
+<td>20.0</td>
+</tr>
+<tr>
+<td>y(cm)</td>
+<td>22.15</td>
+<td>25.18</td>
+<td>27.95</td>
+<td>30.16</td>
+<td>33.25</td>
+</tr>
+</tbody></table>
+<p><strong>其中 $F$ 为弹簧所受的作用力，$y$ 为弹簧的长度，已知 $F&#x3D;k(y-y_0)$，试用作图法和最小二乘法求弹簧的倔强系数 $k$ ，以及弹簧原来的长度 $y_0$ 。</strong></p>
+<blockquote>
+<p>请注意，给定题目中力 $F$ 的单位是 $\rm{g}$  ，在通常情况下，力 $F$ 的单位是 $N$ ，也就是牛顿。<br>在本处题解中，力 $F$ 的单位以 $\rm{g}$ 给出。</p>
+</blockquote>
+<h3 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h3><p>根据数据计算得：<br>$$<br>\begin{equation}<br>\begin{split}<br>    \overline{F}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}F&#x3D;11.00 \rm({g})\<br>    \overline{F^2}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}F^2&#x3D;154.0 \rm({g^2})\<br>    \overline{y}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}y&#x3D;20.385 \rm({cm})\<br>    \overline{y^2}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}y^2&#x3D;486.3 \rm({cm^2})\<br>    \overline{yF}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}yF&#x3D;272.5 \rm({g\cdot cm})\<br>\end{split}<br>\end{equation}<br>$$<br>计算回归系数：<br>$$<br>r&#x3D;\cfrac{n\overline{yF}-n\overline{y}\overline{F}}{\sqrt{n\overline{F^2}-n\overline{F}^2}\sqrt{n\overline{y^2}-n\overline{y}^2}}&#x3D;0.999<br>$$<br>查表得 $n&#x3D;10$ 的相关系数起码值 $r0$ 为：<br>$$<br>r_0&#x3D;0.765&lt;r<br>$$</p>
+<blockquote>
+<p>参阅物理实验 P34-35 。</p>
+</blockquote>
+<p>用最小二乘法计算得到：<br>$$<br>\begin{equation}<br>\begin{split}<br>    \widehat{b}&amp;&#x3D;\cfrac{\overline{yF}-\overline{y}\overline{F}}{\overline{y^2}-\overline{y}^2}&#x3D;0.683\<br>    \widehat{a}&amp;&#x3D;\overline{F}-\widehat{b}\overline{y}&#x3D;-2.92\<br>    F&amp;&#x3D;0.683y-2.92\rm({g})\<br>    b&amp;&#x3D;4.27\rm({cm})\<br>\end{split}<br>\end{equation}<br>$$<br>最终倔强系数 $k$ ，以及弹簧原来的长度 $y_0$ 为：<br>$$<br>\begin{equation}<br>\begin{split}<br>    k&amp;&#x3D;0.683\rm({g\cdot cm^{-1}})\<br>    y_0&amp;&#x3D;4.27\rm({cm})\<br>\end{split}<br>\end{equation}<br>$$</p>
+<blockquote>
+<p>本处有5%以内的偏差属于正常现象。<br>上面的数字仅表示经过运算的后的有效数字，实际运算的时候请带入精确值。<em>你可以认为下面的有效数字&#x2F;精确位计算无关紧要，仅作为最后答案的位数推导。</em><del>正常人也不会这么算吧</del>。</p>
+</blockquote>
+<blockquote>
+<p>$\overline{F}&#x3D;11.00$，求和精确到小数点后一位，最后结果四位有效数字。<br>$\overline{F^2}&#x3D;154.0$，求和精确到个位，最后结果四位有效数字。<br>$\overline{y}&#x3D;20.385$，求和精确到小数点后两位，最后结果五位有效数字。<br>$\overline{y^2}&#x3D;486.26667$，按照规则，$33.25^2$ 保留四位有效数字后为个位，因此求和精确到个位，最后结果四位有效数字。<br>$\overline{yF}&#x3D;272.516$，求和精确到个位，最后结果四位有效数字。<br>$r&#x3D;0.999431274\dots$，通常保留三位有效数字。<br>$\widehat{b}&#x3D;0.682721459\dots$，分式分母和分子都为三位有效数字，最后保留三位有效数字。<em>难道不是约定俗成吗~</em><br>$\widehat{a}&#x3D;-2.917276941715\dots$，最后结果精确到十分位，保留三位有效数字。<br>$b&#x3D;4.27301193\dots$，保留三位有效数字。</p>
+</blockquote>
+<h3 id="Matlab代码"><a href="#Matlab代码" class="headerlink" title="Matlab代码"></a>Matlab代码</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">x=(<span class="number">2.0</span>:<span class="number">2.0</span>:<span class="number">20.0</span>);  </span><br><span class="line">y=[<span class="number">6.85</span>;<span class="number">10.07</span>;<span class="number">13.16</span>;<span class="number">15.99</span>;<span class="number">19.09</span>;<span class="number">22.15</span>;<span class="number">25.18</span>;<span class="number">27.95</span>;<span class="number">30.16</span>;<span class="number">33.25</span>];  </span><br><span class="line">f=x.&#x27;;  </span><br><span class="line"><span class="built_in">plot</span>(y,f,<span class="string">&#x27;o&#x27;</span>)  </span><br><span class="line">xlim([<span class="number">0</span>,<span class="number">35</span>]);  </span><br><span class="line">ylim([<span class="number">-30</span>,<span class="number">35</span>]);  </span><br><span class="line">xlabel( <span class="string">&#x27;弹簧的长度y(cm)&#x27;</span> )  </span><br><span class="line">ylabel( <span class="string">&#x27;弹簧所受力F(g)&#x27;</span> )  </span><br><span class="line">title(<span class="string">&#x27;F-y示意图&#x27;</span>);  </span><br><span class="line"><span class="built_in">hold</span> on;  </span><br><span class="line"><span class="comment">%代数方法计算  </span></span><br><span class="line">N=<span class="built_in">length</span>(f);    </span><br><span class="line">k=(sum(f.*y)-N*<span class="built_in">mean</span>(f)*<span class="built_in">mean</span>(y))/(sum(y.^<span class="number">2</span>)-N*<span class="built_in">mean</span>(y)^<span class="number">2</span>);  </span><br><span class="line">b=<span class="built_in">mean</span>(f)-k*<span class="built_in">mean</span>(y);  </span><br><span class="line">y_line=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">35</span>,<span class="number">101</span>);  </span><br><span class="line">f_line=k*y_line+b;  </span><br><span class="line">y_0=-b/k;  </span><br><span class="line">grid on;  </span><br><span class="line"><span class="built_in">plot</span>(y_line,f_line,<span class="string">&#x27;Color&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><blockquote>
+<p>从图像中取两点计算得斜率 $k$。<br>读图得截距 $b$。</p>
+</blockquote>
+<p>因为没有图床，图省了，自己用matlab运行代码吧（悲</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>dreamskycx
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://dreamskycx.top/2024/03/08/wlsy/" title="物理实验绪论">http://dreamskycx.top/2024/03/08/wlsy/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"><i class="fa fa-tag"></i> 题解</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/01/11/test/" rel="prev" title="test">
+                  <i class="fa fa-chevron-left"></i> test
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dreamskycx</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+<div>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("08/31/2022 22:00:00");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "已运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.3" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script class="next-config" data-name="gitter" type="application/json">{"enable":"ture","room":"dreamskycx/dreamskycxroom"}</script>
+<script src="/js/third-party/chat/gitter.js"></script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":"ture","tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+
+
+
+</body>
+</html>
