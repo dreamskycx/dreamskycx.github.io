@@ -21,15 +21,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"dreamskycx.top","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="2023校赛复盘鹅鹅鹅，挂一份物理实验的 markdown 版本在blog上。 为什么署名 V2LS 呢，很明显这个署名是带有一点深意的，咕咕咕没看出来。 错误很多，v1.0 和 v1.1 坑了大概 1145+1919 名同学。 现在的版本应该没啥错了，不过至少在绪论提交窗口期结束前，修改是不会给到对策了。 焯要懂得思考，你们说对不对啊">
+    <meta name="description" content="鹅鹅鹅，挂一份物理实验的 markdown 版本在blog上。 为什么署名 V2LS 呢，很明显这个署名是带有一点深意的，咕咕咕没看出来。 错误很多，v1.0 和 v1.1 坑了大概 1145+1919 名同学。 现在的版本应该没啥错了，不过至少在绪论提交窗口期结束前，修改是不会给到对策了。 焯要懂得思考，你们说对不对啊">
 <meta property="og:type" content="article">
 <meta property="og:title" content="物理实验绪论">
 <meta property="og:url" content="http://dreamskycx.top/2024/03/08/wlsy/index.html">
 <meta property="og:site_name" content="晨曦的个人站">
-<meta property="og:description" content="2023校赛复盘鹅鹅鹅，挂一份物理实验的 markdown 版本在blog上。 为什么署名 V2LS 呢，很明显这个署名是带有一点深意的，咕咕咕没看出来。 错误很多，v1.0 和 v1.1 坑了大概 1145+1919 名同学。 现在的版本应该没啥错了，不过至少在绪论提交窗口期结束前，修改是不会给到对策了。 焯要懂得思考，你们说对不对啊">
+<meta property="og:description" content="鹅鹅鹅，挂一份物理实验的 markdown 版本在blog上。 为什么署名 V2LS 呢，很明显这个署名是带有一点深意的，咕咕咕没看出来。 错误很多，v1.0 和 v1.1 坑了大概 1145+1919 名同学。 现在的版本应该没啥错了，不过至少在绪论提交窗口期结束前，修改是不会给到对策了。 焯要懂得思考，你们说对不对啊">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-07T16:46:04.000Z">
-<meta property="article:modified_time" content="2024-03-07T17:11:59.151Z">
+<meta property="article:modified_time" content="2024-03-07T17:14:19.204Z">
 <meta property="article:author" content="dreamskycx">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -119,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2023%E6%A0%A1%E8%B5%9B%E5%A4%8D%E7%9B%98"><span class="nav-number">1.</span> <span class="nav-text">2023校赛复盘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-%E5%88%A9%E7%94%A8%E6%9C%89%E6%95%88%E6%95%B0%E5%AD%97%E8%AE%A1%E7%AE%97%E8%A7%84%E5%88%99%E5%86%99%E5%87%BA%E7%BB%93%E6%9E%9C"><span class="nav-number">1.2.</span> <span class="nav-text">一.利用有效数字计算规则写出结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C-%E6%B1%82%E4%B8%8B%E5%88%97%E5%85%AC%E5%BC%8F%E7%9A%84%E7%9B%B8%E5%AF%B9%E4%B8%8D%E7%A1%AE%E5%AE%9A%E5%BA%A6"><span class="nav-number">1.3.</span> <span class="nav-text">二.求下列公式的相对不确定度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-%E8%AE%A1%E7%AE%97"><span class="nav-number">1.4.</span> <span class="nav-text">三.计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E5%BE%84%E5%81%9A%E6%B3%95"><span class="nav-number">1.4.1.</span> <span class="nav-text">直径做法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8A%E5%BE%84%E5%81%9A%E6%B3%95"><span class="nav-number">1.4.2.</span> <span class="nav-text">半径做法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B-%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="nav-number">1.5.</span> <span class="nav-text">四.数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95"><span class="nav-number">1.5.1.</span> <span class="nav-text">最小二乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Matlab%E4%BB%A3%E7%A0%81"><span class="nav-number">1.5.2.</span> <span class="nav-text">Matlab代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="nav-number">1.5.3.</span> <span class="nav-text">效果图</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-%E5%88%A9%E7%94%A8%E6%9C%89%E6%95%88%E6%95%B0%E5%AD%97%E8%AE%A1%E7%AE%97%E8%A7%84%E5%88%99%E5%86%99%E5%87%BA%E7%BB%93%E6%9E%9C"><span class="nav-number">2.</span> <span class="nav-text">一.利用有效数字计算规则写出结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C-%E6%B1%82%E4%B8%8B%E5%88%97%E5%85%AC%E5%BC%8F%E7%9A%84%E7%9B%B8%E5%AF%B9%E4%B8%8D%E7%A1%AE%E5%AE%9A%E5%BA%A6"><span class="nav-number">3.</span> <span class="nav-text">二.求下列公式的相对不确定度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-%E8%AE%A1%E7%AE%97"><span class="nav-number">4.</span> <span class="nav-text">三.计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E5%BE%84%E5%81%9A%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">直径做法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8A%E5%BE%84%E5%81%9A%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">半径做法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B-%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="nav-number">5.</span> <span class="nav-text">四.数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95"><span class="nav-number">5.1.</span> <span class="nav-text">最小二乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Matlab%E4%BB%A3%E7%A0%81"><span class="nav-number">5.2.</span> <span class="nav-text">Matlab代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="nav-number">5.3.</span> <span class="nav-text">效果图</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -247,7 +247,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-03-08 00:46:04 / 修改时间：01:11:59" itemprop="dateCreated datePublished" datetime="2024-03-08T00:46:04+08:00">2024-03-08</time>
+      <time title="创建时间：2024-03-08 00:46:04 / 修改时间：01:14:19" itemprop="dateCreated datePublished" datetime="2024-03-08T00:46:04+08:00">2024-03-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -276,7 +276,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="2023校赛复盘"><a href="#2023校赛复盘" class="headerlink" title="2023校赛复盘"></a>2023校赛复盘</h1><p>鹅鹅鹅，挂一份物理实验的 markdown 版本在blog上。</p>
+        <p>鹅鹅鹅，挂一份物理实验的 markdown 版本在blog上。</p>
 <p>为什么署名 V2LS 呢，很明显这个署名是带有一点深意的，咕咕咕没看出来。</p>
 <p>错误很多，v1.0 和 v1.1 坑了大概 1145+1919 名同学。</p>
 <p>现在的版本应该没啥错了，不过至少在绪论提交窗口期结束前，修改是不会给到对策了。</p>
