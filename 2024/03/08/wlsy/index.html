@@ -29,7 +29,7 @@
 <meta property="og:description" content="鹅鹅鹅，挂一份物理实验的 markdown 版本在blog上。 为什么署名 V2LS 呢，很明显这个署名是带有一点深意的，咕咕咕没看出来。 错误很多，v1.0 和 v1.1 坑了大概 1145+1919 名同学。 现在的版本应该没啥错了，不过至少在绪论提交窗口期结束前，修改是不会给到对策了。 焯要懂得思考，你们说对不对啊">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-07T16:46:04.000Z">
-<meta property="article:modified_time" content="2024-03-07T17:14:19.204Z">
+<meta property="article:modified_time" content="2024-03-07T17:19:36.461Z">
 <meta property="article:author" content="dreamskycx">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -247,7 +247,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-03-08 00:46:04 / 修改时间：01:14:19" itemprop="dateCreated datePublished" datetime="2024-03-08T00:46:04+08:00">2024-03-08</time>
+      <time title="创建时间：2024-03-08 00:46:04 / 修改时间：01:19:36" itemprop="dateCreated datePublished" datetime="2024-03-08T00:46:04+08:00">2024-03-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -318,19 +318,19 @@
 <blockquote>
 <p>对于函数类的运算，如三角运算，可以通过微分法和比较法解决。 $\rm{tg}()$ ，即 $\tan()$ ，为正切运算，是三角函数运算的一种。<br>参阅物理实验 P18-19。<br>微分法过程如下：<br>给定函数 $Y$ ，微分法运算求出 $\rm{d}Y&#x3D;Y^\prime \cdot \rm{d}x$ ，并保留一位有效数字，求出不确定度，$Y$ 的精确位和不确定度的位数保持一致。<br>在本题中，$\rm{d}Y&#x3D;sec^2x \rm{d}x$ ，本题中 $\rm{d}x$ 不确定度为 $1^\prime$ ，也就是 $\rm{d}Y&#x3D;\sec^2(28^\circ 24^\prime)\times 1^\prime$，运算得 $dY$ 的近似值 $3.759\times 10^{-4}$，也就是 $Y$ 取到小数点后四位。<br>比较法过程如下：<br>通过运算函数自变量 $x$ 和加减一个单位变化的函数结果，并将三者进行比较，数值变化的第一位即为精确位。本题的运算结果如下：<br>$\rm{tg} 28^\circ 23^\prime&#x3D;0.54\underline{032211}\dots$<br>$\rm{tg} 28^\circ 24^\prime&#x3D;0.54\underline{069798}\dots$<br>$\rm{tg} 28^\circ 25^\prime&#x3D;0.54\underline{107397}\dots$<br>变化位为小数点后三位，下划线代表变化部分。<br>最后的精确值为 $0.54069798\dots$ ，根据计算方法取对应的位数。</p>
 </blockquote>
-<h2 id="二-求下列公式的相对不确定度"><a href="#二-求下列公式的相对不确定度" class="headerlink" title="二.求下列公式的相对不确定度"></a>二.求下列公式的相对不确定度</h2><p>(1) $\rho&#x3D;\cfrac{4m}{\pi D^2h}$<br><strong>解：</strong><br>$$<br>\begin{equation}<br>\begin{split}<br>    \rho&amp;&#x3D;\cfrac{4m}{\pi D^2h} \<br>    \ln\rho&amp;&#x3D;\ln4+\ln m-\ln\pi-2\ln D-\ln h \<br>    \cfrac{\rm{d}\rho}{\rho}&amp;&#x3D;\cfrac{\rm{d}m}{m}-2\cfrac{\rm{d}D}{D} -\cfrac{\rm{d}h}{h} \<br>    \cfrac{\Delta\rho}{\rho} &amp;&#x3D; \sqrt{(\cfrac{\Delta m}{m})^2+4(\cfrac{\Delta D}{D})^2+(\cfrac{\Delta h}{h})^2}<br>\end{split}<br>\end{equation}<br>$$</p>
+<h2 id="二-求下列公式的相对不确定度"><a href="#二-求下列公式的相对不确定度" class="headerlink" title="二.求下列公式的相对不确定度"></a>二.求下列公式的相对不确定度</h2><p>(1) $\rho&#x3D;\cfrac{4m}{\pi D^2h}$<br><strong>解：</strong><br>$$<br>\begin{equation}<br>\begin{split}<br>    \rho&amp;&#x3D;\cfrac{4m}{\pi D^2h} \\<br>    \ln\rho&amp;&#x3D;\ln4+\ln m-\ln\pi-2\ln D-\ln h \\<br>    \cfrac{\rm{d}\rho}{\rho}&amp;&#x3D;\cfrac{\rm{d}m}{m}-2\cfrac{\rm{d}D}{D} -\cfrac{\rm{d}h}{h} \\<br>    \cfrac{\Delta\rho}{\rho} &amp;&#x3D; \sqrt{(\cfrac{\Delta m}{m})^2+4(\cfrac{\Delta D}{D})^2+(\cfrac{\Delta h}{h})^2}<br>\end{split}<br>\end{equation}<br>$$</p>
 <blockquote>
 <p>乘除和指数形式的间接测量运算。<br>参阅物理实验 P14 。</p>
 </blockquote>
-<p>(2) $N&#x3D;\cfrac{x}{4}-\cfrac{y^3}{3}$<br><strong>解：</strong><br>$$<br>\begin{equation}<br>\begin{split}<br>    N&amp;&#x3D;\cfrac{x}{4}-\cfrac{y^3}{3} \<br>    \rm{d}N&amp;&#x3D;\cfrac{\rm{d}x}{4}-y^2\rm{d}y \<br>    \Delta N &amp;&#x3D; \sqrt{\cfrac{1}{16}(\Delta x)^2+y^4(\Delta y)^2}<br>\end{split}<br>\end{equation}<br>$$</p>
+<p>(2) $N&#x3D;\cfrac{x}{4}-\cfrac{y^3}{3}$<br><strong>解：</strong><br>$$<br>\begin{equation}<br>\begin{split}<br>    N&amp;&#x3D;\cfrac{x}{4}-\cfrac{y^3}{3} \\<br>    \rm{d}N&amp;&#x3D;\cfrac{\rm{d}x}{4}-y^2\rm{d}y \\<br>    \Delta N &amp;&#x3D; \sqrt{\cfrac{1}{16}(\Delta x)^2+y^4(\Delta y)^2}<br>\end{split}<br>\end{equation}<br>$$</p>
 <blockquote>
 <p>加减形式的间接测量运算。<br>参阅物理实验 P14 。</p>
 </blockquote>
-<p>(3) $y&#x3D;\cos^2x$<br><strong>解：</strong><br>$$<br>\begin{equation}<br>\begin{split}<br>    y&amp;&#x3D;cos^2x \<br>    \rm{d}y&amp;&#x3D;-2\sin x \cos x \rm{d}x&#x3D;-\sin 2x \rm{d}x \<br>    \Delta y &amp;&#x3D; |\sin 2x|\Delta x<br>\end{split}<br>\end{equation}<br>$$</p>
+<p>(3) $y&#x3D;\cos^2x$<br><strong>解：</strong><br>$$<br>\begin{equation}<br>\begin{split}<br>    y&amp;&#x3D;cos^2x \\<br>    \rm{d}y&amp;&#x3D;-2\sin x \cos x \rm{d}x&#x3D;-\sin 2x \rm{d}x \\<br>    \Delta y &amp;&#x3D; |\sin 2x|\Delta x<br>\end{split}<br>\end{equation}<br>$$</p>
 <blockquote>
 <p>函数形式的间接测量运算。<br>对于只有一个变量的式子 $y&#x3D;f(x)$，满足 $\rm{d}Y&#x3D;f’(x) \rm{d}x$ ，也就是 $\Delta Y&#x3D;|f’(x)|\Delta x$ 。<br>参阅物理实验 P16 。</p>
 </blockquote>
-<p>(4) $N&#x3D;\cfrac{x-y}{x+y}$<br><strong>解：</strong><br>$$<br>\begin{equation}<br>\begin{split}<br>    N&amp;&#x3D;\cfrac{x-y}{x+y} \<br>    \ln N&amp;&#x3D;\ln(x-y)-\ln (x+y) \<br>    \cfrac{\rm{d}N}{N}&amp;&#x3D;\cfrac{2y}{x^2-y^2}\rm{d}x-\cfrac{2x}{x^2-y^2}\rm{d}y \<br>    \cfrac{\Delta N}{N}  &amp;&#x3D; 2\sqrt{(\cfrac{y}{x^2-y^2}\Delta x)^2+(\cfrac{x}{x^2-y^2}\Delta y)^2}<br>\end{split}<br>\end{equation}<br>$$</p>
+<p>(4) $N&#x3D;\cfrac{x-y}{x+y}$<br><strong>解：</strong><br>$$<br>\begin{equation}<br>\begin{split}<br>    N&amp;&#x3D;\cfrac{x-y}{x+y} \\<br>    \ln N&amp;&#x3D;\ln(x-y)-\ln (x+y) \\<br>    \cfrac{\rm{d}N}{N}&amp;&#x3D;\cfrac{2y}{x^2-y^2}\rm{d}x-\cfrac{2x}{x^2-y^2}\rm{d}y \\<br>    \cfrac{\Delta N}{N}  &amp;&#x3D; 2\sqrt{(\cfrac{y}{x^2-y^2}\Delta x)^2+(\cfrac{x}{x^2-y^2}\Delta y)^2}<br>\end{split}<br>\end{equation}<br>$$</p>
 <blockquote>
 <p>多元函数形式的间接测量运算。<br>对于有多个变量的式子 $y&#x3D;f(x_1,x_2,\dots,x_n)$，满足：<br>$\cfrac{\rm{d}y}{y}&#x3D;\cfrac{\partial\ln f}{\partial x_1}\rm{d}x_1+\cfrac{\partial\ln f}{\partial x_2}\rm{d}x_2+\dots+\cfrac{\partial\ln f}{\partial x_n}\rm{d}x_n$<br>$\cfrac{\Delta y}{y}&#x3D;\sqrt{(\cfrac{\partial\ln f}{\partial x_1}\Delta x_1)^2+\dots+(\cfrac{\partial\ln f}{\partial x_n}\Delta x_n)^2}$<br>参阅物理实验 P14 。<br>如果你不太理解本题的公式，可以去参阅高等数学偏导和全微分的内容。</p>
 </blockquote>
@@ -342,7 +342,7 @@
 <blockquote>
 <p>本处精确值为 $60.3510241995\dots$ 。</p>
 </blockquote>
-<p>不确定度计算：<br>$$<br>\begin{equation}<br>\begin{split}<br>    V&amp;&#x3D;\cfrac{\pi}{4} h(R^2-r^2) \<br>    \ln V&amp;&#x3D;\ln\pi-\ln 4+\ln h+\ln (R^2-r^2) \<br>    \cfrac{\rm{d}V}{V}&amp;&#x3D;\cfrac{\rm{d}h}{h}+\cfrac{2R}{R^2-r^2}\rm{d}R-\cfrac{2r}{R^2-r^2}\rm{d}r \<br>    \cfrac{\Delta V}{V} &amp;&#x3D; \sqrt{(\cfrac{\Delta h}{h})^2+(\cfrac{2R}{R^2-r^2}\Delta R)^2+(\cfrac{2r}{R^2-r^2}\Delta r)^2}<br>\end{split}<br>\end{equation}<br>$$<br>代入数值计算相对不确定度得：<br>$$<br>\cfrac{\Delta V}{V} &#x3D; 0.0026<br>$$</p>
+<p>不确定度计算：<br>$$<br>\begin{equation}<br>\begin{split}<br>    V&amp;&#x3D;\cfrac{\pi}{4} h(R^2-r^2) \\<br>    \ln V&amp;&#x3D;\ln\pi-\ln 4+\ln h+\ln (R^2-r^2) \\<br>    \cfrac{\rm{d}V}{V}&amp;&#x3D;\cfrac{\rm{d}h}{h}+\cfrac{2R}{R^2-r^2}\rm{d}R-\cfrac{2r}{R^2-r^2}\rm{d}r \\<br>    \cfrac{\Delta V}{V} &amp;&#x3D; \sqrt{(\cfrac{\Delta h}{h})^2+(\cfrac{2R}{R^2-r^2}\Delta R)^2+(\cfrac{2r}{R^2-r^2}\Delta r)^2}<br>\end{split}<br>\end{equation}<br>$$<br>代入数值计算相对不确定度得：<br>$$<br>\cfrac{\Delta V}{V} &#x3D; 0.0026<br>$$</p>
 <blockquote>
 <p>本处精确值为 $0.0025986457\dots$ 。<br>对于相对不确定度，如果首位非零数字为 $1$ 或 $2$ ，保留两位有效数字，否则保留一位有效数字。<br>参阅物理实验 P15 .</p>
 </blockquote>
@@ -358,7 +358,7 @@
 <blockquote>
 <p>本处精确值为 $241.404096798\dots$ 。</p>
 </blockquote>
-<p>不确定度计算：<br>$$<br>\begin{equation}<br>\begin{split}<br>    V&amp;&#x3D;\pi h(R^2-r^2) \<br>    \ln V&amp;&#x3D;\ln\pi+\ln h+\ln (R^2-r^2) \<br>    \cfrac{\rm{d}V}{V}&amp;&#x3D;\cfrac{\rm{d}h}{h}+\cfrac{2R}{R^2-r^2}\rm{d}R-\cfrac{2r}{R^2-r^2}\rm{d}r \<br>    \cfrac{\Delta V}{V} &amp;&#x3D; \sqrt{(\cfrac{\Delta h}{h})^2+(\cfrac{2R}{R^2-r^2}\Delta R)^2+(\cfrac{2r}{R^2-r^2}\Delta r)^2}<br>\end{split}<br>\end{equation}<br>$$<br>代入数值计算相对不确定度得：<br>$$<br>\cfrac{\Delta V}{V} &#x3D; 0.0026<br>$$</p>
+<p>不确定度计算：<br>$$<br>\begin{equation}<br>\begin{split}<br>    V&amp;&#x3D;\pi h(R^2-r^2) \\<br>    \ln V&amp;&#x3D;\ln\pi+\ln h+\ln (R^2-r^2) \\<br>    \cfrac{\rm{d}V}{V}&amp;&#x3D;\cfrac{\rm{d}h}{h}+\cfrac{2R}{R^2-r^2}\rm{d}R-\cfrac{2r}{R^2-r^2}\rm{d}r \\<br>    \cfrac{\Delta V}{V} &amp;&#x3D; \sqrt{(\cfrac{\Delta h}{h})^2+(\cfrac{2R}{R^2-r^2}\Delta R)^2+(\cfrac{2r}{R^2-r^2}\Delta r)^2}<br>\end{split}<br>\end{equation}<br>$$<br>代入数值计算相对不确定度得：<br>$$<br>\cfrac{\Delta V}{V} &#x3D; 0.0026<br>$$</p>
 <blockquote>
 <p>本处精确值为 $0.0025986457\dots$ 。</p>
 </blockquote>
@@ -408,11 +408,11 @@
 <blockquote>
 <p>请注意，给定题目中力 $F$ 的单位是 $\rm{g}$  ，在通常情况下，力 $F$ 的单位是 $N$ ，也就是牛顿。<br>在本处题解中，力 $F$ 的单位以 $\rm{g}$ 给出。</p>
 </blockquote>
-<h3 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h3><p>根据数据计算得：<br>$$<br>\begin{equation}<br>\begin{split}<br>    \overline{F}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}F&#x3D;11.00 \rm({g})\<br>    \overline{F^2}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}F^2&#x3D;154.0 \rm({g^2})\<br>    \overline{y}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}y&#x3D;20.385 \rm({cm})\<br>    \overline{y^2}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}y^2&#x3D;486.3 \rm({cm^2})\<br>    \overline{yF}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}yF&#x3D;272.5 \rm({g\cdot cm})\<br>\end{split}<br>\end{equation}<br>$$<br>计算回归系数：<br>$$<br>r&#x3D;\cfrac{n\overline{yF}-n\overline{y}\overline{F}}{\sqrt{n\overline{F^2}-n\overline{F}^2}\sqrt{n\overline{y^2}-n\overline{y}^2}}&#x3D;0.999<br>$$<br>查表得 $n&#x3D;10$ 的相关系数起码值 $r0$ 为：<br>$$<br>r_0&#x3D;0.765&lt;r<br>$$</p>
+<h3 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h3><p>根据数据计算得：<br>$$<br>\begin{equation}<br>\begin{split}<br>    \overline{F}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}F&#x3D;11.00 \rm({g})\\<br>    \overline{F^2}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}F^2&#x3D;154.0 \rm({g^2})\\<br>    \overline{y}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}y&#x3D;20.385 \rm({cm})\\<br>    \overline{y^2}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}y^2&#x3D;486.3 \rm({cm^2})\\<br>    \overline{yF}&amp;&#x3D;\cfrac{1}{n}\sum^n_{i&#x3D;1}yF&#x3D;272.5 \rm({g\cdot cm})\<br>\end{split}<br>\end{equation}<br>$$<br>计算回归系数：<br>$$<br>r&#x3D;\cfrac{n\overline{yF}-n\overline{y}\overline{F}}{\sqrt{n\overline{F^2}-n\overline{F}^2}\sqrt{n\overline{y^2}-n\overline{y}^2}}&#x3D;0.999<br>$$<br>查表得 $n&#x3D;10$ 的相关系数起码值 $r0$ 为：<br>$$<br>r_0&#x3D;0.765&lt;r<br>$$</p>
 <blockquote>
 <p>参阅物理实验 P34-35 。</p>
 </blockquote>
-<p>用最小二乘法计算得到：<br>$$<br>\begin{equation}<br>\begin{split}<br>    \widehat{b}&amp;&#x3D;\cfrac{\overline{yF}-\overline{y}\overline{F}}{\overline{y^2}-\overline{y}^2}&#x3D;0.683\<br>    \widehat{a}&amp;&#x3D;\overline{F}-\widehat{b}\overline{y}&#x3D;-2.92\<br>    F&amp;&#x3D;0.683y-2.92\rm({g})\<br>    b&amp;&#x3D;4.27\rm({cm})\<br>\end{split}<br>\end{equation}<br>$$<br>最终倔强系数 $k$ ，以及弹簧原来的长度 $y_0$ 为：<br>$$<br>\begin{equation}<br>\begin{split}<br>    k&amp;&#x3D;0.683\rm({g\cdot cm^{-1}})\<br>    y_0&amp;&#x3D;4.27\rm({cm})\<br>\end{split}<br>\end{equation}<br>$$</p>
+<p>用最小二乘法计算得到：<br>$$<br>\begin{equation}<br>\begin{split}<br>    \widehat{b}&amp;&#x3D;\cfrac{\overline{yF}-\overline{y}\overline{F}}{\overline{y^2}-\overline{y}^2}&#x3D;0.683\\<br>    \widehat{a}&amp;&#x3D;\overline{F}-\widehat{b}\overline{y}&#x3D;-2.92\\<br>    F&amp;&#x3D;0.683y-2.92\rm({g})\\<br>    b&amp;&#x3D;4.27\rm({cm})\<br>\end{split}<br>\end{equation}<br>$$<br>最终倔强系数 $k$ ，以及弹簧原来的长度 $y_0$ 为：<br>$$<br>\begin{equation}<br>\begin{split}<br>    k&amp;&#x3D;0.683\rm({g\cdot cm^{-1}})\\<br>    y_0&amp;&#x3D;4.27\rm({cm})\<br>\end{split}<br>\end{equation}<br>$$</p>
 <blockquote>
 <p>本处有5%以内的偏差属于正常现象。<br>上面的数字仅表示经过运算的后的有效数字，实际运算的时候请带入精确值。<em>你可以认为下面的有效数字&#x2F;精确位计算无关紧要，仅作为最后答案的位数推导。</em><del>正常人也不会这么算吧</del>。</p>
 </blockquote>
